@@ -4,4 +4,12 @@
     src:  url("./fonts/DeadStock-Demo.ttf") format("truetype")
   }
 
-  h1 { font-family: "DeadStock", serif }
+  h1 {
+      font-family: "DeadStock", serif;
+    text-shadow: 2px 2px black;
+    color: deeppink
+    }
+
+    body{
+        background-color: deepskyblue;
+    }
