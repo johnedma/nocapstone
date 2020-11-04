@@ -1,4 +1,7 @@
-musicbrainzngs.set_useragent()
+from flask import app
+import musicbrainzngs
+
+musicbrainzngs.set_useragent(app, 0.7)
 
 artist_id = "c5c2ea1c-4bde-4f4d-bd0b-47b200bf99d6"
 try:
