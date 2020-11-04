@@ -1,0 +1,7 @@
+
+@font-face {
+    font-family: "DeadStock";
+    src:  url("./fonts/DeadStock-Demo.ttf") format("truetype")
+  }
+
+  h1 { font-family: "DeadStock", serif }
