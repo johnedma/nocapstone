@@ -4,7 +4,7 @@ import ArtistPage from './components/ArtistPage';
 import Navbar from './components/Navbar';
 
 import UserList from './components/UsersList';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player/youtube'
 
 
 function App() {
