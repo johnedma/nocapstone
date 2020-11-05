@@ -4,12 +4,10 @@ import { NavLink } from 'react-router-dom';
 const Navbar = () => {
     return (
         <nav>
-            <ul style={{ display: "flex", listStyle: "none" }}>
-                <li><NavLink to="/" activeclass="active">
-                    <h1>NEW WAVE ORDER</h1>
-                </NavLink></li>
-                {/* <li><NavLink to="/users" activeclass="active">Users</NavLink></li> */}
-            </ul>
+            <NavLink to="/" style={{ textDecoration: `none` }}>
+                <h1 >Nu WAVE ORDER</h1>
+            </NavLink>
+            {/* <li><NavLink to="/users" activeclass="active">Users</NavLink></li> */}
         </nav>
     );
 };

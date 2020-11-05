@@ -5,7 +5,8 @@ const artist = {
     name: "YoungBoy Never Broke Again", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", ig: "https://www.instagram.com/neverbrokeagainllc", spotify: "https://open.spotify.com/artist/7wlFDEWiM5OoIAt8RSli8b", twt: "https://twitter.com/ggyoungboy"
 }
 
-
+// google image search
+// news api search
 
 const ArtistPage = () => {
     useEffect(() => {
