@@ -4,7 +4,8 @@ import ArtistPage from './components/ArtistPage';
 import Navbar from './components/Navbar';
 
 import UserList from './components/UsersList';
-import ReactPlayer from 'react-player/youtube'
+import ReactPlayer from 'react-player/lazy'
+import Splash from './components/Splash';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                 </Route>
 
                 <Route path="/">
+                    {/* <Splash /> */}
                     <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
                     -----------------
                 <ReactPlayer
