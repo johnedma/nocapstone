@@ -4,4 +4,36 @@
     src:  url("./fonts/DeadStock-Demo.ttf") format("truetype")
   }
 
-  h1 { font-family: "DeadStock", serif }
+
+  html{
+    /* background-color: white; */
+    border: solid 5px #0000004f;
+    border-radius: 50px;
+  }
+  h1 {
+      font-family: "DeadStock", serif;
+    text-shadow: 2px 2px black;
+    color: deeppink;
+    /* font-size: 2em; */
+    font-size: 3em;
+    text-align: center;
+    }
+
+    body{
+        background-color: deepskyblue;
+        padding: 16px;
+        border-radius: 50px;
+    background: #55b9f3;
+    margin: 20px;
+    /* box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff; */
+
+    }
+
+    #root{
+        border-radius: 50px;
+    background: #55b9f3;
+    box-shadow: 4px 6px 60px #489dcf, -1px 1px 6px 11px #62d5ff;
+    padding: 10px;
+    margin: 12px;
+
+    }
