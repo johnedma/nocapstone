@@ -53,7 +53,8 @@ function App() {
                                 height: `100px`,
                                 borderRadius: `90px`,
                                 width: `fit-content`,
-                                border: `solid springgreen 2px`
+                                border: `solid springgreen 5px`,
+                                marginBottom: `10px`
 
                             }}><img src={item.cover}
                                 style={{
@@ -71,7 +72,8 @@ function App() {
                                         textTransform: `uppercase`,
                                         fontWeight: `900`,
                                         color: `white`,
-                                        marginBottom: `2em`
+                                        marginBottom: `2em`,
+                                        marginTop: `0`
                                     }}
                                 >{item.artist} : {item.title}</p>
                             </div>
