@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import UserList from './components/UsersList';
 import ReactPlayer from 'react-player/lazy'
 import Splash from './components/Splash';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -47,7 +48,12 @@ function App() {
                         /></div>
 
                     )}
-                    <ReactPlayer url={currentSong} />
+                    {/* <Footer > */}
+                    <ReactPlayer url={currentSong}
+                        controls={false}
+                        light={true}
+                    />
+                    {/* </Footer> */}
                     -----------------
                 {/* <ReactPlayer
                         url={[
