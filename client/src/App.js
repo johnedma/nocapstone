@@ -12,8 +12,8 @@ import Player from './Player';
 
 function App() {
     const chartList = [
-        { title: "positions", artist: "Ariana Grande", url: "https://www.youtube.com/watch?v=tcYodQoapMg", cover: "http://img.youtube.com/vi/PAFAfhod9TU/0.jpg" },
-        { title: "Forever After All", artist: "Luke Combs", url: "https://www.youtube.com/watch?v=fmbLCMGtEQc", cover: "http://img.youtube.com/vi/PAFAfhod9TU/0.jpg" },
+        { title: "positions", artist: "Ariana Grande", url: "https://www.youtube.com/watch?v=tcYodQoapMg", cover: "http://img.youtube.com/vi/tcYodQoapMg/0.jpg" },
+        { title: "Forever After All", artist: "Luke Combs", url: "https://www.youtube.com/watch?v=fmbLCMGtEQc", cover: "http://img.youtube.com/vi/fmbLCMGtEQc/0.jpg" },
         { title: "Golden", artist: "Harry Styles", url: "https://www.youtube.com/watch?v=P3cffdsEXXw", cover: "http://img.youtube.com/vi/PAFAfhod9TU/0.jpg" },
         { title: "Tyler Herro", artist: "Jack Harlow", url: "https://www.youtube.com/watch?v=np9Ub1LilKU", cover: "http://img.youtube.com/vi/PAFAfhod9TU/0.jpg" },
         { title: "SO DONE", artist: "The KPAFAfhod9TU Laroi", url: "https://www.youtube.com/watch?v=yasj3j76SyM", cover: "http://img.youtube.com/vi/PAFAfhod9TU/0.jpg" },
@@ -44,26 +44,45 @@ function App() {
                 <Route path="/">
                     {/* <Splash /> */}
                     {chartList.map((item, i) =>
-                        <div key={i} style={{
-                            height: `200px`,
-                            overflow: `hidden`,
-                            margin: `1em`,
-                            display: `flex`
+                        <div>
+                            <div key={i} style={{
+                                height: `200px`,
+                                overflow: `hidden`,
+                                margin: `1em`,
+                                display: `flex`,
+                                height: `100px`,
+                                borderRadius: `90px`,
+                                width: `fit-content`,
+                                border: `solid springgreen 2px`
 
-                        }}><img src={item.cover}
-                            style={{
-                                height: `fit-content`,
-                                alignSelf: `center`
-                            }}
-                            onClick={() => setCurrentSong(item.url)}
-                            /></div>
+                            }}><img src={item.cover}
+                                style={{
+                                    height: `fit-content`,
+                                    alignSelf: `center`,
+                                    width: `100%`
+                                }}
+                                onClick={() => setCurrentSong(item.url)}
+                                />
+                            </div>
+                            <div>
+                                <p
+                                    style={{
+                                        textAlign: `center`,
+                                        textTransform: `uppercase`,
+                                        fontWeight: `900`,
+                                        color: `white`,
+                                        marginBottom: `2em`
+                                    }}
+                                >{item.artist} : {item.title}</p>
+                            </div>
+                        </div>
 
                     )}
                     <ReactPlayer style={{ display: `none` }}
                         url={currentSong}
                         controls={false}
                         // light={true}
-                        playing={true}
+                        playing={false}
 
                     />
                     {/* <Footer > */}

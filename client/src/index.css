@@ -9,6 +9,9 @@
     /* background-color: white; */
     border: solid 5px #0000004f;
     border-radius: 50px;
+    margin: 1em;
+    border: solid 2px #0000004f;
+    margin: 4px 0px;
   }
   h1 {
       font-family: "DeadStock", serif;
@@ -26,7 +29,7 @@
     background: #55b9f3;
     margin: 20px;
     /* box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff; */
-
+margin: 0px;
     }
 
     #root{
@@ -38,13 +41,13 @@
 
     }
 
-/* body {
+splash {
 background: url('fonts/nuwave.jpg') no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
-} */
+}
 
 body:before {
     content: "";
