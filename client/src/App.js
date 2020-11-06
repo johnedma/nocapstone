@@ -43,48 +43,61 @@ function App() {
 
                 <Route path="/">
                     {/* <Splash /> */}
+                    {/* <div style={{ display: "flex" }}> */}
                     {chartList.map((item, i) =>
-                        <div>
-                            <div key={i} style={{
-                                height: `200px`,
+                        <div style={{
+                            borderRadius: `50px`,
+                            boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,
+                            background: `#46fd7f`,
+                            padding: `1em`,
+                            paddingTop: `.5em`,
+                            margin: `2em 1em`
+                        }}>
+                            <div key={i} className="chartItem" style={{
                                 overflow: `hidden`,
-                                margin: `1em`,
+                                // margin: `1em`,
                                 display: `flex`,
                                 height: `100px`,
-                                borderRadius: `90px`,
-                                width: `fit-content`,
+                                borderRadius: `50px`,
+                                // width: `fit-content`,
                                 border: `solid springgreen 5px`,
-                                marginBottom: `10px`
+                                // marginBottom: `10px`,
+                                cursor: `pointer`,
+
 
                             }}><img src={item.cover}
                                 style={{
-                                    height: `fit-content`,
+                                    // height: `fit-content`,
                                     alignSelf: `center`,
                                     width: `100%`
                                 }}
                                 onClick={() => setCurrentSong(item.url)}
                                 />
                             </div>
-                            <div>
-                                <p
-                                    style={{
-                                        textAlign: `center`,
-                                        textTransform: `uppercase`,
-                                        fontWeight: `900`,
-                                        color: `white`,
-                                        marginBottom: `2em`,
-                                        marginTop: `0`
-                                    }}
-                                >{item.artist} : {item.title}</p>
-                            </div>
+                            <p
+                                style={{
+                                    textAlign: `center`,
+                                    textTransform: `uppercase`,
+                                    fontWeight: `900`,
+                                    color: `white`,
+                                    marginBottom: `0`,
+                                    marginTop: `-27px`,
+                                    textShadow: `1px 1px 1px #f91a93`,
+                                    textTransform: `lowercase`,
+                                    webkitTextStrokeWidth: `thin`
+                                }}
+                            >{item.artist} : {item.title}</p>
+                            {/* <div> */}
+                            {/* </div> */}
                         </div>
 
                     )}
+                    {/* </div> */}
                     <ReactPlayer style={{ display: `none` }}
                         url={currentSong}
                         controls={false}
                         // light={true}
-                        playing={true}
+                        playing={false}
 
                     />
                     {/* <Footer > */}
@@ -111,7 +124,7 @@ function App() {
                     {/* <h1>NEW WAVE ORDER</h1> */}
                 </Route>
             </Switch>
-        </BrowserRouter>
+        </BrowserRouter >
     );
 }
 
