@@ -6,9 +6,9 @@
 
 
   html{
-    background-color: white;
-    /* border: solid 5px #0000004f;
-    border-radius: 50px; */
+    /* background-color: white; */
+    border: solid 5px #0000004f;
+    border-radius: 50px;
   }
   h1 {
       font-family: "DeadStock", serif;
@@ -24,7 +24,7 @@
         padding: 16px;
         border-radius: 50px;
     background: #55b9f3;
-    /* margin: 20px; */
+    margin: 20px;
     /* box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff; */
 
     }
