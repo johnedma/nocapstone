@@ -32,8 +32,9 @@ function App() {
         <BrowserRouter>
             <Navbar />
             <Switch>
-                <Route path="/artists" component={ArtistPage} />
-                <Route path="/artists/:artistname" component={ArtistPage} />
+                {/* <Route path="/artists" component={ArtistPage} /> */}
+                {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
+                <Route path="/splash" component={Splash} />
                 <Route path="/users">
                     <UserList />
                 </Route>
