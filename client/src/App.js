@@ -7,6 +7,7 @@ import UserList from './components/UsersList';
 import ReactPlayer from 'react-player/lazy'
 import Splash from './components/Splash';
 import Footer from './components/Footer';
+import Player from './Player';
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
         { title: "the story of O.J.", artist: "YoungBoy Never Broke Again", url: "https://www.youtube.com/watch?v=B2J3kLJ8PQk", cover: "http://img.youtube.com/vi/PAFAfhod9TU/0.jpg" }]
     const [currentSong, setCurrentSong] = useState('https://www.youtube.com/watch?v=oUFJJNQGwhk')
 
-
+    console.log(currentSong)
 
     return (
         <BrowserRouter>
@@ -43,16 +44,30 @@ function App() {
                 <Route path="/">
                     {/* <Splash /> */}
                     {chartList.map((item, i) =>
-                        <div key={i}><img src={item.cover}
+                        <div key={i} style={{
+                            height: `200px`,
+                            overflow: `hidden`,
+                            margin: `1em`,
+                            display: `flex`
+
+                        }}><img src={item.cover}
+                            style={{
+                                height: `fit-content`,
+                                alignSelf: `center`
+                            }}
                             onClick={() => setCurrentSong(item.url)}
-                        /></div>
+                            /></div>
 
                     )}
-                    {/* <Footer > */}
-                    <ReactPlayer url={currentSong}
+                    <ReactPlayer style={{ display: `none` }}
+                        url={currentSong}
                         controls={false}
-                        light={true}
+                        // light={true}
+                        playing={true}
+
                     />
+                    {/* <Footer > */}
+                    <Player />
                     {/* </Footer> */}
                     -----------------
                 {/* <ReactPlayer
