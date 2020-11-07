@@ -49,8 +49,8 @@ function App() {
                             borderRadius: `50px`,
                             boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,
                             background: `#46fd7f`,
-                            padding: `1em`,
-                            paddingTop: `.5em`,
+                            // padding: `1em`,
+                            // paddingTop: `.5em`,
                             margin: `2em 1em`
                         }}>
                             <div key={i} className="chartItem" style={{

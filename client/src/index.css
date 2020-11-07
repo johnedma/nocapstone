@@ -73,7 +73,17 @@ body:before {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50px;
+    /* background: linear-gradient(145deg, #e4e8ea, #f4f6f7); */
+    /* box-shadow: 13px 20px 10px #489dcf, -6px -7px 16px #62d5ff; */
+    padding: 2px;
+    left: -16px;
+    bottom: -23px;
+    margin: 16px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
+
 
 /* IE 6 */
 /* * html #footer {
