@@ -12,7 +12,7 @@ from flask_login import (
 
 from nwo.models import db, User
 from nwo.api.user_routes import user_routes
-from nwo_app.api.auth_routes import auth_routes
+# from nwo.api.auth_routes import auth_routes
 
 from nwo.config import Config
 
@@ -27,7 +27,7 @@ CORS(app)
 CSRFProtect(app)
 
 
-@login_manager.user_loaded
+@login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
 
