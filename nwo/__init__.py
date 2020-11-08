@@ -41,6 +41,12 @@ def react_root(path):
     return app.send_static_file('index.html')
 
 
+@app.route('/api/csrf/restore')
+def restore_csrf():
+    id = current_user.id if current_user.is_authenticated else None
+    return {'csrf_token': generate_csrf(), 'current_user_id': id}
+
+
 @app.after_request
 def inject_csrf_token(response):
     response.set_cookie('csrf_token',
