@@ -47,6 +47,27 @@ def restore_csrf():
     return {'csrf_token': generate_csrf(), 'current_user_id': id}
 
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if not request.is_json:
+        return jsonify({"msg": "Missing JSON in request"}), 400
+
+    username = request.json.get('username', None)
+    password = request.json.get('password', None)
+
+    if not username or not password:
+        return {"errors": ["Missing required parameters"]}, 400
+
+    authenticated, user = User.authenticate(username, password)
+    print(authenticated)
+    print(user)
+    if authenticated:
+        login_user(user)
+        return {"current_user_id": current_user.id}
+
+    return {"errors": ["Invalid username or passwor"]}, 401
+
+
 @app.after_request
 def inject_csrf_token(response):
     response.set_cookie('csrf_token',
@@ -58,10 +79,10 @@ def inject_csrf_token(response):
     return response
 
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def react_root(path):
-    print("path", path)
-    if path == 'favicon.ico':
-        return app.send_static_file('favicon.ico')
-    return app.send_static_file('index.html')
+# @app.route('/', defaults={'path': ''})
+# @app.route('/<path:path>')
+# def react_root(path):
+#     print("path", path)
+#     if path == 'favicon.ico':
+#         return app.send_static_file('favicon.ico')
+#     return app.send_static_file('index.html')
