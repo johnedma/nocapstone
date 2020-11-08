@@ -68,15 +68,22 @@ def login():
     return {"errors": ["Invalid username or passwor"]}, 401
 
 
-@app.after_request
-def inject_csrf_token(response):
-    response.set_cookie('csrf_token',
-                        generate_csrf(),
-                        secure=True if os.environ.get('FLASK_ENV') else False,
-                        samesite='Strict' if os.environ.get(
-                            'FLASK_ENV') else None,
-                        httponly=True)
-    return response
+@app.route("/logout", methods=['POST'])
+@login_required
+def logout():
+    logout_user()
+    return {'msg': 'You have been logged out'}, 200
+
+# vvv-- BOILERPLATE IN OG STARTER --vvv
+# @app.after_request
+# def inject_csrf_token(response):
+#     response.set_cookie('csrf_token',
+#                         generate_csrf(),
+#                         secure=True if os.environ.get('FLASK_ENV') else False,
+#                         samesite='Strict' if os.environ.get(
+#                             'FLASK_ENV') else None,
+#                         httponly=True)
+#     return response
 
 
 # @app.route('/', defaults={'path': ''})
