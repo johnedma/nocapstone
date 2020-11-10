@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import ArtistPage from './components/ArtistPage';
 import Navbar from './components/Navbar';
-
 import UserList from './components/UsersList';
 // import ReactPlayer from 'react-player/lazy'
 import Splash from './components/Splash';
@@ -26,8 +25,6 @@ function App() {
         { title: "Sweater Weather", artist: "The Neighbourhood", url: "https://www.youtube.com/watch?v=GCdwKhTtNNw", cover: "http://img.youtube.com/vi/GCdwKhTtNNw/0.jpg" },
         { title: "the story of O.J.", artist: "YoungBoy Never Broke Again", url: "https://www.youtube.com/watch?v=B2J3kLJ8PQk", cover: "http://img.youtube.com/vi/B2J3kLJ8PQk/0.jpg" }]
     const [currentSong, setCurrentSong] = useState("https://www.youtube.com/watch?v=0J3vgcE5i2o")
-
-    // console.log(currentSong)
 
     return (
 
@@ -98,46 +95,20 @@ function App() {
 
                             )}
                         </div>
-                        {/* <ReactPlayer style={{ display: `none` }}
-                        url={currentSong}
-                        controls={false}
-                        // light={true}
-                        playing={false}
 
-                    /> */}
-                        {/* <Footer > */}
-
-                        {/* </Footer> */}
                     -----------------
-                {/* <ReactPlayer
+                    {/* playlist of entire objs and pass in url with name
+                    next song use --> array = array.concat(array.splice(0, 1)); */}
+                        {/* <ReactPlayer
                         url={[
                             'https://www.youtube.com/watch?v=oUFJJNQGwhk',
                             'https://www.youtube.com/watch?v=jNgP6d9HraI'
                         ]}
                     />  */}
 
-
-                        {/* player custo */}
-                        {/* top level needs container to make display flex inline grid behavior */}
-                        {/* 2nd level nested div
-    width: 50%;
-    height: 100%;
-    border-radius: 2em;
-    box-shadow: 0px 0px 8px 7px #f91a93;
-}
-*/}
-                        {/* <h1>NEW WAVE ORDER</h1> */}
                     </Route>
                 </Switch>
             </BrowserRouter >
-
-            {/* <ReactPlayer style={{ display: `none` }}
-                url={currentSong}
-                controls={false}
-                // light={true}
-                playing={true}
-
-            /> */}
         </>
     );
 }
