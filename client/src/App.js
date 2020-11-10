@@ -4,9 +4,8 @@ import ArtistPage from './components/ArtistPage';
 import Navbar from './components/Navbar';
 
 import UserList from './components/UsersList';
-import ReactPlayer from 'react-player/lazy'
+// import ReactPlayer from 'react-player/lazy'
 import Splash from './components/Splash';
-import Footer from './components/Footer';
 import Player from './Player';
 
 
@@ -28,81 +27,87 @@ function App() {
         { title: "the story of O.J.", artist: "YoungBoy Never Broke Again", url: "https://www.youtube.com/watch?v=B2J3kLJ8PQk", cover: "http://img.youtube.com/vi/B2J3kLJ8PQk/0.jpg" }]
     const [currentSong, setCurrentSong] = useState("https://www.youtube.com/watch?v=0J3vgcE5i2o")
 
-    console.log(currentSong)
+    // console.log(currentSong)
 
     return (
-        <BrowserRouter>
-            <Navbar />
-            <Switch>
-                <Route path="/artists" component={ArtistPage} />
-                {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
-                <Route path="/splash" component={Splash} />
-                <Route path="/users">
-                    <UserList />
-                </Route>
 
-                <Route path="/">
-                    {/* <Splash /> */}
-                    {/* <div style={{ display: "flex" }}> */}
-                    {chartList.map((item, i) =>
+        <>
+            <Player currentSong={currentSong} />
+            <BrowserRouter>
+                <Navbar />
+                <Switch>
+                    <Route path="/artists" component={ArtistPage} />
+                    {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
+                    <Route path="/splash" component={Splash} />
+                    <Route path="/users">
+                        <UserList />
+                    </Route>
+
+                    <Route path="/">
+                        {/* <Splash /> */}
                         <div style={{
-                            borderRadius: `50px`,
-                            boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,
-                            background: `#46fd7f`,
-                            // padding: `1em`,
-                            // paddingTop: `.5em`,
-                            margin: `2em 1em`
+                            display: "flex", flexFlow: `wrap`,
+                            justifyContent: `space-around`
                         }}>
-                            <div key={i} className="chartItem" style={{
-                                overflow: `hidden`,
-                                // margin: `1em`,
-                                display: `flex`,
-                                height: `100px`,
-                                borderRadius: `50px`,
-                                // width: `fit-content`,
-                                border: `solid springgreen 5px`,
-                                // marginBottom: `10px`,
-                                cursor: `pointer`,
+                            {chartList.map((item, i) =>
+                                <div key={i} style={{
+                                    borderRadius: `50px`,
+                                    boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,
+                                    background: `#46fd7f`,
+                                    // padding: `1em`,
+                                    // paddingTop: `.5em`,
+                                    margin: `2em 1em`,
+                                    width: `250px`,
+                                }}>
+                                    <div className="chartItem" style={{
+                                        overflow: `hidden`,
+                                        // margin: `1em`,
+                                        display: `flex`,
+                                        height: `100px`,
+                                        borderRadius: `50px`,
+                                        // width: `fit-content`,
+                                        border: `solid springgreen 5px`,
+                                        // marginBottom: `10px`,
+                                        cursor: `pointer`,
 
 
-                            }}><img src={item.cover}
-                                style={{
-                                    // height: `fit-content`,
-                                    alignSelf: `center`,
-                                    width: `100%`
-                                }}
-                                onClick={() => setCurrentSong(item.url)}
-                                />
-                            </div>
-                            <p
-                                style={{
-                                    textAlign: `center`,
-                                    textTransform: `uppercase`,
-                                    fontWeight: `900`,
-                                    color: `white`,
-                                    marginBottom: `0`,
-                                    marginTop: `-27px`,
-                                    textShadow: `1px 1px 1px #f91a93`,
-                                    textTransform: `lowercase`,
-                                    webkitTextStrokeWidth: `thin`
-                                }}
-                            >{item.artist} : {item.title}</p>
-                            {/* <div> */}
-                            {/* </div> */}
+                                    }}><img src={item.cover}
+                                        style={{
+                                            // height: `fit-content`,
+                                            alignSelf: `center`,
+                                            width: `100%`
+                                        }}
+                                        onClick={() => setCurrentSong(item.url)}
+                                        />
+                                    </div>
+                                    <p
+                                        style={{
+                                            textAlign: `center`,
+                                            textTransform: `uppercase`,
+                                            fontWeight: `900`,
+                                            color: `white`,
+                                            marginBottom: `0`,
+                                            marginTop: `-27px`,
+                                            textShadow: `1px 1px 1px #f91a93`,
+                                            textTransform: `lowercase`,
+                                            WebkitTextStrokeWidth: `thin`
+                                        }}
+                                    >{item.artist} : {item.title}</p>
+
+                                </div>
+
+                            )}
                         </div>
-
-                    )}
-                    {/* </div> */}
-                    <ReactPlayer style={{ display: `none` }}
+                        {/* <ReactPlayer style={{ display: `none` }}
                         url={currentSong}
                         controls={false}
                         // light={true}
                         playing={false}
 
-                    />
-                    {/* <Footer > */}
-                    <Player />
-                    {/* </Footer> */}
+                    /> */}
+                        {/* <Footer > */}
+
+                        {/* </Footer> */}
                     -----------------
                 {/* <ReactPlayer
                         url={[
@@ -112,19 +117,28 @@ function App() {
                     />  */}
 
 
-                    {/* player custo */}
-                    {/* top level needs container to make display flex inline grid behavior */}
-                    {/* 2nd level nested div
+                        {/* player custo */}
+                        {/* top level needs container to make display flex inline grid behavior */}
+                        {/* 2nd level nested div
     width: 50%;
     height: 100%;
     border-radius: 2em;
     box-shadow: 0px 0px 8px 7px #f91a93;
 }
 */}
-                    {/* <h1>NEW WAVE ORDER</h1> */}
-                </Route>
-            </Switch>
-        </BrowserRouter >
+                        {/* <h1>NEW WAVE ORDER</h1> */}
+                    </Route>
+                </Switch>
+            </BrowserRouter >
+
+            {/* <ReactPlayer style={{ display: `none` }}
+                url={currentSong}
+                controls={false}
+                // light={true}
+                playing={true}
+
+            /> */}
+        </>
     );
 }
 
