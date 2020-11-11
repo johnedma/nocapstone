@@ -79,47 +79,51 @@ function App() {
                                         boxShadow: `-20px 20px 60px #489dcf, 20px -20px 60px #62d5ff`,
                                         padding: `1em`,
                                         // padding: `.7em`,
-                                        border: `solid 10px #3da5e340`
-                                        // border: `solid 7px #3da5e340`
+                                        border: `solid 10px #3da5e340`,
+                                        // border: `solid 7px #3da5e340`,
+                                        boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgb(96 125 139 / 51%) 0px 3px 5px 6px`,
+                                        // padding: 1em;
+                                        border: `9px solid rgb(56 118 154 / 11%)`
+                                    }
                                     }}>
                                         <div className="chartItem" style={{
-                                            overflow: `hidden`,
-                                            // margin: `1em`,
-                                            display: `flex`,
-                                            // height: `100px`,
-                                            height: `60px`,
-                                            borderRadius: `50px`,
-                                            // width: `fit-content`,
-                                            border: `solid springgreen 5px`,
-                                            // marginBottom: `10px`,
-                                            cursor: `pointer`,
+                                    overflow: `hidden`,
+                                    // margin: `1em`,
+                                    display: `flex`,
+                                    // height: `100px`,
+                                    height: `60px`,
+                                    borderRadius: `50px`,
+                                    // width: `fit-content`,
+                                    border: `solid springgreen 5px`,
+                                    // marginBottom: `10px`,
+                                    cursor: `pointer`,
 
 
-                                        }}><img src={item.cover}
-                                            style={{
-                                                // height: `fit-content`,
-                                                alignSelf: `center`,
-                                                width: `100%`
-                                            }}
-                                            onClick={() => setCurrentSong(item.url)}
-                                            />
-                                        </div>
-                                        <p
-                                            style={{
-                                                textAlign: `center`,
-                                                textTransform: `uppercase`,
-                                                fontWeight: `900`,
-                                                color: `white`,
-                                                marginBottom: `0`,
-                                                // marginTop: `-27px`,
-                                                marginTop: `3px`,
-                                                textShadow: `1px 1px 1px #f91a93`,
-                                                textTransform: `lowercase`,
-                                                WebkitTextStrokeWidth: `thin`
-                                            }}
-                                        >{item.artist} : {item.title}</p>
+                                }}><img src={item.cover}
+                                    style={{
+                                        // height: `fit-content`,
+                                        alignSelf: `center`,
+                                        width: `100%`
+                                    }}
+                                    onClick={() => setCurrentSong(item.url)}
+                                    />
+                                </div>
+                                <p
+                                    style={{
+                                        textAlign: `center`,
+                                        textTransform: `uppercase`,
+                                        fontWeight: `900`,
+                                        color: `white`,
+                                        marginBottom: `0`,
+                                        // marginTop: `-27px`,
+                                        marginTop: `3px`,
+                                        textShadow: `1px 1px 1px #f91a93`,
+                                        textTransform: `lowercase`,
+                                        WebkitTextStrokeWidth: `thin`
+                                    }}
+                                >{item.artist} : {item.title}</p>
 
-                                    </div>
+                            </div>
 
                                 )}
                             </div>
@@ -127,7 +131,7 @@ function App() {
                     -----------------
                     {/* playlist of entire objs and pass in url with name
                     next song use --> array = array.concat(array.splice(0, 1)); */}
-                            {/* <ReactPlayer
+                        {/* <ReactPlayer
                         url={[
                             'https://www.youtube.com/watch?v=oUFJJNQGwhk',
                             'https://www.youtube.com/watch?v=jNgP6d9HraI'
@@ -138,7 +142,7 @@ function App() {
                     </Switch>
                 </BrowserRouter >
             }
-            <Player currentSong={currentSong} />
+<Player currentSong={currentSong} />
 
         </>
     );
