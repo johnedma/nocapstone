@@ -14,7 +14,11 @@ const Player = ({ currentSong }) => {
                     style={{
                         fontSize: `3em`,
                         color: `deeppink`,
-                        cursor: `pointer`
+                        cursor: `pointer`,
+                        border: `solid 3px #9e9e9e3b`,
+                        borderRadius: `1em`,
+                        padding: `3px`,
+                        boxShadow: `-2px 2px 4px 1px #80888cab, 1px 2px 5px 2px #b3ced8ad`
                     }}
                 ></i>
             </div>

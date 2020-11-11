@@ -82,6 +82,12 @@ body:before {
     margin: 16px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    /*  */
+    padding: 8px;
+    left: -24px;
+    bottom: -20px;
+    margin: 16px;
+    border: solid 7px #7c78781c;
 }
 
 
