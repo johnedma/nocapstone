@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import ArtistPage from './components/ArtistPage';
 import Navbar from './components/Navbar';
@@ -6,7 +6,9 @@ import UserList from './components/UsersList';
 // import ReactPlayer from 'react-player/lazy'
 import Splash from './components/Splash';
 import Player from './Player';
+import { Bars } from 'svg-loaders-react'
 
+// useEffect
 
 function App() {
     const chartList = [
@@ -25,90 +27,119 @@ function App() {
         { title: "Sweater Weather", artist: "The Neighbourhood", url: "https://www.youtube.com/watch?v=GCdwKhTtNNw", cover: "http://img.youtube.com/vi/GCdwKhTtNNw/0.jpg" },
         { title: "the story of O.J.", artist: "YoungBoy Never Broke Again", url: "https://www.youtube.com/watch?v=B2J3kLJ8PQk", cover: "http://img.youtube.com/vi/B2J3kLJ8PQk/0.jpg" }]
     const [currentSong, setCurrentSong] = useState("https://www.youtube.com/watch?v=0J3vgcE5i2o")
+    const [loading, setLoading] = useState(true)
+
+
+    useEffect(() => {
+        (async () => {
+            // const response = await fetch('/restore')
+            // const data = await response.json()
+            // const { current_user_id, current_user } = data
+            // setCurrentUserId(current_user_id)
+            // setCurrentUser(current_user)
+            setLoading(false)
+        })()
+
+    }, [])
 
     return (
 
         <>
-            <Player currentSong={currentSong} />
-            <BrowserRouter>
-                <Navbar />
-                <Switch>
-                    <Route path="/artists" component={ArtistPage} />
-                    {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
-                    <Route path="/splash" component={Splash} />
-                    <Route path="/users">
-                        <UserList />
-                    </Route>
+            {/* {loading && <h1>Loading</h1>} */}
+            {loading && <h1>...LOADING...</h1>}
+            {!loading &&
+                <BrowserRouter>
+                    <Navbar />
+                    <Switch>
+                        <Route path="/artists" component={ArtistPage} />
+                        {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
+                        <Route path="/splash" component={Splash} />
+                        <Route path="/users">
+                            <UserList />
+                        </Route>
 
-                    <Route path="/">
-                        {/* <Splash /> */}
-                        <div style={{
-                            display: "flex", flexFlow: `wrap`,
-                            justifyContent: `space-around`
-                        }}>
-                            {chartList.map((item, i) =>
-                                <div key={i} style={{
-                                    borderRadius: `50px`,
-                                    boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,
-                                    background: `#46fd7f`,
-                                    // padding: `1em`,
-                                    // paddingTop: `.5em`,
-                                    margin: `2em 1em`,
-                                    width: `250px`,
-                                }}>
-                                    <div className="chartItem" style={{
-                                        overflow: `hidden`,
-                                        // margin: `1em`,
-                                        display: `flex`,
-                                        height: `100px`,
+                        <Route path="/">
+                            {/* <Splash /> */}
+                            <div style={{
+                                display: "flex", flexFlow: `wrap`,
+                                justifyContent: `space-around`
+                            }}>
+                                {chartList.map((item, i) =>
+                                    <div key={i} style={{
                                         borderRadius: `50px`,
-                                        // width: `fit-content`,
-                                        border: `solid springgreen 5px`,
-                                        // marginBottom: `10px`,
-                                        cursor: `pointer`,
+                                        // boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,
+                                        // background: `#46fd7f`,
+                                        // padding: `1em`,
+                                        // paddingTop: `.5em`,
+                                        // margin: `1.5em 1em`,
+                                        margin: `1em .5em`,
+                                        // width: `250px`,
+                                        width: `225px`,
+                                        alignSelf: `center`,
+                                        boxShadow: `-20px 20px 60px #489dcf, 20px -20px 60px #62d5ff`,
+                                        padding: `1em`,
+                                        // padding: `.7em`,
+                                        border: `solid 10px #3da5e340`
+                                        // border: `solid 7px #3da5e340`
+                                    }}>
+                                        <div className="chartItem" style={{
+                                            overflow: `hidden`,
+                                            // margin: `1em`,
+                                            display: `flex`,
+                                            // height: `100px`,
+                                            height: `60px`,
+                                            borderRadius: `50px`,
+                                            // width: `fit-content`,
+                                            border: `solid springgreen 5px`,
+                                            // marginBottom: `10px`,
+                                            cursor: `pointer`,
 
 
-                                    }}><img src={item.cover}
-                                        style={{
-                                            // height: `fit-content`,
-                                            alignSelf: `center`,
-                                            width: `100%`
-                                        }}
-                                        onClick={() => setCurrentSong(item.url)}
-                                        />
+                                        }}><img src={item.cover}
+                                            style={{
+                                                // height: `fit-content`,
+                                                alignSelf: `center`,
+                                                width: `100%`
+                                            }}
+                                            onClick={() => setCurrentSong(item.url)}
+                                            />
+                                        </div>
+                                        <p
+                                            style={{
+                                                textAlign: `center`,
+                                                textTransform: `uppercase`,
+                                                fontWeight: `900`,
+                                                color: `white`,
+                                                marginBottom: `0`,
+                                                // marginTop: `-27px`,
+                                                marginTop: `3px`,
+                                                textShadow: `1px 1px 1px #f91a93`,
+                                                textTransform: `lowercase`,
+                                                WebkitTextStrokeWidth: `thin`
+                                            }}
+                                        >{item.artist} : {item.title}</p>
+
                                     </div>
-                                    <p
-                                        style={{
-                                            textAlign: `center`,
-                                            textTransform: `uppercase`,
-                                            fontWeight: `900`,
-                                            color: `white`,
-                                            marginBottom: `0`,
-                                            marginTop: `-27px`,
-                                            textShadow: `1px 1px 1px #f91a93`,
-                                            textTransform: `lowercase`,
-                                            WebkitTextStrokeWidth: `thin`
-                                        }}
-                                    >{item.artist} : {item.title}</p>
 
-                                </div>
-
-                            )}
-                        </div>
+                                )}
+                            </div>
 
                     -----------------
                     {/* playlist of entire objs and pass in url with name
                     next song use --> array = array.concat(array.splice(0, 1)); */}
-                        {/* <ReactPlayer
+                            {/* <ReactPlayer
                         url={[
                             'https://www.youtube.com/watch?v=oUFJJNQGwhk',
                             'https://www.youtube.com/watch?v=jNgP6d9HraI'
                         ]}
                     />  */}
 
-                    </Route>
-                </Switch>
-            </BrowserRouter >
+                        </Route>
+                    </Switch>
+                </BrowserRouter >
+            }
+            <Player currentSong={currentSong} />
+
         </>
     );
 }
