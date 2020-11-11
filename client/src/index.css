@@ -4,15 +4,15 @@
     src:  url("./fonts/DeadStock-Demo.ttf") format("truetype")
   }
 
-
+/*
   html{
-    /* background-color: white; */
+    background-color: white;
     border: solid 5px #0000004f;
     border-radius: 50px;
     margin: 1em;
     border: solid 2px #0000004f;
     margin: 4px 0px;
-  }
+  } */
   h1 {
       font-family: "DeadStock", serif;
     text-shadow: 2px 2px black;
