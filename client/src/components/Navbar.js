@@ -7,7 +7,7 @@ const Navbar = () => {
             <NavLink to="/" style={{ textDecoration: `none` }}>
                 <h1 >Nu WAVE ORDER</h1>
             </NavLink>
-            <li><NavLink to="/users" activeclass="active">Users</NavLink></li>
+            <li style={{ listStyle: `none` }}><NavLink to="/users">Users</NavLink></li>
         </nav>
     );
 };
