@@ -27,7 +27,7 @@ function App() {
         { title: "La TÃ³xica", artist: "Farruko", url: "https://www.youtube.com/watch?v=puugRJxgdt4", cover: "http://img.youtube.com/vi/puugRJxgdt4/0.jpg" },
         { title: "Sweater Weather", artist: "The Neighbourhood", url: "https://www.youtube.com/watch?v=GCdwKhTtNNw", cover: "http://img.youtube.com/vi/GCdwKhTtNNw/0.jpg" },
         { title: "the story of O.J.", artist: "YoungBoy Never Broke Again", url: "https://www.youtube.com/watch?v=B2J3kLJ8PQk", cover: "http://img.youtube.com/vi/B2J3kLJ8PQk/0.jpg" }]
-    const [currentSong, setCurrentSong] = useState("https://www.youtube.com/watch?v=0J3vgcE5i2o")
+    const [currentSong, setCurrentSong] = useState(chartList[0])
     // const [loading, setLoading] = useState(true)
 
 
@@ -107,7 +107,7 @@ function App() {
                                             alignSelf: `center`,
                                             width: `100%`
                                         }}
-                                        onClick={() => setCurrentSong(item.url)}
+                                        onClick={() => setCurrentSong(item)}
                                         />
                                     </div>
                                     <p
@@ -144,7 +144,7 @@ function App() {
                 </Switch>
             </BrowserRouter >
             {/* } */}
-            <Player currentSong={currentSong} />
+            <Player currentSong={currentSong} chartList={chartList} />
 
         </>
     );

@@ -69,9 +69,12 @@ const Player = ({ currentSong }) => {
                         }}
                     />
                 </button>
+                <p>{currentSong.artist}</p>
+                <p>{currentSong.title}</p>
             </div>
             <ReactPlayer style={{ display: `none` }}
-                url={currentSong ? currentSong : "https://www.youtube.com/watch?v=B2J3kLJ8PQk"}
+                // url={currentSong ? currentSong.url : "https://www.youtube.com/watch?v=B2J3kLJ8PQk"}
+                url={currentSong.url}
                 controls={false}
                 // light={true}
                 playing={play}
