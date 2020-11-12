@@ -75,7 +75,8 @@ body:before {
     position: fixed;
     left: 0px;
     bottom: 0px;
-    height: 65px;
+    /* height: 65px; */
+    height: 40px;
     width: 100%;
     background: #fff;
     display: flex;
@@ -95,7 +96,7 @@ body:before {
     left: -24px;
     bottom: -20px;
     margin: 16px;
-    border: solid 7px #7c78781c;
+    border: solid 2px #7c78781c;
 }
 
 
