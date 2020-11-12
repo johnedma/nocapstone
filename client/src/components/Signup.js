@@ -3,7 +3,7 @@ import AuthContext from '../auth'
 
 
 const SignUp = props => {
-    const [email, setEmail] = useState('');
+    // const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState('')
@@ -11,7 +11,7 @@ const SignUp = props => {
     // const dispatch = useDispatch();
     const { fetchWithCSRF, setCurrentUserId } = useContext(AuthContext);
     const [errors, setErrors] = useState([]);
-    const [fullname, setFullname] = useState('');
+    // const [fullname, setFullname] = useState('');
 
 
     const submitForm = e => {
@@ -25,9 +25,8 @@ const SignUp = props => {
                 },
                 credentials: 'include',
                 body: JSON.stringify({
-                    email,
                     username,
-                    fullname,
+
                     password,
                     password2
                 })
@@ -54,7 +53,7 @@ const SignUp = props => {
                         height: `20px`,
                         marginBlockStart: `1em`,
                         marginBlockEnd: `1em`
-                    }}>Petstagram</h1>
+                    }}>Nu Wave Order</h1>
                     <h2 style={{
                         color: `#8e8e8e`,
                         fontSize: `17px`,
@@ -62,22 +61,10 @@ const SignUp = props => {
                         lineHeight: `20px`,
                         margin: `0 40px 10px`,
                         textAlign: `center`
-                    }}>Sign up to see photos and videos from your friends.</h2>
+                    }}>Sign up to hear the waves!</h2>
                     <div className="authFormInnerWrap">
                         <form onSubmit={submitForm}>
                             {errors.length ? errors.map(err => <li key={err} >{err}</li>) : ''}
-                            <input
-                                className="input"
-                                type="text"
-                                placeholder="Email"
-                                value={email}
-                                onChange={e => setEmail(e.target.value)} name="email" />
-                            <input
-                                className="input"
-                                type="text"
-                                placeholder="Name"
-                                value={fullname}
-                                onChange={e => setFullname(e.target.value)} name="fullname" />
                             <input
                                 className="input"
                                 type="text"

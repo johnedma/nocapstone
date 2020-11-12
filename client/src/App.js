@@ -6,8 +6,9 @@ import UserList from './components/UsersList';
 // import ReactPlayer from 'react-player/lazy'
 import Splash from './components/Splash';
 import Player from './Player';
-import { Bars } from 'svg-loaders-react'
-
+// import { Bars } from 'svg-loaders-react'
+import LoginForm from './components/LoginForm';
+import SignUp from './components/SignUp';
 // useEffect
 
 function App() {
@@ -51,6 +52,8 @@ function App() {
             <BrowserRouter>
                 <Navbar />
                 <Switch>
+                    <Route path="/login" component={LoginForm} />
+                    <Route path="/signup" component={SignUp} />
                     <Route path="/artists" component={ArtistPage} />
                     {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
                     <Route path="/splash" component={Splash} />
