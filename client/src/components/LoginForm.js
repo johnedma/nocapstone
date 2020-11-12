@@ -1,8 +1,8 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom'
 import AuthContext from '../auth'
 
-function UserForm(props) {
+function LoginForm(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     let history = useHistory();
@@ -52,4 +52,4 @@ function UserForm(props) {
         </form>
     );
 }
-export default UserForm;
+export default LoginForm;
