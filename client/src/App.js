@@ -14,6 +14,7 @@ import PlayerContext from './PlayerContext';
 import AuthContext from './auth'
 import { ProtectedRoute, AuthRoute } from './Routes';
 import ChartList from './components/ChartList';
+import NewsFeed from './components/NewsFeed';
 
 function App() {
     const chartList = [
@@ -116,6 +117,7 @@ function App() {
                     <Switch>
                         <AuthRoute path="/login" component={LoginForm} currentUserId={currentUserId} />
                         <AuthRoute path="/signup" component={SignUp} currentUserId={currentUserId} />
+                        <ProtectedRoute path="/news" component={NewsFeed} currentUserId={currentUserId} />
                         <ProtectedRoute path="/artists" component={ArtistPage} />
                         {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
                         <Route path="/splash" component={Splash} />
