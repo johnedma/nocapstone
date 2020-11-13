@@ -9,6 +9,7 @@ import Player from './Player';
 // import { Bars } from 'svg-loaders-react'
 import LoginForm from './components/LoginForm';
 import SignUp from './components/SignUp';
+import PlayerContext from './PlayerContext';
 // useEffect
 
 function App() {
@@ -28,6 +29,17 @@ function App() {
         { title: "Sweater Weather", artist: "The Neighbourhood", url: "https://www.youtube.com/watch?v=GCdwKhTtNNw", cover: "http://img.youtube.com/vi/GCdwKhTtNNw/0.jpg" },
         { title: "the story of O.J.", artist: "YoungBoy Never Broke Again", url: "https://www.youtube.com/watch?v=B2J3kLJ8PQk", cover: "http://img.youtube.com/vi/B2J3kLJ8PQk/0.jpg" }]
     const [currentSong, setCurrentSong] = useState(chartList[0])
+    // const [currentPlaylist, setCurrentPlaylist] = useState(chartList)
+    // const [next, setNext] = useState(chartList[chartList.indexOf(currentSong) + 1])
+    const [next, setNext] = useState(chartList[1])
+
+    const playerContextValue = {
+        chartList,
+        currentSong,
+        setCurrentSong,
+        setNext,
+        next
+    }
     // const [loading, setLoading] = useState(true)
 
 
@@ -45,7 +57,7 @@ function App() {
 
     return (
 
-        <>
+        <PlayerContext.Provider value={playerContextValue}>
             {/* {loading && <h1>Loading</h1>} */}
             {/* {loading && <h1>...LOADING...</h1>}
             {!loading && */}
@@ -144,9 +156,10 @@ function App() {
                 </Switch>
             </BrowserRouter >
             {/* } */}
-            <Player currentSong={currentSong} chartList={chartList} />
+            {/* <Player currentSong={currentSong} /> */}
+            <Player />
 
-        </>
+        </PlayerContext.Provider>
     );
 }
 
