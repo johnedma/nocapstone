@@ -39,7 +39,11 @@ const ChartList = () => {
         <div>
             {/* <button onClick={() => logoutUser()}>LOGOUT</button>
                             {/* <Splash /> */}
-            <div><h1>Heavy Waves</h1></div>
+            <div><h1 style={{
+                textShadow: `1px 2px springgreen`,
+                color: `black`
+            }}>
+                Heavy Waves</h1></div>
             {/* https://www.youtube.com/watch?v=a6_v-V58Bm8 */}
             <div><h1>Trending</h1></div>
             <div style={{
