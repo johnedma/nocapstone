@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as ProfileBtn } from '../assets/imgs/surf-board.svg';
 
-const Navbar = () => {
+const Navbar = (props) => {
     return (
         <nav>
             <NavLink to="/" style={{ textDecoration: `none` }}>
@@ -10,6 +10,7 @@ const Navbar = () => {
             </NavLink>
             <li style={{ listStyle: `none` }}><NavLink to="/users">Users</NavLink></li>
             <ProfileBtn style={{ width: `45px`, height: `auto` }} />
+            {props.children}
         </nav>
     );
 };
