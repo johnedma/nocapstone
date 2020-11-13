@@ -54,7 +54,7 @@ const Player = () => {
                             }}
                         />
                     </button>
-                    {play === true ?
+                    {play === false ?
                         <button style={{ background: `none`, border: `none` }}
                             onClick={() => updatePlay()}>
                             {/* <i className={(play === false) ? "far fa-play-circle" : "far fa-pause-circle"} */}
@@ -104,7 +104,8 @@ const Player = () => {
                     </button>
                 </div>
                 <div>
-                    <p>{currentSong.artist} - {currentSong.title}</p>
+                    <p style={{ fontVariantCaps: `all-small-caps` }}
+                    >{currentSong.artist} - {currentSong.title}</p>
                 </div>
                 {/* <p>{currentSong.title}</p> */}
                 <a href="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
