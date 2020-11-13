@@ -97,6 +97,7 @@ body:before {
     bottom: -20px;
     margin: 16px;
     border: solid 2px #7c78781c;
+    justify-content: space-around;
 }
 
 

@@ -32,13 +32,28 @@ function App() {
     // const [currentPlaylist, setCurrentPlaylist] = useState(chartList)
     // const [next, setNext] = useState(chartList[chartList.indexOf(currentSong) + 1])
     const [next, setNext] = useState(chartList[1])
-
+    const [nextId, setNextId] = useState(1)
     const playerContextValue = {
         chartList,
         currentSong,
         setCurrentSong,
         setNext,
-        next
+        next,
+        nextId,
+        setNextId
+
+    }
+
+    const updateCurrentSong = (id) => {
+        console.log(id);
+        console.log(typeof (id))
+        let newId = parseInt(id) + 1
+        setNextId(newId)
+        console.log(nextId);
+        setCurrentSong(chartList[id])
+        setNext(chartList[newId])
+        console.log(next);
+
     }
     // const [loading, setLoading] = useState(true)
 
@@ -80,7 +95,7 @@ function App() {
                             justifyContent: `space-around`
                         }}>
                             {chartList.map((item, i) =>
-                                <div key={i} style={{
+                                <div key={i} id={i} style={{
                                     borderRadius: `50px`,
                                     // boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,
                                     // background: `#46fd7f`,
@@ -113,13 +128,13 @@ function App() {
                                         cursor: `pointer`,
 
 
-                                    }}><img src={item.cover}
+                                    }}><img src={item.cover} id={i}
                                         style={{
                                             // height: `fit-content`,
                                             alignSelf: `center`,
                                             width: `100%`
                                         }}
-                                        onClick={() => setCurrentSong(item)}
+                                        onClick={e => updateCurrentSong(e.target.id)}
                                         />
                                     </div>
                                     <p
