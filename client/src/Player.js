@@ -4,6 +4,10 @@ import ReactPlayer from 'react-player/lazy'
 import PlayerContext from './PlayerContext';
 import { ReactComponent as FaveBtn } from './assets/imgs/cool.svg';
 
+
+// PULL IN USER LIKES IN INITIAL LOAD AND HOLD IN PLAYER CONTEXT
+
+
 // const Player = ({ chartList, currentSong, setCurrentSong }) => {
 const Player = () => {
     // const [currentSong, setCurrentSong] = useState("https://www.youtube.com/watch?v=0J3vgcE5i2o")
@@ -14,7 +18,17 @@ const Player = () => {
 
     const [play, setPlay] = useState(false)
     const updatePlay = () => !play ? setPlay(true) : setPlay(false)
+    const [likes, setLikes] = useState([])
+    const updateLikes = () => {
+        const index = likes.indexOf(currentSong)
+        console.log(index);
+        if (index === -1) setLikes([...likes, currentSong])
 
+        // setLikes(likes.splice(index, 1)) }
+        // else setLikes(likes.push(currentSong))
+
+    }
+    console.log(likes);
     // const [next, setNext] = useState(chartList[chartList.indexOf(currentSong) + 1])
     const updateNext = () => {
         setCurrentSong(next)
@@ -31,6 +45,60 @@ const Player = () => {
         // setNext(chartList[chartList.indexOf(next) + 1])
         // setNext(next)
     }
+
+    // const handleLike = e => {
+    //     e.preventDefault();
+
+    //     async function removeLike(likes, i) {
+    //         const response = await fetch(`api/likes/${likes[i].id}`, {
+    //             method: 'DELETE',
+    //             headers: {
+    //                 'Content-type': 'application/json'
+    //             }
+    //         });
+    //         const responseData = await response.json();
+    //         if (!response.ok) {
+    //             setErrors(responseData.errors);
+    //         } else {
+    //             console.log(responseData)
+    //             likes.splice(i, 1)
+    //             console.log(likes)
+    //             like_count--
+    //             willRerender()
+    //         }
+    //     }
+
+
+    //     async function addLike() {
+    //         const response = await fetch(`/api/likes/${currentUserId}/${postId}`, {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-type': 'application/json'
+    //             }
+    //         });
+    //         const responseData = await response.json();
+    //         if (!response.ok) {
+    //             setErrors(responseData.errors);
+    //         } else {
+    //             let { data } = responseData
+    //             console.log(data)
+    //             likes.push(data)
+    //             like_count++
+    //             willRerender()
+    //         }
+    //     }
+    //     for (let i = 0; i < likes.length; i++) {
+    //         if (likes[i].user_id === currentUserId) {
+    //             if (likes.includes(currentSong)) () => removeLike(likes, i);
+    //             // return "done"
+    //         }
+    //     }
+
+
+
+    //     addLike()
+    // }
+
     // console.log(next);
     // useEffect(() => { }, [currentSong])
     console.log(play);
@@ -112,7 +180,7 @@ const Player = () => {
                     <h1>NWO</h1>
                 </a>
                 <button
-                    // onClick={handleLike}
+                    onClick={() => updateLikes()}
                     style={{ background: `none`, border: `none` }}>
                     <FaveBtn style={{
                         height: `-webkit-fill-available`,
