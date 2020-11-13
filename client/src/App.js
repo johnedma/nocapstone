@@ -11,6 +11,8 @@ import LoginForm from './components/LoginForm';
 import SignUp from './components/SignUp';
 import PlayerContext from './PlayerContext';
 // useEffect
+import AuthContext from './auth'
+import { ProtectedRoute, AuthRoute } from './Routes';
 
 function App() {
     const chartList = [
@@ -43,7 +45,57 @@ function App() {
         setNextId
 
     }
+    // auth
+    const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
+    const [currentUserId, setCurrentUserId] = useState(null);
+    const [loading, setLoading] = useState(true);
 
+    const authContextValue = {
+        fetchWithCSRF,
+        currentUserId,
+        setCurrentUserId
+    };
+
+    const logoutUser = async () => {
+        const response = await fetchWithCSRF('/logout', {
+            method: 'POST',
+            credentials: 'include'
+        });
+        if (response.ok) {
+            setCurrentUserId(null)
+        }
+    }
+
+    useEffect(() => {
+        async function restoreCSRF() {
+            const response = await fetch('/api/csrf/restore', {
+                method: 'GET',
+                credentials: 'include'
+            });
+            if (response.ok) {
+                const authData = await response.json();
+                setFetchWithCSRF(() => {
+                    return (resource, init) => {
+                        if (init.headers) {
+                            init.headers['X-CSRFToken'] = authData.csrf_token;
+                        } else {
+                            init.headers = {
+                                'X-CSRFToken': authData.csrf_token
+                            }
+                        }
+                        return fetch(resource, init);
+                    }
+                });
+                if (authData.current_user_id) {
+                    console.log(authData)
+                    setCurrentUserId(authData.current_user_id)
+                }
+            }
+            setLoading(false)
+        }
+        restoreCSRF();
+    }, []);
+    //
     const updateCurrentSong = (id) => {
         console.log(id);
         console.log(typeof (id))
@@ -71,25 +123,28 @@ function App() {
     // }, [])
 
     return (
-
-        <PlayerContext.Provider value={playerContextValue}>
-            {/* {loading && <h1>Loading</h1>} */}
-            {/* {loading && <h1>...LOADING...</h1>}
+        <AuthContext.Provider value={authContextValue}>
+            <PlayerContext.Provider value={playerContextValue}>
+                {/* {loading && <h1>Loading</h1>} */}
+                {/* {loading && <h1>...LOADING...</h1>}
             {!loading && */}
-            <BrowserRouter>
-                <Navbar />
-                <Switch>
-                    <Route path="/login" component={LoginForm} />
-                    <Route path="/signup" component={SignUp} />
-                    <Route path="/artists" component={ArtistPage} />
-                    {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
-                    <Route path="/splash" component={Splash} />
-                    <Route path="/users">
-                        <UserList />
-                    </Route>
+                <BrowserRouter>
+                    <Navbar >
+                        <button onClick={() => logoutUser()}>LOGOUT</button>
+                    </Navbar>
+                    <Switch>
+                        <AuthRoute path="/login" component={LoginForm} currentUserId={currentUserId} />
+                        <Route path="/signup" component={SignUp} />
+                        <Route path="/artists" component={ArtistPage} />
+                        {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
+                        <Route path="/splash" component={Splash} />
+                        <Route path="/users">
+                            <UserList />
+                        </Route>
 
-                    <Route path="/">
-                        {/* <Splash /> */}
+                        <ProtectedRoute path="/" currentUserId={currentUserId} component={ArtistPage} />
+                        {/* <button onClick={() => logoutUser()}>LOGOUT</button>
+                            {/* <Splash /> */}
                         <div style={{
                             display: "flex", flexFlow: `wrap`,
                             justifyContent: `space-around`
@@ -155,7 +210,7 @@ function App() {
                                 </div>
 
                             )}
-                        </div>
+                        </div> */}
 
                     -----------------
                     {/* playlist of entire objs and pass in url with name
@@ -167,14 +222,15 @@ function App() {
                         ]}
                     />  */}
 
-                    </Route>
-                </Switch>
-            </BrowserRouter >
-            {/* } */}
-            {/* <Player currentSong={currentSong} /> */}
-            <Player />
+                        {/* </ProtectedRoute> */}
+                    </Switch>
+                </BrowserRouter >
+                {/* } */}
+                {/* <Player currentSong={currentSong} /> */}
+                <Player />
 
-        </PlayerContext.Provider>
+            </PlayerContext.Provider>
+        </AuthContext.Provider>
     );
 }
 
