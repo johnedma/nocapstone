@@ -57,16 +57,6 @@ function App() {
         setCurrentUserId
     };
 
-    const logoutUser = async () => {
-        const response = await fetchWithCSRF('/logout', {
-            method: 'POST',
-            credentials: 'include'
-        });
-        if (response.ok) {
-            setCurrentUserId(null)
-        }
-    }
-
     useEffect(() => {
         async function restoreCSRF() {
             const response = await fetch('/api/csrf/restore', {
@@ -121,7 +111,7 @@ function App() {
             {!loading && */}
                 <BrowserRouter>
                     <Navbar >
-                        <button onClick={() => logoutUser()}>LOGOUT</button>
+                        {/* <button onClick={() => logoutUser()}>LOGOUT</button> */}
                     </Navbar>
                     <Switch>
                         <AuthRoute path="/login" component={LoginForm} currentUserId={currentUserId} />
@@ -148,11 +138,13 @@ function App() {
 
                         {/* </ProtectedRoute> */}
                     </Switch>
-                    <Player />
                 </BrowserRouter >
                 {/* } */}
-                {/* <Player currentSong={currentSong} /> */}
-
+                {currentUserId ?
+                    <Player />
+                    :
+                    null
+                }
             </PlayerContext.Provider>
         </AuthContext.Provider>
     );

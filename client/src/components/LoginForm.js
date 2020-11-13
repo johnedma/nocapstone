@@ -30,7 +30,8 @@ function LoginForm(props) {
                 setErrors(responseData.errors);
             } else {
                 setCurrentUserId(responseData.current_user_id)
-                history.push('/users')
+                // history.push('/users')
+                history.push('/')
             }
         }
         loginUser();
