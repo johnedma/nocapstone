@@ -111,10 +111,14 @@ const Player = () => {
                 <a href="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
                     <h1>NWO</h1>
                 </a>
-                <FaveBtn style={{
-                    height: `-webkit-fill-available`,
-                    width: `auto`
-                }} />
+                <button
+                    // onClick={handleLike}
+                    style={{ background: `none`, border: `none` }}>
+                    <FaveBtn style={{
+                        height: `-webkit-fill-available`,
+                        width: `auto`
+                    }} />
+                </button>
             </div>
             <ReactPlayer style={{ display: `none` }}
                 // url={currentSong ? currentSong.url : "https://www.youtube.com/watch?v=B2J3kLJ8PQk"}
