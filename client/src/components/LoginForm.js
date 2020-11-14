@@ -29,6 +29,7 @@ function LoginForm(props) {
             if (!response.ok) {
                 setErrors(responseData.errors);
             } else {
+                console.log(responseData);
                 setCurrentUserId(responseData.current_user_id)
                 // history.push('/users')
                 history.push('/')

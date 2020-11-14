@@ -18,7 +18,9 @@ const Player = () => {
 
     const [play, setPlay] = useState(false)
     const updatePlay = () => !play ? setPlay(true) : setPlay(false)
+
     const [likes, setLikes] = useState([])
+
     const updateLikes = () => {
         const index = likes.indexOf(currentSong)
         console.log(index);
@@ -179,14 +181,27 @@ const Player = () => {
                 <a href="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
                     <h1>NWO</h1>
                 </a>
-                <button
-                    onClick={() => updateLikes()}
-                    style={{ background: `none`, border: `none` }}>
-                    <FaveBtn style={{
-                        height: `-webkit-fill-available`,
-                        width: `auto`
-                    }} />
-                </button>
+                {!likes.includes(currentSong) ?
+                    <button
+                        onClick={() => updateLikes()}
+                        style={{ background: `none`, border: `none` }}>
+                        <FaveBtn style={{
+                            height: `-webkit-fill-available`,
+                            width: `auto`
+                        }} />
+                    </button>
+                    :
+                    <button
+                        onClick={() => updateLikes()}
+                        style={{ background: `none`, border: `none` }}>
+                        <FaveBtn style={{
+                            height: `-webkit-fill-available`,
+                            width: `auto`,
+                            fill: `springgreen`,
+                            cursor: `pointer`
+                        }} />
+                    </button>
+                }
             </div>
             <ReactPlayer style={{ display: `none` }}
                 // url={currentSong ? currentSong.url : "https://www.youtube.com/watch?v=B2J3kLJ8PQk"}
