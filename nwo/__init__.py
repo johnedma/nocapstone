@@ -63,7 +63,7 @@ def login():
     print(user)
     if authenticated:
         login_user(user)
-        return {"current_user_id": current_user.id, "likes": current_user.likes}
+        return {"current_user_id": current_user.id}
 
     return {"errors": ["Invalid username or passwor"]}, 401
 
