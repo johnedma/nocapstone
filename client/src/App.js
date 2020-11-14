@@ -108,40 +108,40 @@ function App() {
         <AuthContext.Provider value={authContextValue}>
             <PlayerContext.Provider value={playerContextValue}>
                 {/* {loading && <h1>Loading</h1>} */}
-                {/* {loading && <h1>...LOADING...</h1>}
-            {!loading && */}
-                <BrowserRouter>
-                    <Navbar >
-                        {/* <button onClick={() => logoutUser()}>LOGOUT</button> */}
-                    </Navbar>
-                    <Switch>
-                        <AuthRoute path="/login" component={LoginForm} currentUserId={currentUserId} />
-                        <AuthRoute path="/signup" component={SignUp} currentUserId={currentUserId} />
-                        <ProtectedRoute path="/news" component={NewsFeed} currentUserId={currentUserId} />
-                        <ProtectedRoute path="/artists" component={ArtistPage} />
-                        {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
-                        <Route path="/splash" component={Splash} />
-                        <Route path="/users">
-                            <UserList />
-                        </Route>
+                {loading && <h1>...LOADING...</h1>}
+                {!loading &&
+                    <BrowserRouter>
+                        <Navbar >
+                            {/* <button onClick={() => logoutUser()}>LOGOUT</button> */}
+                        </Navbar>
+                        <Switch>
+                            <AuthRoute path="/login" component={LoginForm} currentUserId={currentUserId} />
+                            <AuthRoute path="/signup" component={SignUp} currentUserId={currentUserId} />
+                            <ProtectedRoute path="/news" component={NewsFeed} currentUserId={currentUserId} />
+                            <ProtectedRoute path="/artists" component={ArtistPage} />
+                            {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
+                            <Route path="/splash" component={Splash} />
+                            <Route path="/users">
+                                <UserList />
+                            </Route>
 
-                        <ProtectedRoute path="/" currentUserId={currentUserId} component={ChartList} />
+                            <ProtectedRoute path="/" currentUserId={currentUserId} exact component={ChartList} />
 
 
                     -----------------
                     {/* playlist of entire objs and pass in url with name
                     next song use --> array = array.concat(array.splice(0, 1)); */}
-                        {/* <ReactPlayer
+                            {/* <ReactPlayer
                         url={[
                             'https://www.youtube.com/watch?v=oUFJJNQGwhk',
                             'https://www.youtube.com/watch?v=jNgP6d9HraI'
                         ]}
                     />  */}
 
-                        {/* </ProtectedRoute> */}
-                    </Switch>
-                </BrowserRouter >
-                {/* } */}
+                            {/* </ProtectedRoute> */}
+                        </Switch>
+                    </BrowserRouter >
+                }
                 {currentUserId ?
                     <Player />
                     :
