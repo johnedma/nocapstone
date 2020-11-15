@@ -14,15 +14,22 @@ const Player = () => {
     // const [currentSong, setCurrentSong] = useState(currentSong)
     // let nextSong = chartList[chartList.indexOf(currentSong) + 1]
     // console.log(nextSong);
-    const { nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
+    const { likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
 
     const [play, setPlay] = useState(false)
     const updatePlay = () => !play ? setPlay(true) : setPlay(false)
-    const [likes, setLikes] = useState([])
+
+
+
+    // const [likes, setLikes] = useState([])
     const updateLikes = () => {
-        const index = likes.indexOf(currentSong)
+        const index = likes.indexOf(currentSong.artist)
         console.log(index);
-        if (index === -1) setLikes([...likes, currentSong])
+        // console.log(typeof (id))
+        console.log(likes)
+        console.log(currentSong.artist);
+        console.log(likes.includes(currentSong.artist));
+        index === -1 ? setLikes([...likes, currentSong]) : setLikes(likes.splice(index, 1))
 
         // setLikes(likes.splice(index, 1)) }
         // else setLikes(likes.push(currentSong))
@@ -106,6 +113,8 @@ const Player = () => {
     // console.log(next);
     // useEffect(() => { }, [currentSong])
     console.log(play);
+    console.log(likes);
+    console.log(currentSong);
     return (
         <>
             <div className="footer" >
@@ -183,14 +192,31 @@ const Player = () => {
                 <a href="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
                     <h1>NWO</h1>
                 </a>
-                <button
-                    onClick={() => updateLikes()}
-                    style={{ background: `none`, border: `none` }}>
-                    <FaveBtn style={{
-                        height: `-webkit-fill-available`,
-                        width: `auto`
-                    }} />
-                </button>
+                {likes.includes(currentSong) === true ?
+                    <button
+                        onClick={() => updateLikes()}
+                        style={{
+                            border: `none`,
+                            backgroundColor: `springgreen`
+                        }}>
+                        <FaveBtn style={{
+                            height: `-webkit-fill-available`,
+                            width: `auto`
+                        }} />
+                    </button>
+                    :
+                    <button
+                        onClick={() => updateLikes()}
+                        style={{
+                            border: `none`,
+                            backgroundColor: `white`
+                        }}>
+                        <FaveBtn style={{
+                            height: `-webkit-fill-available`,
+                            width: `auto`
+                        }} />
+                    </button>
+                }
             </div>
             <ReactPlayer style={{ display: `none` }}
                 // url={currentSong ? currentSong.url : "https://www.youtube.com/watch?v=B2J3kLJ8PQk"}

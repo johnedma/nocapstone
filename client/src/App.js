@@ -37,6 +37,8 @@ function App() {
     // const [next, setNext] = useState(chartList[chartList.indexOf(currentSong) + 1])
     const [next, setNext] = useState(chartList[1])
     const [nextId, setNextId] = useState(1)
+    const [likes, setLikes] = useState([])
+
     const playerContextValue = {
         chartList,
         currentSong,
@@ -44,7 +46,9 @@ function App() {
         setNext,
         next,
         nextId,
-        setNextId
+        setNextId,
+        likes,
+        setLikes
 
     }
 
@@ -72,6 +76,7 @@ function App() {
             const { current_user_id, current_user } = data
             setCurrentUserId(current_user_id)
             setCurrentUser(current_user)
+            setLikes(current_user.likes)
             // setFetchWithCSRF(csrf_token)
             setLoading(false)
         })()

@@ -1,3 +1,4 @@
+
 # Flask React Project
 
 This is the backend for the Flask React project.
@@ -66,14 +67,17 @@ git clone https://github.com/appacademy-starters/react-project-starter.git --bra
    This will build the dockerfile and push the image to your heroku container registry
    ```bash
    heroku container:push web -a {NAME_OF_HEROKU_APP}
+   heroku container:push web -a nuwaveorder
    ```
 8. Release your docker container to heroku
    ```bash
    heroku container:release web -a {NAME_OF_HEROKU_APP}
+   heroku container:release web -a nuwaveorder
    ```
 9. set up your database:
    ```bash
    heroku run -a {NAME_OF_HEROKU_APP} python -m database
+   heroku run -a nuwaveorder python -m database
    ```
 10. Under Settings find "Config Vars" and add any additional/secret .env variables.
 11. profit
