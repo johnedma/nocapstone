@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import AuthContext from "../auth"
+// import AuthContext from "../auth"
 
 
 // indy files frome petspj didnt speread props and passed in context directly

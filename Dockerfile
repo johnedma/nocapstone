@@ -12,6 +12,8 @@ RUN ["pip", "install", "psycopg2"]
 RUN ["npm", "install", "--prefix", "client"]
 RUN ["npm", "run", "build", "--prefix", "client"]
 
+ENV REACT_APP_BASE_URL=https://nuwaveorder.herokuapp.com
+
 # Move our react build for Flask to serve
 # Use cp here because we're copying files inside our working directory, not from
 # our host machine.
@@ -23,6 +25,7 @@ RUN ["cp", "-r", "nwo/static/static/css", "nwo/static"]
 ENV FLASK_APP=nwo
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=True
+
 
 EXPOSE 8000
 

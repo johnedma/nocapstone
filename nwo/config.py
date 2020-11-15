@@ -8,4 +8,4 @@ class Config:
     SQLALCHEMY_ECHO = True
     WTF_CSRF_TIME_LIMIT = None
     # Update this to true once login is complete!
-    SECURITY_CSRF_IGNORE_UNAUTH_ENDPOINTS = True
+    # SECURITY_CSRF_IGNORE_UNAUTH_ENDPOINTS = True
