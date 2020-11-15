@@ -105,13 +105,13 @@ function App() {
                         <Navbar />
                         <Switch>
                             <AuthRoute exact path="/login" component={LoginForm} currentUserId={currentUserId} />
-                            <Route path="/signup" component={SignUp} />
+                            <Route path="/splash" component={Splash} />
+                            {/* <Route path="/signup" component={SignUp} /> */}
                             <Route path="/artists" component={ArtistPage} />
                             {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
-                            <Route path="/splash" component={Splash} />
-                            <Route path="/users">
+                            {/* <Route path="/users">
                                 <UserList />
-                            </Route>
+                            </Route> */}
 
                             <ProtectedRoute path="/" exact component={ChartList} currentUserId={currentUserId} />
 

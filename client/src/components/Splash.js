@@ -13,6 +13,11 @@ const Splash = () => {
                         height: `-webkit-fill-available`,
                         maxWidth: `-webkit-fill-available`
                     }} />
+            <div>
+                <h1 style={{ color: `white` }}>Nu Music</h1>
+                <h1 style={{ color: `white` }}>Nu News</h1>
+                <h1 style={{ color: `white` }}>Nu Waves.. Don't Miss The Wave</h1>
+            </div>
             <LoginForm />
             <SignUp />
         </div>
