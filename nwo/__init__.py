@@ -24,12 +24,23 @@ login_manager = LoginManager(app)
 
 # Application Security
 CORS(app)
-CSRFProtect(app)
+# CSRFProtect(app)
 
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
+
+
+@app.after_request
+def inject_csrf_token(response):
+    response.set_cookie('csrf_token',
+                        generate_csrf(),
+                        secure=True if os.environ.get('FLASK_ENV') else False,
+                        samesite='Strict' if os.environ.get(
+                            'FLASK_ENV') else None,
+                        httponly=True)
+    return response
 
 
 @app.route('/', defaults={'path': ''})
@@ -41,10 +52,10 @@ def react_root(path):
     return app.send_static_file('index.html')
 
 
-@app.route('/api/csrf/restore')
-def restore_csrf():
-    id = current_user.id if current_user.is_authenticated else None
-    return {'csrf_token': generate_csrf(), 'current_user_id': id}
+# @app.route('/api/csrf/restore')
+# def restore_csrf():
+#     id = current_user.id if current_user.is_authenticated else None
+#     return {'csrf_token': generate_csrf(), 'current_user_id': id}
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -63,7 +74,7 @@ def login():
     print(user)
     if authenticated:
         login_user(user)
-        return {"current_user_id": current_user.id}
+        return {"current_user_id": current_user.id, "current_user": current_user.to_dict()}
 
     return {"errors": ["Invalid username or passwor"]}, 401
 
@@ -74,22 +85,13 @@ def logout():
     logout_user()
     return {'msg': 'You have been logged out'}, 200
 
+
+@app.route('/restore')
+def restore():
+    id = current_user.id if current_user.is_authenticated else None
+    user = None if not current_user.is_authenticated else current_user.to_dict()
+    if current_user:
+        # return {'csrf_token': generate_csrf(), 'current_user_id': id, "current_user": user}
+        return {"current_user_id": id, "current_user": user}
+
 # vvv-- BOILERPLATE IN OG STARTER --vvv
-# @app.after_request
-# def inject_csrf_token(response):
-#     response.set_cookie('csrf_token',
-#                         generate_csrf(),
-#                         secure=True if os.environ.get('FLASK_ENV') else False,
-#                         samesite='Strict' if os.environ.get(
-#                             'FLASK_ENV') else None,
-#                         httponly=True)
-#     return response
-
-
-# @app.route('/', defaults={'path': ''})
-# @app.route('/<path:path>')
-# def react_root(path):
-#     print("path", path)
-#     if path == 'favicon.ico':
-#         return app.send_static_file('favicon.ico')
-#     return app.send_static_file('index.html')

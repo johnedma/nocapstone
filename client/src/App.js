@@ -10,7 +10,11 @@ import Player from './Player';
 import LoginForm from './components/LoginForm';
 import SignUp from './components/SignUp';
 import PlayerContext from './PlayerContext';
-// useEffect
+import AuthContext from './auth'
+import { AuthRoute, ProtectedRoute } from './components/Routes';
+import ChartList from './components/ChartList';
+
+
 
 function App() {
     const chartList = [
@@ -44,136 +48,89 @@ function App() {
 
     }
 
-    const updateCurrentSong = (id) => {
-        console.log(id);
-        console.log(typeof (id))
-        let newId = parseInt(id) + 1
-        setNextId(newId)
-        console.log(nextId);
-        setCurrentSong(chartList[id])
-        setNext(chartList[newId])
-        console.log(next);
-    }
-    // const [loading, setLoading] = useState(true)
+    // auth-----------------
+
+    const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
+    const [currentUserId, setCurrentUserId] = useState(null);
+    const [currentUser, setCurrentUser] = useState(null);
+    const [loading, setLoading] = useState(true)
+    // const [postData, setPostData] = useState(null)
+    const authContextValue = {
+        fetchWithCSRF,
+        currentUserId,
+        setCurrentUserId,
+        currentUser,
+        setCurrentUser
+    };
 
 
-    // useEffect(() => {
-    //     (async () => {
-    //         const response = await fetch('/restore')
-    //         const data = await response.json()
-    //         const { current_user_id, current_user } = data
-    //         setCurrentUserId(current_user_id)
-    //         setCurrentUser(current_user)
-    //         setLoading(false)
-    //     })()
 
-    // }, [])
+    useEffect(() => {
+        (async () => {
+            const response = await fetch('/restore')
+            const data = await response.json()
+            const { current_user_id, current_user } = data
+            setCurrentUserId(current_user_id)
+            setCurrentUser(current_user)
+            // setFetchWithCSRF(csrf_token)
+            setLoading(false)
+        })()
+
+    }, [])
+    // --------------
+
+    // const updateCurrentSong = (id) => {
+    //     console.log(id);
+    //     console.log(typeof (id))
+    //     let newId = parseInt(id) + 1
+    //     setNextId(newId)
+    //     console.log(nextId);
+    //     setCurrentSong(chartList[id])
+    //     setNext(chartList[newId])
+    //     console.log(next);
+    // }
 
     return (
+        <AuthContext.Provider value={authContextValue}>
+            <PlayerContext.Provider value={playerContextValue}>
+                {/* {loading && <h1>Loading</h1>} */}
+                {loading && <h1>...LOADING...</h1>}
+                {!loading &&
+                    <BrowserRouter>
+                        <Navbar />
+                        <Switch>
+                            <AuthRoute exact path="/login" component={LoginForm} currentUserId={currentUserId} />
+                            <Route path="/signup" component={SignUp} />
+                            <Route path="/artists" component={ArtistPage} />
+                            {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
+                            <Route path="/splash" component={Splash} />
+                            <Route path="/users">
+                                <UserList />
+                            </Route>
 
-        <PlayerContext.Provider value={playerContextValue}>
-            {/* {loading && <h1>Loading</h1>} */}
-            {/* {loading && <h1>...LOADING...</h1>}
-            {!loading && */}
-            <BrowserRouter>
-                <Navbar />
-                <Switch>
-                    <Route path="/login" component={LoginForm} />
-                    <Route path="/signup" component={SignUp} />
-                    <Route path="/artists" component={ArtistPage} />
-                    {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
-                    <Route path="/splash" component={Splash} />
-                    <Route path="/users">
-                        <UserList />
-                    </Route>
-
-                    <Route path="/">
-                        {/* <Splash /> */}
-                        <div style={{
-                            display: "flex", flexFlow: `wrap`,
-                            justifyContent: `space-around`
-                        }}>
-                            {chartList.map((item, i) =>
-                                <div key={i} id={i} style={{
-                                    borderRadius: `50px`,
-                                    // boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,
-                                    // background: `#46fd7f`,
-                                    // padding: `1em`,
-                                    // paddingTop: `.5em`,
-                                    // margin: `1.5em 1em`,
-                                    margin: `1em .5em`,
-                                    // width: `250px`,
-                                    width: `225px`,
-                                    alignSelf: `center`,
-                                    boxShadow: `-20px 20px 60px #489dcf, 20px -20px 60px #62d5ff`,
-                                    // padding: `1em`,
-                                    padding: `.5em`,
-                                    border: `solid 10px #3da5e340`,
-                                    // border: `solid 7px #3da5e340`,
-                                    boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgb(96 125 139 / 51%) 0px 3px 5px 6px`,
-                                    // padding: 1em;
-                                    border: `9px solid rgb(56 118 154 / 11%)`
-                                }}>
-                                    <div className="chartItem" style={{
-                                        overflow: `hidden`,
-                                        // margin: `1em`,
-                                        display: `flex`,
-                                        // height: `100px`,
-                                        height: `60px`,
-                                        borderRadius: `50px`,
-                                        // width: `fit-content`,
-                                        border: `solid springgreen 5px`,
-                                        // marginBottom: `10px`,
-                                        cursor: `pointer`,
+                            <ProtectedRoute path="/" exact component={ChartList} currentUserId={currentUserId} />
 
 
-                                    }}><img src={item.cover} id={i}
-                                        style={{
-                                            // height: `fit-content`,
-                                            alignSelf: `center`,
-                                            width: `100%`
-                                        }}
-                                        onClick={e => updateCurrentSong(e.target.id)}
-                                        />
-                                    </div>
-                                    <p
-                                        style={{
-                                            textAlign: `center`,
-                                            textTransform: `uppercase`,
-                                            fontWeight: `900`,
-                                            color: `white`,
-                                            marginBottom: `0`,
-                                            // marginTop: `-27px`,
-                                            marginTop: `3px`,
-                                            textShadow: `1px 1px 1px #f91a93`,
-                                            textTransform: `lowercase`,
-                                            WebkitTextStrokeWidth: `thin`
-                                        }}
-                                    >{item.artist} : {item.title}</p>
-
-                                </div>
-
-                            )}
-                        </div>
-
-                        {/* ----------------- */}
-                        {/* playlist of entire objs and pass in url with name
+                            {/* ----------------- */}
+                            {/* playlist of entire objs and pass in url with name
                     next song use --> array = array.concat(array.splice(0, 1)); */}
-                        {/* <ReactPlayer
+                            {/* <ReactPlayer
                         url={[
                             'https://www.youtube.com/watch?v=oUFJJNQGwhk',
                             'https://www.youtube.com/watch?v=jNgP6d9HraI'
                         ]}
                     />  */}
 
-                    </Route>
-                </Switch>
-            </BrowserRouter >
-            {/* } */}
-            {/* <Player currentSong={currentSong} /> */}
-            <Player />
 
-        </PlayerContext.Provider>
+                        </Switch>
+                    </BrowserRouter >
+                }
+                {/* <Player currentSong={currentSong} /> */}
+                {currentUserId ?
+                    <Player /> : null
+                }
+            </PlayerContext.Provider>
+        </AuthContext.Provider>
     );
 }
 
