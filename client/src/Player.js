@@ -31,10 +31,14 @@ const Player = () => {
     console.log(likes);
     // const [next, setNext] = useState(chartList[chartList.indexOf(currentSong) + 1])
     const updateNext = () => {
-        setCurrentSong(next)
-        setNext(chartList[nextId + 1])
-        let newId = nextId + 1
-        setNextId(newId)
+        // add logic to loop back to 0 index in chartlist or just stop
+        if (next) {
+            setCurrentSong(next)
+            setNext(chartList[nextId + 1])
+            let newId = nextId + 1
+            setNextId(newId)
+        }
+        return null
 
 
         // let newSong = chartList.indexOf(currentSong) + 1;
@@ -194,6 +198,7 @@ const Player = () => {
                 controls={false}
                 // light={true}
                 playing={play}
+                onEnded={() => updateNext()}
             />
             {console.log(`playing now: ${play}`)}
         </>
