@@ -85,8 +85,6 @@ body:before {
     border-radius: 50px;
     /* background: linear-gradient(145deg, #e4e8ea, #f4f6f7); */
     /* box-shadow: 13px 20px 10px #489dcf, -6px -7px 16px #62d5ff; */
-    background: linear-gradient(145deg, #55b9f2, #55b9f2);
-    box-shadow: 1px -15px 2px 1px #489dcf, -6px -7px 0px 0px #62d5ff;
     padding: 2px;
     left: -16px;
     bottom: -23px;
@@ -98,7 +96,7 @@ body:before {
     left: -24px;
     bottom: -20px;
     margin: 16px;
-    border: solid 4px #7c78781c;
+    border: solid 2px #7c78781c;
     justify-content: space-around;
 }
 
