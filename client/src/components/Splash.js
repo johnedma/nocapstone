@@ -3,8 +3,8 @@ import splashbg from "../fonts/nuwave.jpg"
 
 const Splash = () => {
     return (
-        <div >
-            {/* <img src={`${splashbg}`} /> */}
+        <div className="splash" >
+            <img src={splashbg} />
         </div>
     );
 };

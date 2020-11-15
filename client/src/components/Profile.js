@@ -1,11 +1,11 @@
 import React from 'react';
 
-const OTW = () => {
+const Profile = () => {
     return (
         <div>
-
+            <h1>Fave Waves</h1>
         </div>
     );
 };
 
-export default OTW;
+export default Profile;
