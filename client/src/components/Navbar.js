@@ -24,11 +24,25 @@ const Navbar = () => {
                 <h1 >Nu WAVE ORDER</h1>
             </NavLink>
             <div className="nav-end">
-
+                <NewsBtn
+                    style={{
+                        cursor: `pointer`,
+                        width: `40px`,
+                        height: `40px`
+                    }}
+                />
+                <FavesBtn
+                    style={{
+                        cursor: `pointer`,
+                        width: `40px`,
+                        height: `40px`
+                    }}
+                />
                 <LogOutBtn onClick={() => logoutUser()}
                     style={{
                         cursor: `pointer`,
-                        width: `40px`
+                        width: `40px`,
+                        height: `40px`
                     }}
                 />
                 {/* <button onClick={() => logoutUser()}>
