@@ -21,9 +21,9 @@ const FaveWaves = () => {
             display: "flex",
             flexFlow: `column`,
             textAlign: `-webkit-center`
-        }}>{!likes && <h1>Yo, go like something!</h1>}
+        }}>{likes.length === 0 && <h1>Yo, go like something!</h1>}
             {likes.map((item, i) =>
-                <div>
+                <div key={i} id={i}>
                     <div key={i} id={i} style={{
                         borderRadius: `50px`,
                         // boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,

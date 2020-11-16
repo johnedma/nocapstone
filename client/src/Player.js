@@ -30,7 +30,8 @@ const Player = () => {
         console.log(currentSong.title);
         // console.log(likes.includes(currentSong.artist));
         // index === -1 ? setLikes([...likes, currentSong]) : setLikes(likes.splice(index, 1))
-        likes.some(like => like.title === currentSong.title) ? setLikes(likes.splice(index, 1)) : setLikes([...likes, currentSong])
+        index === 0 ? setLikes([]) :
+            likes.some(like => like.title === currentSong.title) ? setLikes(likes.splice(index, 1)) : setLikes([...likes, currentSong])
         // setLikes(likes.splice(index, 1)) }
         // else setLikes(likes.push(currentSong))
 
