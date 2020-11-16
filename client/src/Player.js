@@ -23,14 +23,14 @@ const Player = () => {
 
     // const [likes, setLikes] = useState([])
     const updateLikes = () => {
-        const index = likes.indexOf(currentSong.artist)
+        const index = likes.indexOf(currentSong)
         console.log(index);
         // console.log(typeof (id))
         console.log(likes)
-        console.log(currentSong.artist);
-        console.log(likes.includes(currentSong.artist));
-        index === -1 ? setLikes([...likes, currentSong]) : setLikes(likes.splice(index, 1))
-
+        console.log(currentSong.title);
+        // console.log(likes.includes(currentSong.artist));
+        // index === -1 ? setLikes([...likes, currentSong]) : setLikes(likes.splice(index, 1))
+        likes.some(like => like.title === currentSong.title) ? setLikes(likes.splice(index, 1)) : setLikes([...likes, currentSong])
         // setLikes(likes.splice(index, 1)) }
         // else setLikes(likes.push(currentSong))
 

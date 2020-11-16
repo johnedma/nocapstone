@@ -8,7 +8,7 @@ function LoginForm(props) {
     let history = useHistory();
 
     const [errors, setErrors] = useState([]);
-    const { fetchWithCSRF, setCurrentUserId } = useContext(AuthContext);
+    const { fetchWithCSRF, setCurrentUserId, setCurrentUser } = useContext(AuthContext);
     const submitForm = (e) => {
         e.preventDefault();
 
@@ -30,6 +30,7 @@ function LoginForm(props) {
                 setErrors(responseData.errors);
             } else {
                 setCurrentUserId(responseData.current_user_id)
+                setCurrentUser(responseData.current_user)
                 // history.push('/users')
                 history.push('/')
             }
