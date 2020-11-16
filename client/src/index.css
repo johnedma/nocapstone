@@ -157,3 +157,14 @@ body:before {
  /* 20px 20px 60px #46fd7f, -20px -20px 60px #46fd7f; */
 
 }
+
+/* .playerbtns{
+    -webkit-transition: 1s;
+            transition: 1s;
+    box-shadow: inset rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px;
+} */
+/* .playerbtns:active  {
+    box-shadow: inset rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px;
+    -webkit-transition: 1s;
+    transition: 1s;
+} */

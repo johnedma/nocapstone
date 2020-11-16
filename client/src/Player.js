@@ -123,7 +123,7 @@ const Player = () => {
                     <button style={{ background: `none`, border: `none` }}
                     // onClick={() => updateNext()}
                     >
-                        <i className="far fa-caret-square-left"
+                        <i className="far fa-caret-square-left playerbtns"
                             style={{
                                 fontSize: `2em`,
                                 color: `deeppink`,
@@ -139,7 +139,7 @@ const Player = () => {
                         <button style={{ background: `none`, border: `none` }}
                             onClick={() => updatePlay()}>
                             {/* <i className={(play === false) ? "far fa-play-circle" : "far fa-pause-circle"} */}
-                            <i className="far fa-play-circle"
+                            <i className="far fa-play-circle playerbtns"
                                 style={{
                                     fontSize: `2em`,
                                     color: `deeppink`,
@@ -171,7 +171,7 @@ const Player = () => {
                         // onClick={() => setCurrentSong(chartList[chartList.indexOf(currentSong) + 1])}
                         onClick={() => updateNext()}
                     >
-                        <i className="far fa-caret-square-right"
+                        <i className="far fa-caret-square-right playerbtns"
                             style={{
                                 fontSize: `2em`,
                                 color: `deeppink`,
@@ -189,10 +189,7 @@ const Player = () => {
                     >{currentSong.artist} - {currentSong.title}</p>
                 </div>
                 {/* <p>{currentSong.title}</p> */}
-                <a href="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
-                    <h1>NWO</h1>
-                </a>
-                {likes.includes(currentSong) === true ?
+                {/* {likes.includes(currentSong) === true ?
                     <button
                         onClick={() => updateLikes()}
                         style={{
@@ -204,28 +201,31 @@ const Player = () => {
                             width: `auto`
                         }} />
                     </button>
-                    :
-                    <button
-                        onClick={() => updateLikes()}
-                        style={{
-                            border: `none`,
-                            background: `none`
-                        }}>
-                        <FaveBtn style={{
-                            height: `-webkit-fill-available`,
-                            width: `auto`,
+                    : */}
+                <button
+                    onClick={() => updateLikes()}
+                    style={{
+                        border: `none`,
+                        background: `none`
+                    }}>
+                    <FaveBtn style={{
+                        height: `-webkit-fill-available`,
+                        width: `auto`,
 
-                            fontSize: `2em`,
-                            cursor: `pointer`,
-                            borderRadius: `1em`,
-                            padding: `5px`,
-                            overflow: `visible`,
-                            fill: `deeppink`,
-                            boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
+                        fontSize: `2em`,
+                        cursor: `pointer`,
+                        borderRadius: `1em`,
+                        padding: `5px`,
+                        overflow: `visible`,
+                        fill: `deeppink`,
+                        boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
 
-                        }} />
-                    </button>
-                }
+                    }} />
+                </button>
+                {/* } */}
+                <a href="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
+                    <h1>NWO</h1>
+                </a>
             </div>
             <ReactPlayer style={{ display: `none` }}
                 // url={currentSong ? currentSong.url : "https://www.youtube.com/watch?v=B2J3kLJ8PQk"}
