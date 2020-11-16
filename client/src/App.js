@@ -82,31 +82,19 @@ function App() {
         })()
 
     }, [])
-    // --------------
 
-    // const updateCurrentSong = (id) => {
-    //     console.log(id);
-    //     console.log(typeof (id))
-    //     let newId = parseInt(id) + 1
-    //     setNextId(newId)
-    //     console.log(nextId);
-    //     setCurrentSong(chartList[id])
-    //     setNext(chartList[newId])
-    //     console.log(next);
-    // }
 
     return (
         <AuthContext.Provider value={authContextValue}>
             <PlayerContext.Provider value={playerContextValue}>
-                {/* {loading && <h1>Loading</h1>} */}
                 {loading && <h1>...LOADING...</h1>}
                 {!loading &&
                     <BrowserRouter>
                         {currentUserId && <Navbar />}
                         <Switch>
-                            {/* <AuthRoute exact path="/login" component={LoginForm} currentUserId={currentUserId} /> */}
-                            <AuthRoute path="/splash" component={Splash} currentUserId={currentUserId} exact />
-                            {/* <Route path="/signup" component={SignUp} /> */}
+                            <AuthRoute exact path="/login" component={Splash} currentUserId={currentUserId} />
+                            <AuthRoute exact path="/splash" component={Splash} currentUserId={currentUserId} />
+                            <AuthRoute exact path="/signup" component={Splash} currentUserId={currentUserId} />
                             <Route path="/artists" component={ArtistPage} />
                             {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
                             {/* <Route path="/users">
