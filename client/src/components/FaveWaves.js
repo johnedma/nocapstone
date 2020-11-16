@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import PlayerContext from '../PlayerContext'
 
 const FaveWaves = () => {
-    const { nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
+    const { likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
 
     const updateCurrentSong = (id) => {
         console.log(id);
@@ -10,18 +10,19 @@ const FaveWaves = () => {
         let newId = parseInt(id) + 1
         setNextId(newId)
         console.log(nextId);
-        setCurrentSong(chartList[id])
-        setNext(chartList[newId])
+        setCurrentSong(likes[id])
+        setNext(likes[newId])
         console.log(next);
 
     }
 
     return (
         <div style={{
-            display: "flex", flexFlow: `wrap`,
-            justifyContent: `space-around`
-        }}>
-            {chartList.map((item, i) =>
+            display: "flex",
+            flexFlow: `column`,
+            textAlign: `-webkit-center`
+        }}>{!likes && <h1>Yo, go like something!</h1>}
+            {likes.map((item, i) =>
                 <div>
                     <div key={i} id={i} style={{
                         borderRadius: `50px`,
@@ -81,7 +82,9 @@ const FaveWaves = () => {
                         >{item.artist} : {item.title}</p>
 
                     </div>
-                    <h1>MORE WAVES FROM {item.artist}</h1>
+                    <div>
+                        <h1>MORE WAVES FROM {item.artist}</h1>
+                    </div>
                 </div>
             )}
         </div>

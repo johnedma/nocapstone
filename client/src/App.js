@@ -13,6 +13,7 @@ import PlayerContext from './PlayerContext';
 import AuthContext from './auth'
 import { AuthRoute, ProtectedRoute } from './components/Routes';
 import ChartList from './components/ChartList';
+import FaveWaves from './components/FaveWaves';
 
 
 
@@ -101,6 +102,7 @@ function App() {
                                 <UserList />
                             </Route> */}
 
+                            <ProtectedRoute path="/favewaves" exact component={FaveWaves} currentUserId={currentUserId} />
                             <ProtectedRoute path="/" exact component={ChartList} currentUserId={currentUserId} />
 
 
