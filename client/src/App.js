@@ -76,7 +76,7 @@ function App() {
             const { current_user_id, current_user } = data
             setCurrentUserId(current_user_id)
             setCurrentUser(current_user)
-            setLikes(current_user.likes)
+            setLikes(current_user ? current_user.likes : [])
             // setFetchWithCSRF(csrf_token)
             setLoading(false)
         })()
