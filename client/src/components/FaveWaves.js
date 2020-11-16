@@ -10,7 +10,8 @@ const FaveWaves = () => {
         let newId = parseInt(id) + 1
         setNextId(newId)
         console.log(nextId);
-        setCurrentSong(likes[id])
+        likes.length === 0 ? setCurrentSong(chartList[0]) :
+            setCurrentSong(likes[id])
         setNext(likes[newId])
         console.log(next);
 
