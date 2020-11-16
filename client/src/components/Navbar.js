@@ -28,21 +28,36 @@ const Navbar = () => {
                     style={{
                         cursor: `pointer`,
                         width: `40px`,
-                        height: `40px`
+                        height: `40px`,
+                        alignSelf: `center`,
+                        boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                        border: `9px solid rgba(56, 118, 154, 0.11)`,
+                        borderRadius: `1em`,
+                        margin: `0px 5px`
                     }}
                 />
                 <FavesBtn
                     style={{
                         cursor: `pointer`,
                         width: `40px`,
-                        height: `40px`
+                        height: `40px`,
+                        alignSelf: `center`,
+                        boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                        border: `9px solid rgba(56, 118, 154, 0.11)`,
+                        borderRadius: `1em`,
+                        margin: `0px 5px`
                     }}
                 />
                 <LogOutBtn onClick={() => logoutUser()}
                     style={{
                         cursor: `pointer`,
                         width: `40px`,
-                        height: `40px`
+                        height: `40px`,
+                        alignSelf: `center`,
+                        boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                        border: `9px solid rgba(56, 118, 154, 0.11)`,
+                        borderRadius: `1em`,
+                        margin: `0px 5px`
                     }}
                 />
                 {/* <button onClick={() => logoutUser()}>
