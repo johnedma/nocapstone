@@ -209,11 +209,20 @@ const Player = () => {
                         onClick={() => updateLikes()}
                         style={{
                             border: `none`,
-                            backgroundColor: `white`
+                            background: `none`
                         }}>
                         <FaveBtn style={{
                             height: `-webkit-fill-available`,
-                            width: `auto`
+                            width: `auto`,
+
+                            fontSize: `2em`,
+                            cursor: `pointer`,
+                            borderRadius: `1em`,
+                            padding: `5px`,
+                            overflow: `visible`,
+                            fill: `deeppink`,
+                            boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
+
                         }} />
                     </button>
                 }

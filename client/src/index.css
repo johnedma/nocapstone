@@ -32,6 +32,37 @@
         display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 40px;
+    /* width: 100%; */
+    /* background: #fff; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* border-radius: 50px; */
+    /* background: linear-gradient(145deg, #e4e8ea, #f4f6f7); */
+    /* box-shadow: 13px 20px 10px #489dcf, -6px -7px 16px #62d5ff; */
+    /* padding: 2px; */
+    /* left: -16px; */
+    /* bottom: -23px; */
+    /* margin: 16px; */
+    /* border-bottom-left-radius: 0; */
+    /* border-bottom-right-radius: 0; */
+    padding: 2em;
+    /* left: -26px; */
+    /* bottom: -20px; */
+    /* margin: 16px; */
+    /* border: solid 8px #7c78781c; */
+    /* justify-content: space-around; */
+    background: linear-gradient(145deg, #55b9f2, #55b9f2);
+    /* box-shadow: 0px -20px 3px #489dcf, -1px 0px 2px 10px #62d5ff; */
+    border-radius: 50px;
+    margin: 1em 0.5em;
+    /* width: 225px; */
+    align-self: center;
+    box-shadow: rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 3px 7px;
+    /* padding: 0.5em; */
+    border: 9px solid rgba(56, 118, 154, 0.11);
+
     }
 
     body{
@@ -122,5 +153,7 @@ body:before {
 } */
 
 .chartItem:hover{
-    box-shadow: 20px 20px 60px #46fd7f, -20px -20px 60px #46fd7f;
+    box-shadow: 0px 20px 60px #46fd7f, 0px 2px 60px #46fd7f;
+ /* 20px 20px 60px #46fd7f, -20px -20px 60px #46fd7f; */
+
 }
