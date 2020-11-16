@@ -189,40 +189,47 @@ const Player = () => {
                     >{currentSong.artist} - {currentSong.title}</p>
                 </div>
                 {/* <p>{currentSong.title}</p> */}
-                {/* {likes.includes(currentSong) === true ?
+                {likes.some(like => like.title === currentSong.title) ?
                     <button
                         onClick={() => updateLikes()}
                         style={{
                             border: `none`,
-                            backgroundColor: `springgreen`
+                            background: `none`
                         }}>
                         <FaveBtn style={{
                             height: `-webkit-fill-available`,
-                            width: `auto`
+                            width: `33px`,
+                            backgroundColor: `springgreen`,
+                            fontSize: `2em`,
+                            cursor: `pointer`,
+                            borderRadius: `1em`,
+                            padding: `5px`,
+                            overflow: `visible`,
+                            fill: `deeppink`,
+                            boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
                         }} />
                     </button>
-                    : */}
-                <button
-                    onClick={() => updateLikes()}
-                    style={{
-                        border: `none`,
-                        background: `none`
-                    }}>
-                    <FaveBtn style={{
-                        height: `-webkit-fill-available`,
-                        width: `auto`,
+                    :
+                    <button
+                        onClick={() => updateLikes()}
+                        style={{
+                            border: `none`,
+                            background: `none`
+                        }}>
+                        <FaveBtn style={{
+                            height: `-webkit-fill-available`,
+                            width: `33px`,
+                            fontSize: `2em`,
+                            cursor: `pointer`,
+                            borderRadius: `1em`,
+                            padding: `5px`,
+                            overflow: `visible`,
+                            fill: `deeppink`,
+                            boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
 
-                        fontSize: `2em`,
-                        cursor: `pointer`,
-                        borderRadius: `1em`,
-                        padding: `5px`,
-                        overflow: `visible`,
-                        fill: `deeppink`,
-                        boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
-
-                    }} />
-                </button>
-                {/* } */}
+                        }} />
+                    </button>
+                }
                 <a href="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
                     <h1>NWO</h1>
                 </a>
