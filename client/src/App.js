@@ -102,10 +102,10 @@ function App() {
                 {loading && <h1>...LOADING...</h1>}
                 {!loading &&
                     <BrowserRouter>
-                        <Navbar />
+                        {currentUserId && <Navbar />}
                         <Switch>
-                            <AuthRoute exact path="/login" component={LoginForm} currentUserId={currentUserId} />
-                            <Route path="/splash" component={Splash} />
+                            {/* <AuthRoute exact path="/login" component={LoginForm} currentUserId={currentUserId} /> */}
+                            <AuthRoute path="/splash" component={Splash} currentUserId={currentUserId} exact />
                             {/* <Route path="/signup" component={SignUp} /> */}
                             <Route path="/artists" component={ArtistPage} />
                             {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
