@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import AuthContext from '../auth';
+import { ReactComponent as NewsBtn } from '../assets/imgs/surf.svg';
+import { ReactComponent as FavesBtn } from '../assets/imgs/surf-board.svg';
+import { ReactComponent as LogOutBtn } from '../assets/imgs/peaceout.svg';
 
 
 const Navbar = () => {
@@ -20,8 +23,20 @@ const Navbar = () => {
             <NavLink to="/" style={{ textDecoration: `none` }}>
                 <h1 >Nu WAVE ORDER</h1>
             </NavLink>
-            <button onClick={() => logoutUser()}>LOGOUT</button>
-            <li style={{ listStyle: `none` }}><NavLink to="/users">Users</NavLink></li>
+            <div className="nav-end">
+
+                <LogOutBtn onClick={() => logoutUser()}
+                    style={{
+                        cursor: `pointer`,
+                        width: `40px`
+                    }}
+                />
+                {/* <button onClick={() => logoutUser()}>
+                </button> */}
+                {/* </LogOutBtn> */}
+
+            </div>
+            {/* <li style={{ listStyle: `none` }}><NavLink to="/users">Users</NavLink></li> */}
         </nav>
     );
 };
