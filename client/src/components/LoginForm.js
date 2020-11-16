@@ -38,21 +38,22 @@ function LoginForm(props) {
         loginUser();
     }
     return (
-        <form onSubmit={submitForm}>
-            {errors.length ? errors.map((err) => <li key={err} >{err}</li>) : ''}
-            <div className="field">
-                <label>Username: </label>
-                <div className="control">
-                    <input className="input" type="text" value={username} onChange={(e) => setUsername(e.target.value)} name="username" />
+        <div className="splash">
+            <form onSubmit={submitForm}>
+                {errors.length ? errors.map((err) => <li key={err} >{err}</li>) : ''}
+                <div className="field">
+                    <label>Username: </label>
+                    <div className="control">
+                        <input className="input" type="text" value={username} onChange={(e) => setUsername(e.target.value)} name="username" />
+                    </div>
+                    <label>Password: </label>
+                    <div className="control">
+                        <input className="input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" />
+                    </div>
                 </div>
-                <label>Password: </label>
-                <div className="control">
-                    <input className="input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" />
-                </div>
-            </div>
-            <button>Login</button>
-            Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-        </form>
+                <button>Login</button>
+            </form>
+        </div>
     );
 }
 export default LoginForm;

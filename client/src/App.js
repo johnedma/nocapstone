@@ -19,6 +19,10 @@ import FaveWaves from './components/FaveWaves';
 
 function App() {
     const chartList = [
+        { title: "What That Speed Bout?!", artist: "Nicki Minaj & NBA YoungBoy", url: "https://www.youtube.com/watch?v=BmzFSKGwx54", cover: "http://img.youtube.com/vi/BmzFSKGwx54/0.jpg" },
+        { title: " Life Is Good", artist: "Future x Drake", url: "https://www.youtube.com/watch?v=l0U7SxXHkPY", cover: "http://img.youtube.com/vi/l0U7SxXHkPY/0.jpg" },
+        { title: " Wishing Well", artist: "Juice WRLD", url: "https://www.youtube.com/watch?v=C5i-UnuUKUI", cover: "http://img.youtube.com/vi/C5i-UnuUKUI/0.jpg" },
+        { title: "Hit Different", artist: "SZA ft TY Dolla $ign", url: "https://www.youtube.com/watch?v=qJlMkMtK7-8", cover: "http://img.youtube.com/vi/qJlMkMtK7-8/0.jpg" },
         { title: "positions", artist: "Ariana Grande", url: "https://www.youtube.com/watch?v=tcYodQoapMg", cover: "http://img.youtube.com/vi/tcYodQoapMg/0.jpg" },
         { title: "Forever After All", artist: "Luke Combs", url: "https://www.youtube.com/watch?v=fmbLCMGtEQc", cover: "http://img.youtube.com/vi/fmbLCMGtEQc/0.jpg" },
         { title: "Golden", artist: "Harry Styles", url: "https://www.youtube.com/watch?v=P3cffdsEXXw", cover: "http://img.youtube.com/vi/P3cffdsEXXw/0.jpg" },
@@ -88,7 +92,7 @@ function App() {
     return (
         <AuthContext.Provider value={authContextValue}>
             <PlayerContext.Provider value={playerContextValue}>
-                {loading && <h1>...LOADING...</h1>}
+                {/* {loading && <h1>...LOADING...</h1>} */}
                 {!loading &&
                     <BrowserRouter>
                         {currentUserId && <Navbar />}
@@ -96,7 +100,7 @@ function App() {
                             <AuthRoute exact path="/login" component={Splash} currentUserId={currentUserId} />
                             <AuthRoute exact path="/splash" component={Splash} currentUserId={currentUserId} />
                             <AuthRoute exact path="/signup" component={Splash} currentUserId={currentUserId} />
-                            <Route path="/artists" component={ArtistPage} />
+                            <ProtectedRoute path="/artists" component={ArtistPage} />
                             {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
                             {/* <Route path="/users">
                                 <UserList />

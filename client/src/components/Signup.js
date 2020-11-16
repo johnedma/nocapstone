@@ -44,7 +44,7 @@ const SignUp = props => {
     }
 
     return (
-        <div className="authContain">
+        <div className="splash">
             <div className="authForm">
                 <div className="authFormDiv">
                     <h1 style={{

@@ -6,7 +6,7 @@ import SignUp from './SignUp';
 
 const Splash = () => {
     return (
-        <div className="splash" >
+        <div >
             {/* <img src={splashbg}
                 style={
                     {
@@ -19,10 +19,10 @@ const Splash = () => {
                 <h1 style={{ color: `white` }}>Nu Waves.. Don't Miss The Wave</h1>
             </div>
             <LoginForm style={{
-                background: `springgreen`,
-                padding: `2em`,
-                border: `solid deeppink 1px`,
-                borderRadius: `2em`
+                // background: `springgreen`,
+                // padding: `2em`,
+                // border: `solid deeppink 1px`,
+                // borderRadius: `2em`
             }} />
             <SignUp />
         </div>

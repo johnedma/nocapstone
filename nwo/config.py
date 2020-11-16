@@ -9,3 +9,4 @@ class Config:
     WTF_CSRF_TIME_LIMIT = None
     # Update this to true once login is complete!
     # SECURITY_CSRF_IGNORE_UNAUTH_ENDPOINTS = True
+    YT_KEY = os.environ.get("YT_KEY")
