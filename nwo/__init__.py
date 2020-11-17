@@ -12,6 +12,8 @@ from flask_login import (
 
 from nwo.models import db, User
 from nwo.api.user_routes import user_routes
+from nwo.api.more_waves import more_waves
+
 # from nwo.api.auth_routes import auth_routes
 
 from nwo.config import Config
@@ -19,6 +21,7 @@ from nwo.config import Config
 app = Flask(__name__)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
+app.register_blueprint(more_waves, url_prefix='/api/morewaves')
 db.init_app(app)
 login_manager = LoginManager(app)
 
