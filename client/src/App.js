@@ -14,6 +14,7 @@ import AuthContext from './auth'
 import { AuthRoute, ProtectedRoute } from './components/Routes';
 import ChartList from './components/ChartList';
 import FaveWaves from './components/FaveWaves';
+import NotFound from './components/NotFound';
 
 
 

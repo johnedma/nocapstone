@@ -44,13 +44,25 @@ def index():
     # developerKey="AIzaSyClJlh_AdNfQE13lovjG9jENp2mihtQOqY")
     #  credentials=credentials)
 
-    request = youtube.channels().list(
-        part="snippet,contentDetails,statistics",
-        id="UC_x5XG1OV2P6uZZ5FSM9Ttw",
-        # maxResults=10,
-        # type='video',   q="Ariana Grande"
+    request = youtube.search().list(
+        part="snippet",
+        type="video",
+        maxResults=25,
+        order="viewCount",
+        q="Ariana Grande"
+
     )
     response = request.execute()
+    # nuwaves = {
+
+    # }
+    # request = youtube.channels().list(
+    #     part="snippet,contentDetails,statistics",
+    #     id="UC_x5XG1OV2P6uZZ5FSM9Ttw",
+    #     # maxResults=10,
+    #     # type='video',   q="Ariana Grande"
+    # )
+    # response = request.execute()
 
     # print(api_key)
     return(response)
