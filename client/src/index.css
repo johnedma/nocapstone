@@ -29,6 +29,10 @@
     text-shadow: 2px 4px 6px #000;
     }
 
+    .not-found{
+        text-align: center;
+    }
+
     nav {
         display: flex;
     align-items: center;

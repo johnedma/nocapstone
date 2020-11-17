@@ -88,7 +88,6 @@ function App() {
 
     }, [])
 
-
     return (
         <AuthContext.Provider value={authContextValue}>
             <PlayerContext.Provider value={playerContextValue}>
@@ -100,7 +99,7 @@ function App() {
                             <AuthRoute exact path="/login" component={Splash} currentUserId={currentUserId} />
                             <AuthRoute exact path="/splash" component={Splash} currentUserId={currentUserId} />
                             <AuthRoute exact path="/signup" component={Splash} currentUserId={currentUserId} />
-                            <ProtectedRoute path="/artists" component={ArtistPage} />
+                            <Route path="/artists" component={ArtistPage} />
                             {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
                             {/* <Route path="/users">
                                 <UserList />
@@ -108,7 +107,7 @@ function App() {
 
                             <ProtectedRoute path="/favewaves" exact component={FaveWaves} currentUserId={currentUserId} />
                             <ProtectedRoute path="/" exact component={ChartList} currentUserId={currentUserId} />
-
+                            <Route component={NotFound} />
 
                             {/* ----------------- */}
                             {/* playlist of entire objs and pass in url with name
