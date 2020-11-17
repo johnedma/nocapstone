@@ -4,11 +4,12 @@ from newsapi import NewsApiClient
 newsapi = NewsApiClient(api_key='19f89cb90c154263bb7c99bded368e56')
 
 # /v2/top-headlines
-# top_headlines = newsapi.get_top_headlines(q='bitcoin',
-#                                           sources='bbc-news,the-verge',
-#                                           category='business',
-#                                           language='en',
-#                                           country='us')
+top_headlines = newsapi.get_top_headlines(q='music',
+                                          #   sources='bbc-news,the-verge',
+                                          #   category='business',
+                                          category='entertainment',
+                                          language='en',
+                                          country='us')
 
 # /v2/everything
 all_articles = newsapi.get_everything(q='bitcoin',
@@ -22,6 +23,7 @@ all_articles = newsapi.get_everything(q='bitcoin',
                                       sort_by='popularity',
                                       page=2)
 print(all_articles)
+print(top_headlines)
 
 # /v2/sources
 # sources = newsapi.get_sources()

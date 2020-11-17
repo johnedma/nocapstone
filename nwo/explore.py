@@ -4,13 +4,14 @@
 # See instructions for running these code samples locally:
 # https://developers.google.com/explorer-help/guides/code_samples#python
 
+import googleapiclient.errors
+from googleapiclient.discovery import build
 import os
-# import Config
+# from .config import Config
+YT_KEY = os.environ.get("YT_KEY")
 
 # import google_auth_oauthlib.flow
 # import googleapiclient.discovery
-from googleapiclient.discovery import build
-import googleapiclient.errors
 
 scopes = ["https://www.googleapis.com/auth/youtube.readonly"]
 
@@ -29,16 +30,16 @@ def main():
     #     client_secrets_file, scopes)
     # credentials = flow.run_console()
     # credentials = (Config.YT_KEY, scopes)
-    # api_key = Config.YT_KEY
-    youtube = build("youtube", "v3",
-                    developerKey="AIzaSyClJlh_AdNfQE13lovjG9jENp2mihtQOqY")
+    api_key = YT_KEY
+    youtube = build("youtube", "v3", developerKey=api_key)
+    # developerKey="AIzaSyClJlh_AdNfQE13lovjG9jENp2mihtQOqY")
     #  credentials=credentials)
 
     request = youtube.channels().list(
         part="snippet,contentDetails,statistics",
         id="UC_x5XG1OV2P6uZZ5FSM9Ttw",
-        maxResults=10,
-        type='video',   q="Ariana Grande"
+        # maxResults=10,
+        # type='video',   q="Ariana Grande"
     )
     response = request.execute()
 
