@@ -30,80 +30,76 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
 
 
     return (
-        <div>
-            <div className="nuWaves" style={{
-                display: `flex`,
-                flexFlow: `wrap`,
-                justifyContent: `space-around`,
-                /* padding: 1em; */
-                margin: `2em 0`
-            }}>
-                {nuWaves.map((item, i) =>
-                    <div key={i} id={i} >
-                        <div key={i} id={i} style={{
+        // <div>
+        <div className="nuWaves" style={{
+            display: `flex`,
+            flexFlow: `wrap`,
+            justifyContent: `space-around`,
+            /* padding: 1em; */
+            margin: `2em 0`,
+            borderRadius: `50px`,
+            background: `#55b9f3`,
+            boxShadow: `inset 20px 20px 60px #489dcf, inset -20px -20px 60px #62d5ff`
+
+        }}>
+            {nuWaves.map((item, i) =>
+                <div key={i} id={i} >
+                    <div key={i} id={i} style={{
+                        borderRadius: `50px`,
+
+                        margin: `2em .5em`,
+                        width: `225px`,
+                        alignSelf: `center`,
+                        boxShadow: `-20px 20px 60px #489dcf, 20px -20px 60px #62d5ff`,
+                        padding: `.5em`,
+                        border: `solid 10px #3da5e340`,
+                        boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgb(96 125 139 / 51%) 0px 3px 5px 6px`,
+                        border: `9px solid rgb(56 118 154 / 11%)`
+                    }}>
+                        <div className="chartItem" style={{
+                            overflow: `hidden`,
+                            // margin: `1em`,
+                            display: `flex`,
+                            // height: `100px`,
+                            height: `60px`,
                             borderRadius: `50px`,
-                            // boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,
-                            // background: `#46fd7f`,
-                            // padding: `1em`,
-                            // paddingTop: `.5em`,
-                            // margin: `1.5em 1em`,
-                            margin: `1em .5em`,
-                            // width: `250px`,
-                            width: `225px`,
-                            alignSelf: `center`,
-                            boxShadow: `-20px 20px 60px #489dcf, 20px -20px 60px #62d5ff`,
-                            // padding: `1em`,
-                            padding: `.5em`,
-                            border: `solid 10px #3da5e340`,
-                            // border: `solid 7px #3da5e340`,
-                            boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgb(96 125 139 / 51%) 0px 3px 5px 6px`,
-                            // padding: 1em;
-                            border: `9px solid rgb(56 118 154 / 11%)`
-                        }}>
-                            <div className="chartItem" style={{
-                                overflow: `hidden`,
-                                // margin: `1em`,
-                                display: `flex`,
-                                // height: `100px`,
-                                height: `60px`,
-                                borderRadius: `50px`,
-                                // width: `fit-content`,
-                                border: `solid springgreen 5px`,
-                                // marginBottom: `10px`,
-                                cursor: `pointer`,
+                            // width: `fit-content`,
+                            border: `solid springgreen 5px`,
+                            // marginBottom: `10px`,
+                            cursor: `pointer`,
 
 
-                            }}><img src={item.snippet.thumbnails.high.url} id={i}
-                                style={{
-                                    // height: `fit-content`,
-                                    alignSelf: `center`,
-                                    width: `100%`
-                                }}
-                                onClick={e => updateCurrentSong(e.target.id)}
-                                />
-                            </div>
-                            <p
-                                style={{
-                                    textAlign: `center`,
-                                    textTransform: `uppercase`,
-                                    fontWeight: `900`,
-                                    color: `white`,
-                                    marginBottom: `0`,
-                                    // marginTop: `-27px`,
-                                    marginTop: `3px`,
-                                    textShadow: `1px 1px 1px #f91a93`,
-                                    textTransform: `lowercase`,
-                                    WebkitTextStrokeWidth: `thin`
-                                }}
-                            >{item.snippet.title}</p>
-                            {/* <p>{item.snippet.publishedAt}</p> */}
-
+                        }}><img src={item.snippet.thumbnails.high.url} id={i}
+                            style={{
+                                // height: `fit-content`,
+                                alignSelf: `center`,
+                                width: `100%`
+                            }}
+                            onClick={e => updateCurrentSong(e.target.id)}
+                            />
                         </div>
-                    </div>
-                )}
+                        <p
+                            style={{
+                                textAlign: `center`,
+                                textTransform: `uppercase`,
+                                fontWeight: `900`,
+                                color: `white`,
+                                marginBottom: `0`,
+                                // marginTop: `-27px`,
+                                marginTop: `3px`,
+                                textShadow: `1px 1px 1px #f91a93`,
+                                textTransform: `lowercase`,
+                                WebkitTextStrokeWidth: `thin`
+                            }}
+                        >{item.snippet.title}</p>
+                        {/* <p>{item.snippet.publishedAt}</p> */}
 
-            </div>
+                    </div>
+                </div>
+            )}
+
         </div>
+        // </div>
     );
 };
 

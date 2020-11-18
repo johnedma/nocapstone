@@ -20,10 +20,22 @@ const FaveWaves = () => {
 
     }
 
-    const moreWaves = () => {
+    const moreWaves = (e) => {
+        // console.log(e.target.id);
+        let id = e.target.id
+        console.log(id);
         (async () => {
             try {
-                const res = await fetch(`/api/morewaves`)
+                const res = await fetch(`/api/morewaves/`, {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    // credentials: 'include',
+                    body: JSON.stringify({
+                        id
+                    })
+                });
 
                 if (res.ok) {
                     const data = await res.json()
@@ -59,7 +71,7 @@ const FaveWaves = () => {
                     <div key={i} id={i} style={{
                         margin: `0 10px`
                     }}>
-                        <div key={i} id={i} style={{
+                        <div style={{
                             borderRadius: `50px`,
                             // boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,
                             // background: `#46fd7f`,
@@ -117,9 +129,9 @@ const FaveWaves = () => {
                             >{item.artist} : {item.title}</p>
 
                         </div>
-                        <div onClick={() => { moreWaves() }}
+                        <div onClick={moreWaves} id={item.artist}
                             style={{ display: `flex`, maxWidth: `225px` }}>
-                            <h1 style={{ fontSize: `1em` }}>MORE WAVES FROM {item.artist}</h1>
+                            <h1 style={{ fontSize: `1em` }} id={item.artist}>MORE WAVES FROM {item.artist}</h1>
                         </div>
 
                         {/*---------------- NU WAVES LOGIC FETCH -------------- */}

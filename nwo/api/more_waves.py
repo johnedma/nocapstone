@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 import googleapiclient.errors
 from googleapiclient.discovery import build
 
@@ -7,7 +7,7 @@ more_waves = Blueprint('morewaves', __name__)
 YT_KEY = os.environ.get("YT_KEY")
 
 
-@more_waves.route('/')
+@more_waves.route('/', methods=["POST"])
 def index():
     # def main():
     # response = User.query.all()
@@ -39,20 +39,22 @@ def index():
     #     client_secrets_file, scopes)
     # credentials = flow.run_console()
     # credentials = (Config.YT_KEY, scopes)
+    data = request.get_json()
+    print(data)
     api_key = YT_KEY
     youtube = build("youtube", "v3", developerKey=api_key)
     # developerKey="AIzaSyClJlh_AdNfQE13lovjG9jENp2mihtQOqY")
     #  credentials=credentials)
 
-    request = youtube.search().list(
+    req = youtube.search().list(
         part="snippet",
         type="video",
         maxResults=25,
         order="viewCount",
-        q="Ariana Grande"
+        q=data["id"]
 
     )
-    response = request.execute()
+    response = req.execute()
     # nuwaves = {
 
     # }
