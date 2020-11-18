@@ -33,7 +33,10 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
         <div>
             <div className="nuWaves" style={{
                 display: `flex`,
-                flexFlow: `wrap`
+                flexFlow: `wrap`,
+                justifyContent: `space-around`,
+                /* padding: 1em; */
+                margin: `2em 0`
             }}>
                 {nuWaves.map((item, i) =>
                     <div key={i} id={i} >
