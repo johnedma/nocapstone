@@ -40,7 +40,14 @@ const Player = () => {
     // const [next, setNext] = useState(chartList[chartList.indexOf(currentSong) + 1])
     const updateNext = () => {
         // add logic to loop back to 0 index in chartlist or just stop
-        if (next) {
+        if (next && next.snippet) {
+            setCurrentSong(
+                {
+                    url: `https://www.youtube.com/watch?v=${next.id.videoId}`,
+                    title: next.snippet.title,
+                    cover: next.snippet.thumbnails.high.url
+                })
+        } else if (next) {
             setCurrentSong(next)
             setNext(chartList[nextId + 1])
             let newId = nextId + 1
@@ -186,8 +193,15 @@ const Player = () => {
                     </button>
                 </div>
                 <div>
-                    <p style={{ fontVariantCaps: `all-small-caps` }}
-                    >{currentSong.artist} - {currentSong.title}</p>
+                    {currentSong.artist ?
+                        <p style={{ fontVariantCaps: `all-small-caps` }}
+                        >{currentSong.artist} - {currentSong.title}
+                        </p>
+                        :
+                        <p style={{ fontVariantCaps: `all-small-caps` }}
+                        >{currentSong.title}
+                        </p>
+                    }
                 </div>
                 {/* <p>{currentSong.title}</p> */}
                 {likes.some(like => like.title === currentSong.title) ?
