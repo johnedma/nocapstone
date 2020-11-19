@@ -12,16 +12,17 @@ top_headlines = newsapi.get_top_headlines(q='music',
                                           country='us')
 
 # /v2/everything
-all_articles = newsapi.get_everything(q='bitcoin',
+all_articles = newsapi.get_everything(q='music',
                                       #   sources='bbc-news,the-verge',
                                       #   domains='bbc.co.uk,techcrunch.com',
-                                      domains='billboard.com,digitalmusicnews.com, complex.com',
+                                      #   domains='billboard.com,digitalmusicnews.com, complex.com',
                                       #   from_param='2017-12-01',
                                       #   to='2017-12-12',
                                       language='en',
                                       #   sort_by='relevancy',
                                       sort_by='popularity',
-                                      page=2)
+                                      #   page=2
+                                      )
 print(all_articles)
 print(top_headlines)
 
