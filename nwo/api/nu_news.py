@@ -11,7 +11,8 @@ def index():
     today = date.today()
     this_day = today.strftime("%Y-%m-%d")
     # Init
-    newsapi = NewsApiClient(api_key='19f89cb90c154263bb7c99bded368e56')
+    NEWS_KEY = os.environ.get("NEWS_KEY")
+    newsapi = NewsApiClient(api_key=NEWS_KEY)
 
     # /v2/top-headlines
     # top_headlines = newsapi.get_top_headlines(q='music',
@@ -27,7 +28,7 @@ def index():
                                           #   domains='bbc.co.uk,techcrunch.com',
                                           #   domains='billboard.com,digitalmusicnews.com, complex.com',
                                           #   from_param='2017-12-01',
-                                            from_param=this_day,
+                                          from_param=this_day,
                                           #   to='2017-12-12',
                                           language='en',
                                           #   sort_by='relevancy',

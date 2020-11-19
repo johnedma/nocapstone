@@ -1,14 +1,16 @@
 import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom'
 import AuthContext from '../auth'
+import PlayerContext from '../PlayerContext';
 
 function LoginForm(props) {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("jetty");
+    const [password, setPassword] = useState("password");
     let history = useHistory();
 
     const [errors, setErrors] = useState([]);
     const { fetchWithCSRF, setCurrentUserId, setCurrentUser } = useContext(AuthContext);
+    const { setLikes } = useContext(PlayerContext)
     const submitForm = (e) => {
         e.preventDefault();
 
@@ -31,6 +33,7 @@ function LoginForm(props) {
             } else {
                 setCurrentUserId(responseData.current_user_id)
                 setCurrentUser(responseData.current_user)
+                setLikes(responseData.current_user.likes)
                 // history.push('/users')
                 history.push('/')
             }
@@ -38,7 +41,14 @@ function LoginForm(props) {
         loginUser();
     }
     return (
-        <div className="">
+        <div style={{
+            borderRadius: `50px`,
+            background: `#55b9f3`,
+            boxShadow: `20px 20px 60px #489dcf,-20px -20px 60px #62d5ff`,
+            margin: `2em auto`,
+            maxWidth: `400px`,
+            padding: `2em`
+        }}>
             <form onSubmit={submitForm}>
                 {errors.length ? errors.map((err) => <li key={err} >{err}</li>) : ''}
                 <div className="field">

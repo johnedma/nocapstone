@@ -47,21 +47,6 @@ const SignUp = props => {
         <div className="">
             <div className="authForm">
                 <div className="authFormDiv">
-                    <h1 style={{
-                        margin: `22px auto 12px`,
-                        fontSize: `3em`,
-                        height: `20px`,
-                        marginBlockStart: `1em`,
-                        marginBlockEnd: `1em`
-                    }}>Nu Wave Order</h1>
-                    <h2 style={{
-                        color: `#8e8e8e`,
-                        fontSize: `17px`,
-                        fontWeight: `600`,
-                        lineHeight: `20px`,
-                        margin: `0 40px 10px`,
-                        textAlign: `center`
-                    }}>Sign up to hear the waves!</h2>
                     <div className="authFormInnerWrap">
                         <form onSubmit={submitForm}>
                             {errors.length ? errors.map(err => <li key={err} >{err}</li>) : ''}
@@ -85,11 +70,11 @@ const SignUp = props => {
                                 onChange={e => setPassword2(e.target.value)} name="password2" />
 
                             <button type="submit" className="button has-background-link has-text-white" style={{
-                                height: `2rem`,
-                                paddingLeft: `.5em`,
-                                paddingRight: `.5em`,
-                                margin: `8px 40px`,
-                                fontWeight: `600`
+                                // height: `2rem`,
+                                // paddingLeft: `.5em`,
+                                // paddingRight: `.5em`,
+                                // margin: `8px 40px`,
+                                // fontWeight: `600`
 
                             }}>Sign Up</button>
                         </form>

@@ -92,7 +92,7 @@ margin-bottom: 5em;
 
     } */
 
-.splash {
+/* .splash {
 background: url('fonts/nuwave.jpg') no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
@@ -102,7 +102,7 @@ background-size: cover;
 display: flex;
 flex-flow: wrap;
 
-}
+} */
 
 body:before {
     content: "";

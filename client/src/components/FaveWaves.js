@@ -118,7 +118,7 @@ const FaveWaves = () => {
                         </div>
                         <div onClick={moreWaves} id={item.artist}
                             style={{ display: `flex`, maxWidth: `225px` }}>
-                            <h1 style={{ fontSize: `1em` }} id={item.artist}>MORE WAVES FROM {item.artist}</h1>
+                            <h1 style={{ fontSize: `1em`, cursor: `pointer` }} id={item.artist}>MORE WAVES FROM {item.artist}</h1>
                         </div>
 
                         {/*---------------- NU WAVES LOGIC FETCH -------------- */}
