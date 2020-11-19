@@ -127,7 +127,7 @@ const Player = () => {
         <>
             <div className="footer" >
 
-                <div>
+                <div style={{ display: `flex` }}>
                     <button style={{ background: `none`, border: `none` }}
                     // onClick={() => updateNext()}
                     >

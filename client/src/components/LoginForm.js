@@ -38,7 +38,7 @@ function LoginForm(props) {
         loginUser();
     }
     return (
-        <div className="splash">
+        <div className="">
             <form onSubmit={submitForm}>
                 {errors.length ? errors.map((err) => <li key={err} >{err}</li>) : ''}
                 <div className="field">

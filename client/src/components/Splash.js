@@ -17,6 +17,10 @@ const Splash = () => {
                 <h1 style={{ color: `white` }}>Nu Music</h1>
                 <h1 style={{ color: `white` }}>Nu News</h1>
                 <h1 style={{ color: `white` }}>Nu Waves.. Don't Miss The Wave</h1>
+                <div>
+                    Keep up with the latest music news from top trending artists
+                    Never miss another wave!
+        </div>
             </div>
             <LoginForm style={{
                 // background: `springgreen`,

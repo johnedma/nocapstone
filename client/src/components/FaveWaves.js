@@ -73,36 +73,23 @@ const FaveWaves = () => {
                     }}>
                         <div style={{
                             borderRadius: `50px`,
-                            // boxShadow: `20px 20px 60px #489dcf, -20px -20px 60px #62d5ff`,
-                            // background: `#46fd7f`,
-                            // padding: `1em`,
-                            // paddingTop: `.5em`,
-                            // margin: `1.5em 1em`,
+
                             margin: `1em .5em`,
-                            // width: `250px`,
                             width: `225px`,
                             alignSelf: `center`,
                             boxShadow: `-20px 20px 60px #489dcf, 20px -20px 60px #62d5ff`,
-                            // padding: `1em`,
                             padding: `.5em`,
                             border: `solid 10px #3da5e340`,
-                            // border: `solid 7px #3da5e340`,
                             boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgb(96 125 139 / 51%) 0px 3px 5px 6px`,
-                            // padding: 1em;
                             border: `9px solid rgb(56 118 154 / 11%)`
                         }}>
                             <div className="chartItem" style={{
                                 overflow: `hidden`,
-                                // margin: `1em`,
                                 display: `flex`,
-                                // height: `100px`,
                                 height: `60px`,
                                 borderRadius: `50px`,
-                                // width: `fit-content`,
                                 border: `solid springgreen 5px`,
-                                // marginBottom: `10px`,
                                 cursor: `pointer`,
-
 
                             }}><img src={item.cover} id={i}
                                 style={{

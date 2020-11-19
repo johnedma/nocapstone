@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import ArtistPage from './components/ArtistPage';
 import Navbar from './components/Navbar';
-import UserList from './components/UsersList';
+// import UserList from './components/UsersList';
 // import ReactPlayer from 'react-player/lazy'
 import Splash from './components/Splash';
 import Player from './Player';
@@ -15,6 +15,9 @@ import { AuthRoute, ProtectedRoute } from './components/Routes';
 import ChartList from './components/ChartList';
 import FaveWaves from './components/FaveWaves';
 import NotFound from './components/NotFound';
+import NewsContext from './NewsContext';
+import NuNews from './components/NuNews';
+
 
 
 
@@ -58,6 +61,12 @@ function App() {
 
     }
 
+    const [nuNews, setNuNews] = useState([])
+    const nuNewsContextValue = {
+        nuNews,
+        setNuNews
+    }
+
     // auth-----------------
 
     const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
@@ -92,28 +101,30 @@ function App() {
     return (
         <AuthContext.Provider value={authContextValue}>
             <PlayerContext.Provider value={playerContextValue}>
-                {/* {loading && <h1>...LOADING...</h1>} */}
-                {!loading &&
-                    <BrowserRouter>
-                        {currentUserId && <Navbar />}
-                        <Switch>
-                            <AuthRoute exact path="/login" component={Splash} currentUserId={currentUserId} />
-                            <AuthRoute exact path="/splash" component={Splash} currentUserId={currentUserId} />
-                            <AuthRoute exact path="/signup" component={Splash} currentUserId={currentUserId} />
-                            <Route path="/artists" component={ArtistPage} />
-                            {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
-                            {/* <Route path="/users">
+                <NewsContext.Provider value={nuNewsContextValue}>
+                    {/* {loading && <h1>...LOADING...</h1>} */}
+                    {!loading &&
+                        <BrowserRouter>
+                            {currentUserId && <Navbar />}
+                            <Switch>
+                                <AuthRoute exact path="/login" component={Splash} currentUserId={currentUserId} />
+                                <AuthRoute exact path="/splash" component={Splash} currentUserId={currentUserId} />
+                                <AuthRoute exact path="/signup" component={Splash} currentUserId={currentUserId} />
+                                <Route path="/artists" component={ArtistPage} />
+                                {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
+                                {/* <Route path="/users">
                                 <UserList />
                             </Route> */}
 
-                            <ProtectedRoute path="/favewaves" exact component={FaveWaves} currentUserId={currentUserId} />
-                            <ProtectedRoute path="/" exact component={ChartList} currentUserId={currentUserId} />
-                            <Route component={NotFound} />
+                                <ProtectedRoute path="/nunews" exact component={NuNews} currentUserId={currentUserId} />
+                                <ProtectedRoute path="/favewaves" exact component={FaveWaves} currentUserId={currentUserId} />
+                                <ProtectedRoute path="/" exact component={ChartList} currentUserId={currentUserId} />
+                                <Route component={NotFound} />
 
-                            {/* ----------------- */}
-                            {/* playlist of entire objs and pass in url with name
+                                {/* ----------------- */}
+                                {/* playlist of entire objs and pass in url with name
                     next song use --> array = array.concat(array.splice(0, 1)); */}
-                            {/* <ReactPlayer
+                                {/* <ReactPlayer
                         url={[
                             'https://www.youtube.com/watch?v=oUFJJNQGwhk',
                             'https://www.youtube.com/watch?v=jNgP6d9HraI'
@@ -121,13 +132,14 @@ function App() {
                     />  */}
 
 
-                        </Switch>
-                    </BrowserRouter >
-                }
-                {/* <Player currentSong={currentSong} /> */}
-                {currentUserId ?
-                    <Player /> : null
-                }
+                            </Switch>
+                        </BrowserRouter >
+                    }
+                    {/* <Player currentSong={currentSong} /> */}
+                    {currentUserId ?
+                        <Player /> : null
+                    }
+                </NewsContext.Provider>
             </PlayerContext.Provider>
         </AuthContext.Provider>
     );

@@ -23,19 +23,21 @@ const Navbar = () => {
             <NavLink to="/" style={{ textDecoration: `none` }}>
                 <h1 >Nu WAVE ORDER</h1>
             </NavLink>
-            <div className="nav-end">
-                <NewsBtn
-                    style={{
-                        cursor: `pointer`,
-                        width: `40px`,
-                        height: `40px`,
-                        alignSelf: `center`,
-                        boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
-                        border: `9px solid rgba(56, 118, 154, 0.11)`,
-                        borderRadius: `1em`,
-                        margin: `0px 5px`
-                    }}
-                />
+            <div className="nav-end" style={{ display: `flex` }}>
+                <NavLink to="/nunews">
+                    <NewsBtn
+                        style={{
+                            cursor: `pointer`,
+                            width: `40px`,
+                            height: `40px`,
+                            alignSelf: `center`,
+                            boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                            border: `9px solid rgba(56, 118, 154, 0.11)`,
+                            borderRadius: `1em`,
+                            margin: `0px 5px`
+                        }}
+                    />
+                </NavLink>
                 <NavLink to="/favewaves">
                     <FavesBtn
                         style={{

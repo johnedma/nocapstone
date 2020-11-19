@@ -46,7 +46,6 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
                 <div key={i} id={i} >
                     <div key={i} id={i} style={{
                         borderRadius: `50px`,
-
                         margin: `2em .5em`,
                         width: `225px`,
                         alignSelf: `center`,
@@ -58,14 +57,10 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
                     }}>
                         <div className="chartItem" style={{
                             overflow: `hidden`,
-                            // margin: `1em`,
                             display: `flex`,
-                            // height: `100px`,
                             height: `60px`,
                             borderRadius: `50px`,
-                            // width: `fit-content`,
                             border: `solid springgreen 5px`,
-                            // marginBottom: `10px`,
                             cursor: `pointer`,
 
 
