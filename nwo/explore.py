@@ -32,7 +32,6 @@ def main():
     # credentials = (Config.YT_KEY, scopes)
     api_key = YT_KEY
     youtube = build("youtube", "v3", developerKey=api_key)
-    # developerKey="AIzaSyClJlh_AdNfQE13lovjG9jENp2mihtQOqY")
     #  credentials=credentials)
 
     request = youtube.channels().list(

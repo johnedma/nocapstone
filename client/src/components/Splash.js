@@ -8,20 +8,15 @@ const Splash = () => {
         <div style={{
             maxWidth: `750px`,
             margin: `0 auto`,
-            textAlign: `center`
+            textAlign: `center`,
+            marginBottom: `-5em`
         }} >
             <div>
-                <h1 style={{
-                    // margin: `22px auto 12px`,
-                    // fontSize: `3em`,
-                    // height: `20px`,
-                    // marginBlockStart: `1em`,
-                    // marginBlockEnd: `1em`
-                }}>Nu Wave Order</h1>
-                <div style={{}}>
-                    <h2 style={{ color: `white`, margin: `0` }}>Nu Music</h2>
-                    <h2 style={{ color: `white`, margin: `0` }}>Nu News</h2>
-                    <h2 style={{ color: `white`, margin: `0` }}>Nu Waves Only..</h2>
+                <h1>Nu Wave Order</h1>
+                <div>
+                    <h2 style={{ margin: `0` }}>Nu Music</h2>
+                    <h2 style={{ margin: `0` }}>Nu News</h2>
+                    <h2 style={{ margin: `0` }}>Nu Waves Only..</h2>
                 </div>
                 {/* <div>
                     Keep up with the latest music news from top trending artists

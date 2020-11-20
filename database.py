@@ -10,7 +10,7 @@ with app.app_context():
 
     jetty = User(username='jetty',
                  password="password", likes=[
-                     {"title": "SO DONE", "artist": "The KPAFAfhod9TU Laroi", "url": "https://www.youtube.com/watch?v=yasj3j76SyM",
+                     {"title": "SO DONE", "artist": "The Kid Laroi", "url": "https://www.youtube.com/watch?v=yasj3j76SyM",
                          "cover": "http://img.youtube.com/vi/yasj3j76SyM/0.jpg"},
                      {"title": "positions", "artist": "Ariana Grande", "url": "https://www.youtube.com/watch?v=tcYodQoapMg",
                       "cover": "http://img.youtube.com/vi/tcYodQoapMg/0.jpg"},

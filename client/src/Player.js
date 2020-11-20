@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import ReactPlayer from 'react-player/lazy'
 import PlayerContext from './PlayerContext';
 import { ReactComponent as FaveBtn } from './assets/imgs/cool.svg';
+import { NavLink } from 'react-router-dom';
 
 
 // PULL IN USER LIKES IN INITIAL LOAD AND HOLD IN PLAYER CONTEXT
@@ -65,61 +66,12 @@ const Player = () => {
         // setNext(next)
     }
 
-    // const handleLike = e => {
-    //     e.preventDefault();
 
-    //     async function removeLike(likes, i) {
-    //         const response = await fetch(`api/likes/${likes[i].id}`, {
-    //             method: 'DELETE',
-    //             headers: {
-    //                 'Content-type': 'application/json'
-    //             }
-    //         });
-    //         const responseData = await response.json();
-    //         if (!response.ok) {
-    //             setErrors(responseData.errors);
-    //         } else {
-    //             console.log(responseData)
-    //             likes.splice(i, 1)
-    //             console.log(likes)
-    //             like_count--
-    //             willRerender()
-    //         }
-    //     }
-
-
-    //     async function addLike() {
-    //         const response = await fetch(`/api/likes/${currentUserId}/${postId}`, {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-type': 'application/json'
-    //             }
-    //         });
-    //         const responseData = await response.json();
-    //         if (!response.ok) {
-    //             setErrors(responseData.errors);
-    //         } else {
-    //             let { data } = responseData
-    //             console.log(data)
-    //             likes.push(data)
-    //             like_count++
-    //             willRerender()
-    //         }
-    //     }
     //     for (let i = 0; i < likes.length; i++) {
     //         if (likes[i].user_id === currentUserId) {
     //             if (likes.includes(currentSong)) () => removeLike(likes, i);
     //             // return "done"
-    //         }
-    //     }
 
-
-
-    //     addLike()
-    // }
-
-    // console.log(next);
-    // useEffect(() => { }, [currentSong])
     console.log(play);
     console.log(likes);
     console.log(currentSong);
@@ -245,9 +197,9 @@ const Player = () => {
                         }} />
                     </button>
                 }
-                <a href="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
+                <NavLink to="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
                     <h1>NWO</h1>
-                </a>
+                </NavLink>
             </div>
             <ReactPlayer style={{ display: `none` }}
                 // url={currentSong ? currentSong.url : "https://www.youtube.com/watch?v=B2J3kLJ8PQk"}

@@ -44,42 +44,48 @@ const SignUp = props => {
     }
 
     return (
-        <div className="">
+        <div style={{
+            margin: `2em auto`,
+            maxWidth: `400px`,
+            padding: `2em`,
+            background: `linear-gradient(145deg,#55b9f2,#55b9f2)`,
+            borderRadius: `50px`,
+            boxShadow: `0 5px 15px 10px #489dcf, 0 3px 3px 7px rgba(96,125,139,.51)`,
+            border: `9px solid rgba(56,118,154,.11)`
+
+        }}>
             <div className="authForm">
-                <div className="authFormDiv">
-                    <div className="authFormInnerWrap">
-                        <form onSubmit={submitForm}>
-                            {errors.length ? errors.map(err => <li key={err} >{err}</li>) : ''}
-                            <input
-                                className="input"
-                                type="text"
-                                placeholder="Username"
-                                value={username}
-                                onChange={e => setUsername(e.target.value)} name="username" />
-                            <input
-                                className="input"
-                                type="password"
-                                placeholder="Password"
-                                value={password}
-                                onChange={e => setPassword(e.target.value)} name="password" />
-                            <input
-                                className="input"
-                                type="password"
-                                placeholder="Confirm password"
-                                value={password2}
-                                onChange={e => setPassword2(e.target.value)} name="password2" />
-
-                            <button type="submit" className="button has-background-link has-text-white" style={{
-                                // height: `2rem`,
-                                // paddingLeft: `.5em`,
-                                // paddingRight: `.5em`,
-                                // margin: `8px 40px`,
-                                // fontWeight: `600`
-
-                            }}>Sign Up</button>
-                        </form>
+                <form onSubmit={submitForm}>
+                    {errors.length ? errors.map(err => <li key={err} >{err}</li>) : ''}
+                    <label>Username: </label>
+                    <div className="control">
+                        {/* <input className="input" type="text" value={username} onChange={(e) => setUsername(e.target.value)} name="username" /> */}
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder="Username"
+                            value={username}
+                            onChange={e => setUsername(e.target.value)} name="username" />
                     </div>
-                </div>
+                    <label>Password: </label>
+                    <div className="control">
+                        <input
+                            className="input"
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={e => setPassword(e.target.value)} name="password" />
+                    </div>
+                    <div className="control">
+                        <input
+                            className="input"
+                            type="password"
+                            placeholder="Confirm password"
+                            value={password2}
+                            onChange={e => setPassword2(e.target.value)} name="password2" />
+                    </div>
+                    <button type="submit" className='splash-btn'>Sign Up</button>
+                </form>
             </div>
         </div>
     );

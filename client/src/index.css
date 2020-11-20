@@ -173,3 +173,33 @@ body:before {
     -webkit-transition: 1s;
     transition: 1s;
 } */
+
+.control{
+    padding: 0.5em 0;
+}
+
+label{
+    color: springgreen;
+    font-weight: bold;
+    text-shadow: 1px 1px black;
+}
+
+input{
+    padding: 6px;
+    border: solid 2px lightsteelblue;
+    border-radius: 10px;
+}
+
+.splash-btn{
+    cursor: pointer;
+    margin: 10px;
+    padding: 6px 20px;
+    border: solid #f91a93 5px;
+    border-radius: 20px;
+    background: springgreen;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #5bff94, #50db4d);
+    box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff;
+    text-transform: uppercase;
+    font-weight: bold;
+}

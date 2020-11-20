@@ -42,12 +42,27 @@ function LoginForm(props) {
     }
     return (
         <div style={{
-            borderRadius: `50px`,
-            background: `#55b9f3`,
-            boxShadow: `20px 20px 60px #489dcf,-20px -20px 60px #62d5ff`,
+            // borderRadius: `50px`,
+            // background: `#55b9f3`,
+            // boxShadow: `20px 20px 60px #489dcf,-20px -20px 60px #62d5ff`,
+            // margin: `2em auto`,
+            // maxWidth: `400px`,
+            // padding: `2em`,
+            /* padding: 2em; */
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: space-between; */
+            /* height: 40px; */
+            /* margin: 1em .5em; */
+            /* align-self: center; */
             margin: `2em auto`,
             maxWidth: `400px`,
-            padding: `2em`
+            padding: `2em`,
+            background: `linear-gradient(145deg,#55b9f2,#55b9f2)`,
+            borderRadius: `50px`,
+            boxShadow: `0 5px 15px 10px #489dcf, 0 3px 3px 7px rgba(96,125,139,.51)`,
+            border: `9px solid rgba(56,118,154,.11)`
+
         }}>
             <form onSubmit={submitForm}>
                 {errors.length ? errors.map((err) => <li key={err} >{err}</li>) : ''}
@@ -61,7 +76,7 @@ function LoginForm(props) {
                         <input className="input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" />
                     </div>
                 </div>
-                <button>Login</button>
+                <button className='splash-btn'>Login</button>
             </form>
         </div>
     );

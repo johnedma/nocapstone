@@ -43,7 +43,6 @@ def index():
     print(data)
     api_key = YT_KEY
     youtube = build("youtube", "v3", developerKey=api_key)
-    # developerKey="AIzaSyClJlh_AdNfQE13lovjG9jENp2mihtQOqY")
     #  credentials=credentials)
 
     req = youtube.search().list(
