@@ -12,7 +12,7 @@ const Splash = () => {
             marginBottom: `-5em`
         }} >
             <div>
-                <h1>Nu Wave Order</h1>
+                <h1 style={{ fontSize: `3em` }}>Nu Wave Order</h1>
                 <div>
                     <h2 style={{ margin: `0` }}>Nu Music</h2>
                     <h2 style={{ margin: `0` }}>Nu News</h2>

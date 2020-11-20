@@ -77,10 +77,11 @@
         padding: 16px;
         border-radius: 50px;
     background: #55b9f3;
-    margin: 20px;
+    /* margin: 20px; */
     /* box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff; */
-margin: 0px;
+margin: 0px auto;
 margin-bottom: 5em;
+/* max-width: 960px; */
     }
 
     /* #root{
@@ -199,7 +200,8 @@ input{
     background: springgreen;
     border-radius: 50px;
     background: linear-gradient(145deg, #5bff94, #50db4d);
-    box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff;
+
+    box-shadow: 20px 20px 60px #489dcf, -2px 1px 10px 6px #62d5ff;
     text-transform: uppercase;
     font-weight: bold;
 }

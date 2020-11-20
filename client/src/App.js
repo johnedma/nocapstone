@@ -17,6 +17,8 @@ import FaveWaves from './components/FaveWaves';
 import NotFound from './components/NotFound';
 import NewsContext from './NewsContext';
 import NuNews from './components/NuNews';
+import ArtistContext from './ArtistContext';
+
 
 
 
@@ -61,6 +63,13 @@ function App() {
 
     }
 
+    const [currArtist, setCurrArtist] = useState(null)
+
+    const artistContextValue = {
+        currArtist,
+        setCurrArtist
+    }
+
     const [nuNews, setNuNews] = useState([])
     const nuNewsContextValue = {
         nuNews,
@@ -102,29 +111,30 @@ function App() {
         <AuthContext.Provider value={authContextValue}>
             <PlayerContext.Provider value={playerContextValue}>
                 <NewsContext.Provider value={nuNewsContextValue}>
-                    {/* {loading && <h1>...LOADING...</h1>} */}
-                    {!loading &&
-                        <BrowserRouter>
-                            {currentUserId && <Navbar />}
-                            <Switch>
-                                <AuthRoute exact path="/login" component={Splash} currentUserId={currentUserId} />
-                                <AuthRoute exact path="/splash" component={Splash} currentUserId={currentUserId} />
-                                <AuthRoute exact path="/signup" component={Splash} currentUserId={currentUserId} />
-                                <Route path="/artists" component={ArtistPage} />
-                                {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
-                                {/* <Route path="/users">
+                    <ArtistContext.Provider value={artistContextValue}>
+                        {/* {loading && <h1>...LOADING...</h1>} */}
+                        {!loading &&
+                            <BrowserRouter>
+                                {currentUserId && <Navbar />}
+                                <Switch>
+                                    <AuthRoute exact path="/login" component={Splash} currentUserId={currentUserId} />
+                                    <AuthRoute exact path="/splash" component={Splash} currentUserId={currentUserId} />
+                                    <AuthRoute exact path="/signup" component={Splash} currentUserId={currentUserId} />
+                                    <Route path="/artist" component={ArtistPage} />
+                                    {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
+                                    {/* <Route path="/users">
                                 <UserList />
                             </Route> */}
 
-                                <ProtectedRoute path="/nunews" exact component={NuNews} currentUserId={currentUserId} />
-                                <ProtectedRoute path="/favewaves" exact component={FaveWaves} currentUserId={currentUserId} />
-                                <ProtectedRoute path="/" exact component={ChartList} currentUserId={currentUserId} />
-                                <Route component={NotFound} />
+                                    <ProtectedRoute path="/nunews" exact component={NuNews} currentUserId={currentUserId} />
+                                    <ProtectedRoute path="/favewaves" exact component={FaveWaves} currentUserId={currentUserId} />
+                                    <ProtectedRoute path="/" exact component={ChartList} currentUserId={currentUserId} />
+                                    <Route component={NotFound} />
 
-                                {/* ----------------- */}
-                                {/* playlist of entire objs and pass in url with name
+                                    {/* ----------------- */}
+                                    {/* playlist of entire objs and pass in url with name
                     next song use --> array = array.concat(array.splice(0, 1)); */}
-                                {/* <ReactPlayer
+                                    {/* <ReactPlayer
                         url={[
                             'https://www.youtube.com/watch?v=oUFJJNQGwhk',
                             'https://www.youtube.com/watch?v=jNgP6d9HraI'
@@ -132,13 +142,14 @@ function App() {
                     />  */}
 
 
-                            </Switch>
-                        </BrowserRouter >
-                    }
-                    {/* <Player currentSong={currentSong} /> */}
-                    {currentUserId ?
-                        <Player /> : null
-                    }
+                                </Switch>
+                                {currentUserId ?
+                                    <Player /> : null
+                                }
+                            </BrowserRouter >
+                        }
+                        {/* <Player currentSong={currentSong} /> */}
+                    </ArtistContext.Provider>
                 </NewsContext.Provider>
             </PlayerContext.Provider>
         </AuthContext.Provider>

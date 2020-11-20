@@ -57,11 +57,12 @@ function LoginForm(props) {
             /* align-self: center; */
             margin: `2em auto`,
             maxWidth: `400px`,
-            padding: `2em`,
+            padding: `12px 24px`,
             background: `linear-gradient(145deg,#55b9f2,#55b9f2)`,
             borderRadius: `50px`,
             boxShadow: `0 5px 15px 10px #489dcf, 0 3px 3px 7px rgba(96,125,139,.51)`,
-            border: `9px solid rgba(56,118,154,.11)`
+            border: `9px solid rgba(56,118,154,.11)`,
+
 
         }}>
             <form onSubmit={submitForm}>

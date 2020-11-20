@@ -54,19 +54,32 @@ def index():
 
     )
     response = req.execute()
-    # nuwaves = {
-
-    # }
-    # request = youtube.channels().list(
-    #     part="snippet,contentDetails,statistics",
-    #     id="UC_x5XG1OV2P6uZZ5FSM9Ttw",
-    #     # maxResults=10,
-    #     # type='video',   q="Ariana Grande"
-    # )
-    # response = request.execute()
 
     # print(api_key)
     return(response)
 
     # if __name__ == "__main__":
     #     main()
+
+
+# @more_waves.route('/artist', methods=["POST"])
+@more_waves.route('/artist')
+def artist():
+    data = request.get_json()
+
+    api_key = YT_KEY
+    youtube = build("youtube", "v3", developerKey=api_key)
+
+    # nuwaves = {
+
+    # }
+    req = youtube.channels().list(
+        part="snippet,contentDetails,statistics",
+        id="UClVY6MdQxTZUaMDL-dLQDcw",
+        # id="UC_x5XG1OV2P6uZZ5FSM9Ttw",
+        # maxResults=10,
+
+    )
+    response = req.execute()
+    print(response)
+    return(response)
