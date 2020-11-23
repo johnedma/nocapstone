@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import ReactPlayer from 'react-player/lazy'
 import PlayerContext from './PlayerContext';
-import { ReactComponent as FaveBtn } from './assets/imgs/cool.svg';
+// import { ReactComponent as FaveBtn } from './assets/imgs/cool.svg';
+// import { ReactComponent as FaveBtn } from './assets/imgs/wavy.svg';
+import { ReactComponent as FaveBtn } from './assets/imgs/shaka.svg';
 import { NavLink } from 'react-router-dom';
 
 
