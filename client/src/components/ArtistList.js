@@ -43,8 +43,8 @@ const ArtistList = () => {
                 padding: `16px 0`,
                 margin: `12px 0`
             }}>
-                {artists.map(artist =>
-                    <NavLink to="/artist"
+                {artists.map((artist, i) =>
+                    <NavLink to="/artist" key={i}
                         onClick={() => setCurrArtist(artist)}
                     >
                         <div style={{
