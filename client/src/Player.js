@@ -20,7 +20,7 @@ const Player = () => {
     // const [currentSong, setCurrentSong] = useState(currentSong)
     // let nextSong = chartList[chartList.indexOf(currentSong) + 1]
     // console.log(nextSong);
-    const { likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
+    const { prev, setPrev, likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
 
     const [play, setPlay] = useState(false)
     const updatePlay = () => !play ? setPlay(true) : setPlay(false)
@@ -51,6 +51,7 @@ const Player = () => {
     const updateNext = () => {
         // add logic to loop back to 0 index in chartlist or just stop
         if (next && next.snippet) {
+            setPrev(currentSong)
             setCurrentSong(
                 {
                     url: `https://www.youtube.com/watch?v=${next.id.videoId}`,
@@ -58,6 +59,7 @@ const Player = () => {
                     cover: next.snippet.thumbnails.high.url
                 })
         } else if (next) {
+            setPrev(currentSong)
             setCurrentSong(next)
             setNext(chartList[nextId + 1])
             let newId = nextId + 1
@@ -75,6 +77,10 @@ const Player = () => {
         // setNext(next)
     }
 
+    const updatePrev = () => {
+        setNext(currentSong)
+        setCurrentSong(prev)
+    }
 
     //     for (let i = 0; i < likes.length; i++) {
     //         if (likes[i].user_id === currentUserId) {
@@ -90,7 +96,7 @@ const Player = () => {
 
                 <div style={{ display: `flex` }}>
                     <button style={{ background: `none`, border: `none` }}
-                    // onClick={() => updateNext()}
+                        onClick={() => updatePrev()}
                     >
                         <i className="far fa-caret-square-left playerbtns"
                             style={{
