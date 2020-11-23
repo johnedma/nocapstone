@@ -120,7 +120,7 @@ function App() {
                                     <AuthRoute exact path="/login" component={Splash} currentUserId={currentUserId} />
                                     <AuthRoute exact path="/splash" component={Splash} currentUserId={currentUserId} />
                                     <AuthRoute exact path="/signup" component={Splash} currentUserId={currentUserId} />
-                                    <Route path="/artist" component={ArtistPage} />
+                                    <ProtectedRoute exact path="/artist" component={ArtistPage} currentUserId={currentUserId} />
                                     {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
                                     {/* <Route path="/users">
                                 <UserList />

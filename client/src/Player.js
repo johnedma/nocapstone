@@ -95,7 +95,7 @@ const Player = () => {
                             }}
                         />
                     </button>
-                    {play === false ?
+                    {!play &&
                         <button style={{ background: `none`, border: `none` }}
                             onClick={() => updatePlay()}>
                             {/* <i className={(play === false) ? "far fa-play-circle" : "far fa-pause-circle"} */}
@@ -111,7 +111,8 @@ const Player = () => {
                                 }}
                             />
                         </button>
-                        :
+                    }
+                    {play &&
                         <button style={{ background: `none`, border: `none` }}
                             onClick={() => updatePlay()}>
                             <i className="far fa-pause-circle"

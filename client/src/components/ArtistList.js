@@ -10,14 +10,20 @@ import ArtistContext from '../ArtistContext';
 
 // map aout actual page comps layout and review mvp plus splash page
 const artists = [
-    { name: "NBA YoungBoy", img: nba, yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/ggyoungboy" },
-    { name: "Chance The Rapper", img: chance, yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/chancetherapper" },
-    { name: "Drake", img: drake, yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/drake" },
-    { name: "Ty Dolla $ign", img: ty, yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/tydollasign", url: "https://www.youtube.com/playlist?list=PLdvYBl_CREudAr71xljU9NXZe3RV3Ofq-", title: "Dolla $ign Playlist" },
-    { name: "Post Malone", img: post, yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/PostMalone" },
-    { name: "Kevin Gates", img: gates, yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/iamkevingates" },
+    { name: "NBA YoungBoy", img: "https://i.ibb.co/QdFV5qZ/nbagang.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/ggyoungboyera" },
+    { name: "Chance The Rapper", img: "https://i.ibb.co/DQ5j93p/chance.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/chancetherapper" },
+    { name: "Drake", img: "https://i.ibb.co/PTWP5mh/drake.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/drake" },
+    { name: "Ty Dolla $ign", img: "https://i.ibb.co/J2xhvR9/ty.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/tydollasign", url: "https://www.youtube.com/playlist?list=PLdvYBl_CREudAr71xljU9NXZe3RV3Ofq-", title: "Dolla $ign Playlist" },
+    { name: "Post Malone", img: "https://i.ibb.co/b6SbKx6/post.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/PostMalone" },
+    { name: "Kevin Gates", img: "https://i.ibb.co/n0DJMhX/gates.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/iamkevingates" },
 
 ]
+{/* <a href="https://ibb.co/TTH3MzQ"><img src="https://i.ibb.co/n0DJMhX/gates.jpg" alt="gates" border="0"></a>
+<a href="https://ibb.co/6BRSdp2"><img src="https://i.ibb.co/QdFV5qZ/nbagang.jpg" alt="nbagang" border="0"></a>
+<a href="https://ibb.co/XtSG7m8"><img src="https://i.ibb.co/DQ5j93p/chance.jpg" alt="chance" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/PTWP5mh/drake.jpg" alt="drake" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/b6SbKx6/post.jpg" alt="post" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/J2xhvR9/ty.jpg" alt="ty" border="0"></a> */}
 
 const ArtistList = () => {
     const { setCurrArtist } = useContext(ArtistContext)
