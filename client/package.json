@@ -12,6 +12,7 @@
     "react-player": "^2.6.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "reactjs-popup": "^2.0.4",
     "svg-loaders-react": "^2.2.1"
   },
   "scripts": {

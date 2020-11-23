@@ -6,6 +6,9 @@ import PlayerContext from './PlayerContext';
 // import { ReactComponent as FaveBtn } from './assets/imgs/wavy.svg';
 import { ReactComponent as FaveBtn } from './assets/imgs/shaka.svg';
 import { NavLink } from 'react-router-dom';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 
 
 // PULL IN USER LIKES IN INITIAL LOAD AND HOLD IN PLAYER CONTEXT
@@ -26,15 +29,19 @@ const Player = () => {
 
     // const [likes, setLikes] = useState([])
     const updateLikes = () => {
-        const index = likes.indexOf(currentSong)
+        let index = likes.indexOf(currentSong)
         console.log(index);
         // console.log(typeof (id))
         console.log(likes)
         console.log(currentSong.title);
         // console.log(likes.includes(currentSong.artist));
         // index === -1 ? setLikes([...likes, currentSong]) : setLikes(likes.splice(index, 1))
-        index === 0 ? setLikes([]) :
-            likes.some(like => like.title === currentSong.title) ? setLikes(likes.splice(index, 1)) : setLikes([...likes, currentSong])
+        // index === 0 ? setLikes([]) :
+        // likes.some(like => like.title === currentSong.title) ? setLikes(likes.splice(index, 1)) : setLikes([...likes, currentSong])
+        if (likes.some(like => like.title === currentSong.title)) {
+            // likes.splice(index, 1)
+            setLikes(likes.filter(like => like != currentSong))
+        } else setLikes([...likes, currentSong])
         // setLikes(likes.splice(index, 1)) }
         // else setLikes(likes.push(currentSong))
 
@@ -159,47 +166,57 @@ const Player = () => {
                     }
                 </div>
                 {/* <p>{currentSong.title}</p> */}
-                {likes.some(like => like.title === currentSong.title) ?
-                    <button
-                        onClick={() => updateLikes()}
-                        style={{
-                            border: `none`,
-                            background: `none`
-                        }}>
-                        <FaveBtn style={{
-                            height: `-webkit-fill-available`,
-                            width: `33px`,
-                            backgroundColor: `springgreen`,
-                            fontSize: `2em`,
-                            cursor: `pointer`,
-                            borderRadius: `1em`,
-                            padding: `5px`,
-                            overflow: `visible`,
-                            fill: `deeppink`,
-                            boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
-                        }} />
-                    </button>
-                    :
-                    <button
-                        onClick={() => updateLikes()}
-                        style={{
-                            border: `none`,
-                            background: `none`
-                        }}>
-                        <FaveBtn style={{
-                            height: `-webkit-fill-available`,
-                            width: `33px`,
-                            fontSize: `2em`,
-                            cursor: `pointer`,
-                            borderRadius: `1em`,
-                            padding: `5px`,
-                            overflow: `visible`,
-                            fill: `deeppink`,
-                            boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
 
-                        }} />
-                    </button>
+                {likes.some(like => like.title === currentSong.title) ?
+                    <Popup trigger={
+                        <button
+                            onClick={() => updateLikes()}
+                            style={{
+                                border: `none`,
+                                background: `none`
+                            }}>
+                            <FaveBtn style={{
+                                height: `-webkit-fill-available`,
+                                width: `33px`,
+                                backgroundColor: `springgreen`,
+                                fontSize: `2em`,
+                                cursor: `pointer`,
+                                borderRadius: `1em`,
+                                padding: `5px`,
+                                overflow: `visible`,
+                                fill: `deeppink`,
+                                boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
+                            }} />
+                        </button>
+                    } position="top center" on={['hover', 'focus']}>
+                        <div style={{ textAlign: `center` }}>Remove From FaveWaves</div>
+                    </Popup>
+                    :
+                    <Popup trigger={
+                        <button
+                            onClick={() => updateLikes()}
+                            style={{
+                                border: `none`,
+                                background: `none`
+                            }}>
+                            <FaveBtn style={{
+                                height: `-webkit-fill-available`,
+                                width: `33px`,
+                                fontSize: `2em`,
+                                cursor: `pointer`,
+                                borderRadius: `1em`,
+                                padding: `5px`,
+                                overflow: `visible`,
+                                fill: `deeppink`,
+                                boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
+
+                            }} />
+                        </button>
+                    } position="top center" on={['hover', 'focus']}>
+                        <div style={{ textAlign: `center` }}>Add To FaveWaves</div>
+                    </Popup>
                 }
+
                 <NavLink to="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
                     <h1>NWO</h1>
                 </NavLink>
