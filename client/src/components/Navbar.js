@@ -36,15 +36,19 @@ const Navbar = () => {
                             style={{
                                 cursor: `pointer`,
                                 width: `40px`,
-                                height: `40px`,
+                                // height: `40px`,
+                                height: `auto`,
                                 alignSelf: `center`,
-                                boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                                // boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                                boxShadow: `rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px`,
                                 border: `9px solid rgba(56, 118, 154, 0.11)`,
                                 borderRadius: `1em`,
-                                margin: `0px 5px`
+                                margin: `0px 7px`,
+                                maxWidth: `30px`,
+                                width: `-webkit-fill-available`
                             }}
                         />
-                    } position="bottom center" on={['hover', 'focus']}>
+                    } position="bottom right" on={['hover']}>
                         <div style={{ textAlign: `center` }}>Trending Music News</div>
                     </Popup>
                 </NavLink>
@@ -54,15 +58,19 @@ const Navbar = () => {
                             style={{
                                 cursor: `pointer`,
                                 width: `40px`,
-                                height: `40px`,
+                                // height: `40px`,
+                                height: `auto`,
                                 alignSelf: `center`,
-                                boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                                // boxShadow: `rgb(72, 157, 207) 0px 5px 15px 7px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                                boxShadow: `rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px`,
                                 border: `9px solid rgba(56, 118, 154, 0.11)`,
                                 borderRadius: `1em`,
-                                margin: `0px 5px`
+                                margin: `0px 7px`,
+                                maxWidth: `30px`,
+                                width: `-webkit-fill-available`
                             }}
                         />
-                    } position="bottom center" on={['hover', 'focus']}>
+                    } position="bottom right" on={['hover']}>
                         <div style={{ textAlign: `center` }}>FaveWaves</div>
                     </Popup>
                 </NavLink>
@@ -70,21 +78,23 @@ const Navbar = () => {
                     <LogOutBtn onClick={() => logoutUser()}
                         style={{
                             cursor: `pointer`,
-                            width: `40px`,
-                            height: `40px`,
+                            // width: `40px`,
+                            // height: `40px`,
+                            height: `auto`,
                             alignSelf: `center`,
-                            boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                            // boxShadow: `rgb(72, 157, 207) 0px 5px 15px 7px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                            boxShadow: `rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px`,
                             border: `9px solid rgba(56, 118, 154, 0.11)`,
                             borderRadius: `1em`,
-                            margin: `0px 5px`
+                            margin: `0px 7px`,
+                            maxWidth: `30px`,
+                            width: `-webkit-fill-available`
                         }}
                     />
-                } position="bottom center" on={['hover', 'focus']}>
+                } position="bottom right" on={['hover']}>
                     <div style={{ textAlign: `center` }}>Logout</div>
                 </Popup>
-                {/* <button onClick={() => logoutUser()}>
-                </button> */}
-                {/* </LogOutBtn> */}
+
 
             </div>
             {/* <li style={{ listStyle: `none` }}><NavLink to="/users">Users</NavLink></li> */}

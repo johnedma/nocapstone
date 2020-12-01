@@ -42,12 +42,13 @@ const ChartList = () => {
 
             <h1 style={{
                 // marginBottom: `-1em`,
-                padding: `15px 35px`
+                padding: `15px 40px`
             }}
             >Trending Music</h1>
             <div style={{
                 display: "flex", flexFlow: `wrap`,
-                justifyContent: `space-around`
+                justifyContent: `space-around`,
+                margin: `0 12px`
             }}>
                 {chartList.map((item, i) =>
                     <div key={i} id={i} style={{

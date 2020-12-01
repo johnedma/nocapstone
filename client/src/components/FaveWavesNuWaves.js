@@ -36,7 +36,7 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
             flexFlow: `wrap`,
             justifyContent: `space-around`,
             /* padding: 1em; */
-            margin: `2em 0`,
+            margin: `0 16px 6em`,
             borderRadius: `50px`,
             background: `#55b9f3`,
             boxShadow: `inset 20px 20px 60px #489dcf, inset -20px -20px 60px #62d5ff`

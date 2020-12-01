@@ -14,7 +14,7 @@ const NuNews = () => {
 
             // setLoading(false)
         })()
-    }, [])
+    }, [setNuNews])
 
 
     return (
@@ -91,7 +91,11 @@ const NuNews = () => {
                                 <p style={{
                                     // color: `springgreen`,
                                     // textShadow: `1px 1px black`,
-                                    fontWeight: `bold`
+                                    fontWeight: `bold`,
+                                    background: `white`,
+                                    padding: `1em`,
+                                    borderRadius: `1em`,
+                                    border: `inset`
                                 }}
                                 >{item.content}</p>
                                 <div style={{ display: `flex`, justifyContent: `space-between` }}>

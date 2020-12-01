@@ -30,10 +30,10 @@ const Player = () => {
     // const [likes, setLikes] = useState([])
     const updateLikes = () => {
         let index = likes.indexOf(currentSong)
-        console.log(index);
+        // console.log(index);
         // console.log(typeof (id))
-        console.log(likes)
-        console.log(currentSong.title);
+        // console.log(likes)
+        // console.log(currentSong.title);
         // console.log(likes.includes(currentSong.artist));
         // index === -1 ? setLikes([...likes, currentSong]) : setLikes(likes.splice(index, 1))
         // index === 0 ? setLikes([]) :
@@ -46,7 +46,7 @@ const Player = () => {
         // else setLikes(likes.push(currentSong))
 
     }
-    console.log(likes);
+    // console.log(likes);
     // const [next, setNext] = useState(chartList[chartList.indexOf(currentSong) + 1])
     const updateNext = () => {
         // add logic to loop back to 0 index in chartlist or just stop
@@ -67,14 +67,6 @@ const Player = () => {
         }
         return null
 
-
-        // let newSong = chartList.indexOf(currentSong) + 1;
-        // console.log(chartList[1]);
-        // console.log(newSong);
-        // setCurrentSong(chartList[newSong])
-        // console.log(currentSong);
-        // setNext(chartList[chartList.indexOf(next) + 1])
-        // setNext(next)
     }
 
     const updatePrev = () => {
@@ -82,19 +74,14 @@ const Player = () => {
         setCurrentSong(prev)
     }
 
-    //     for (let i = 0; i < likes.length; i++) {
-    //         if (likes[i].user_id === currentUserId) {
-    //             if (likes.includes(currentSong)) () => removeLike(likes, i);
-    //             // return "done"
-
-    console.log(play);
-    console.log(likes);
-    console.log(currentSong);
+    // console.log(play);
+    // console.log(likes);
+    // console.log(currentSong);
     return (
         <>
             <div className="footer" >
 
-                <div style={{ display: `flex` }}>
+                <div style={{ display: `flex`, margin: `0 5px` }}>
                     <button style={{ background: `none`, border: `none` }}
                         onClick={() => updatePrev()}
                     >
@@ -160,7 +147,11 @@ const Player = () => {
                         />
                     </button>
                 </div>
-                <div>
+                <div style={{
+                    width: `inherit`,
+                    maxWidth: `360px`,
+                    textAlign: `center`
+                }}>
                     {currentSong.artist ?
                         <p style={{ fontVariantCaps: `all-small-caps` }}
                         >{currentSong.artist} - {currentSong.title}
@@ -182,19 +173,20 @@ const Player = () => {
                                 background: `none`
                             }}>
                             <FaveBtn style={{
-                                height: `-webkit-fill-available`,
-                                width: `33px`,
+                                height: `auto`,
+                                width: `29px`,
                                 backgroundColor: `springgreen`,
-                                fontSize: `2em`,
+                                // fontSize: `2em`,
                                 cursor: `pointer`,
-                                borderRadius: `1em`,
-                                padding: `5px`,
+                                borderRadius: `2em`,
+                                padding: `4px`,
                                 overflow: `visible`,
                                 fill: `deeppink`,
                                 boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
+                                margin: `0 9px`
                             }} />
                         </button>
-                    } position="top center" on={['hover', 'focus']}>
+                    } position="top right" on={['hover']}>
                         <div style={{ textAlign: `center` }}>Remove From FaveWaves</div>
                     </Popup>
                     :
@@ -206,36 +198,35 @@ const Player = () => {
                                 background: `none`
                             }}>
                             <FaveBtn style={{
-                                height: `-webkit-fill-available`,
-                                width: `33px`,
-                                fontSize: `2em`,
+                                height: `auto`,
+                                width: `29px`,
+                                // width: `33px`,
+                                // fontSize: `2em`,
                                 cursor: `pointer`,
-                                borderRadius: `1em`,
-                                padding: `5px`,
+                                borderRadius: `2em`,
+                                padding: `4px`,
                                 overflow: `visible`,
                                 fill: `deeppink`,
                                 boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
-
+                                margin: `0 9px`
                             }} />
                         </button>
-                    } position="top center" on={['hover', 'focus']}>
+                    } position="top right" on={['hover']}>
                         <div style={{ textAlign: `center` }}>Add To FaveWaves</div>
                     </Popup>
                 }
-
+                {/*
                 <NavLink to="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
                     <h1>NWO</h1>
-                </NavLink>
+                </NavLink> */}
             </div>
             <ReactPlayer style={{ display: `none` }}
-                // url={currentSong ? currentSong.url : "https://www.youtube.com/watch?v=B2J3kLJ8PQk"}
                 url={currentSong.url}
                 controls={false}
-                // light={true}
                 playing={play}
                 onEnded={() => updateNext()}
             />
-            {console.log(`playing now: ${play}`)}
+            {/* {console.log(`playing now: ${play}`)} */}
         </>
     );
 };

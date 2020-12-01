@@ -65,7 +65,7 @@ const FaveWaves = () => {
                 // flexFlow: `column`,
                 overflow: `auto`,
                 textAlign: `-webkit-center`,
-                padding: `16px`
+                // padding: `16px`
             }}>{!(likes) ? <h1>Yo, go like something!</h1> : null}
                 {likes.map((item, i) =>
                     <div key={i} id={i} style={{

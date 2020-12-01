@@ -48,7 +48,7 @@ const ArtistPage = () => {
   url=https://twitter.com/Interior/status/463440424141459456"/>
             </blockquote> */}
 
-                    <h2>{currArtist.name}</h2>
+                    <h1>{currArtist.name}</h1>
                     <img
                         style={{
                             width: `auto`,
@@ -67,7 +67,17 @@ const ArtistPage = () => {
                     {/* <div>
                 <iframe src="https://open.spotify.com/embed/artist/7wlFDEWiM5OoIAt8RSli8b" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             </div> */}
-                    <section className="twitterContainer">
+                    <section className="twitterContainer"
+                        style={{
+                            maxWidth: `750px`,
+                            margin: `0 auto`,
+                            boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 3px 7px`,
+                            padding: `.5em`,
+                            border: `9px solid rgba(56, 118, 154, 0.11)`,
+                            marginBottom: `6em`,
+                            borderRadius: `0.5em`
+                        }}
+                    >
                         <div className="twitter-embed">
                             <a
                                 className="twitter-timeline"

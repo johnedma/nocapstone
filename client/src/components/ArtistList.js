@@ -29,10 +29,9 @@ const ArtistList = () => {
     const { setCurrArtist } = useContext(ArtistContext)
 
     return (
-        <div style={{ marginTop: `35px` }}>
+        <div >
             <h1 style={{
-                marginBottom: `-1em`,
-                padding: `15px 40px`
+                padding: `15px 40px 0`
             }}
             >Trending Artists</h1>
 
@@ -40,32 +39,34 @@ const ArtistList = () => {
                 display: `flex`,
                 flexDirection: `row`,
                 overflow: `auto`,
-                padding: `16px 0`,
-                margin: `12px 0`
+                padding: `1em`,
+                margin: `12px`
             }}>
                 {artists.map((artist, i) =>
                     <NavLink to="/artist" key={i}
                         onClick={() => setCurrArtist(artist)}
                     >
                         <div style={{
-                            borderRadius: `50px`,
-                            margin: `1em`,
+                            borderRadius: `5px`,
+                            margin: `0 1em`,
                             width: `225px`,
                             alignSelf: `center`,
                             boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
                             padding: `0.5em`,
-                            border: `9px solid rgba(56, 118, 154, 0.11)`
+                            border: `9px solid rgba(56, 118, 154, 0.11)`,
+                            display: `flex`,
+                            alignItems: `center`
                         }}>
                             <img src={artist.img}
                                 style={{
-                                    height: `150px`,
+                                    height: `100px`,
                                     overflow: `hidden`,
                                     display: `flex`,
-                                    /* height: 60px, */
-                                    borderRadius: `25px`,
+                                    borderRadius: `5px`,
                                     border: `5px solid springgreen`,
                                     cursor: `pointer`,
-                                    width: `-webkit-fill-available`
+                                    width: `-webkit-fill-available`,
+                                    objectFit: `cover`
                                 }} />
                             <p style={{
                                 textAlign: `center`,
@@ -75,7 +76,8 @@ const ArtistList = () => {
                                 marginBottom: `0px`,
                                 marginTop: `3px`,
                                 textShadow: `rgb(249, 26, 147) 1px 1px 1px`,
-                                WebkitTextStrokeWidth: `thin`
+                                WebkitTextStrokeWidth: `thin`,
+                                padding: `5px`
                             }}>
                                 {artist.name}
                             </p>

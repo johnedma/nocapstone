@@ -4,7 +4,7 @@ import AuthContext from '../auth'
 import PlayerContext from '../PlayerContext';
 
 function LoginForm(props) {
-    const [username, setUsername] = useState("jetty");
+    const [username, setUsername] = useState("demo");
     const [password, setPassword] = useState("password");
     let history = useHistory();
 
@@ -42,19 +42,7 @@ function LoginForm(props) {
     }
     return (
         <div style={{
-            // borderRadius: `50px`,
-            // background: `#55b9f3`,
-            // boxShadow: `20px 20px 60px #489dcf,-20px -20px 60px #62d5ff`,
-            // margin: `2em auto`,
-            // maxWidth: `400px`,
-            // padding: `2em`,
-            /* padding: 2em; */
-            /* display: flex; */
-            /* align-items: center; */
-            /* justify-content: space-between; */
-            /* height: 40px; */
-            /* margin: 1em .5em; */
-            /* align-self: center; */
+
             margin: `2em auto`,
             maxWidth: `400px`,
             padding: `12px 24px`,
