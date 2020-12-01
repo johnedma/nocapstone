@@ -33,19 +33,20 @@ const Navbar = () => {
                 <NavLink to="/nunews">
                     <Popup trigger={
                         <NewsBtn
+                            id="res"
                             style={{
-                                cursor: `pointer`,
-                                width: `40px`,
-                                // height: `40px`,
-                                height: `auto`,
-                                alignSelf: `center`,
-                                // boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
-                                boxShadow: `rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px`,
-                                border: `9px solid rgba(56, 118, 154, 0.11)`,
-                                borderRadius: `1em`,
-                                margin: `0px 7px`,
-                                maxWidth: `30px`,
-                                width: `-webkit-fill-available`
+                                // cursor: `pointer`,
+                                // width: `40px`,
+                                // // height: `40px`,
+                                // height: `auto`,
+                                // alignSelf: `center`,
+                                // // boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                                // boxShadow: `rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px`,
+                                // border: `9px solid rgba(56, 118, 154, 0.11)`,
+                                // borderRadius: `1em`,
+                                // margin: `0px 7px`,
+                                // maxWidth: `30px`,
+                                // width: `-webkit-fill-available`
                             }}
                         />
                     } position="bottom right" on={['hover']}>
@@ -55,19 +56,20 @@ const Navbar = () => {
                 <NavLink to="/favewaves">
                     <Popup trigger={
                         <FavesBtn
+                            id="res"
                             style={{
-                                cursor: `pointer`,
-                                width: `40px`,
-                                // height: `40px`,
-                                height: `auto`,
-                                alignSelf: `center`,
-                                // boxShadow: `rgb(72, 157, 207) 0px 5px 15px 7px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
-                                boxShadow: `rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px`,
-                                border: `9px solid rgba(56, 118, 154, 0.11)`,
-                                borderRadius: `1em`,
-                                margin: `0px 7px`,
-                                maxWidth: `30px`,
-                                width: `-webkit-fill-available`
+                                // cursor: `pointer`,
+                                // width: `40px`,
+                                // // height: `40px`,
+                                // height: `auto`,
+                                // alignSelf: `center`,
+                                // // boxShadow: `rgb(72, 157, 207) 0px 5px 15px 7px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                                // boxShadow: `rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px`,
+                                // border: `9px solid rgba(56, 118, 154, 0.11)`,
+                                // borderRadius: `1em`,
+                                // margin: `0px 7px`,
+                                // maxWidth: `30px`,
+                                // width: `-webkit-fill-available`
                             }}
                         />
                     } position="bottom right" on={['hover']}>
@@ -76,19 +78,20 @@ const Navbar = () => {
                 </NavLink>
                 <Popup trigger={
                     <LogOutBtn onClick={() => logoutUser()}
+                        id="res"
                         style={{
-                            cursor: `pointer`,
-                            // width: `40px`,
-                            // height: `40px`,
-                            height: `auto`,
-                            alignSelf: `center`,
-                            // boxShadow: `rgb(72, 157, 207) 0px 5px 15px 7px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
-                            boxShadow: `rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px`,
-                            border: `9px solid rgba(56, 118, 154, 0.11)`,
-                            borderRadius: `1em`,
-                            margin: `0px 7px`,
-                            maxWidth: `30px`,
-                            width: `-webkit-fill-available`
+                            // cursor: `pointer`,
+                            // // width: `40px`,
+                            // // height: `40px`,
+                            // height: `auto`,
+                            // alignSelf: `center`,
+                            // // boxShadow: `rgb(72, 157, 207) 0px 5px 15px 7px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px`,
+                            // boxShadow: `rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px`,
+                            // border: `9px solid rgba(56, 118, 154, 0.11)`,
+                            // borderRadius: `1em`,
+                            // margin: `0px 7px`,
+                            // maxWidth: `30px`,
+                            // width: `-webkit-fill-available`
                         }}
                     />
                 } position="bottom right" on={['hover']}>

@@ -51,6 +51,21 @@
 
     }
 
+    nav svg#res{
+        cursor: pointer;
+         width: 40px;
+         height: 40px;
+        height: auto;
+        align-self: center;
+         box-shadow: rgb(72, 157, 207) 0px 5px 15px 7px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px;
+        box-shadow: rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px;
+        border: 9px solid rgba(56, 118, 154, 0.11);
+        border-radius: 1em;
+        margin: 0px 7px;
+        max-width: 30px;
+        width: -webkit-fill-availabl;
+    }
+
     body{
         font-family: 'Roboto', sans-serif;
         background-color: deepskyblue;
@@ -155,4 +170,23 @@ input{
     box-shadow: 20px 20px 60px #489dcf, -2px 1px 10px 6px #62d5ff;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+
+@media screen and (max-width: 465px){
+
+h1{
+    font-size: 1em;
+}
+nav > div.nav-end svg#res{
+    cursor: pointer;
+    height: auto;
+    align-self: center;
+    box-shadow: rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px;
+    border: 5px solid rgba(56, 118, 154, 0.11);
+    border-radius: .5em;
+    margin: 0px 5px;
+    max-width: 25px;
+    width: -webkit-fill-available;
+}
 }
