@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import ArtistContext from "../ArtistContext";
 
 
@@ -16,7 +16,8 @@ const ArtistPage = () => {
 
     return (
         <>
-            {!currArtist ? <h1 style={{ padding: `2em` }}>LOADING FAILED, PLEASE SELECT ARTIST FROM HOME PAGE</h1> :
+            {/* {!currArtist ? <h1 style={{ padding: `2em` }}>LOADING FAILED, PLEASE SELECT ARTIST FROM HOME PAGE</h1> : */}
+            {!currArtist ? <Redirect to="/" /> :
                 <div style={{ textAlign: `center` }}>
                     {/* <div>
                 <iframe src="https://open.spotify.com/embed/artist/7wlFDEWiM5OoIAt8RSli8b" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
@@ -46,7 +47,7 @@ const ArtistPage = () => {
                         }}
                     >
                         <div className="twitter-embed">
-                            <a
+                            <a target="_blank"
                                 className="twitter-timeline"
                                 data-theme="dark"
                                 data-tweet-limit="10"

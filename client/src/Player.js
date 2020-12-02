@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import ReactPlayer from 'react-player/lazy'
 import PlayerContext from './PlayerContext';
-// import { ReactComponent as FaveBtn } from './assets/imgs/cool.svg';
-// import { ReactComponent as FaveBtn } from './assets/imgs/wavy.svg';
 import { ReactComponent as FaveBtn } from './assets/imgs/shaka.svg';
 import { NavLink } from 'react-router-dom';
 import Popup from 'reactjs-popup';
@@ -11,10 +9,6 @@ import 'reactjs-popup/dist/index.css';
 
 
 
-// PULL IN USER LIKES IN INITIAL LOAD AND HOLD IN PLAYER CONTEXT
-
-
-// const Player = ({ chartList, currentSong, setCurrentSong }) => {
 const Player = () => {
     // const [currentSong, setCurrentSong] = useState("https://www.youtube.com/watch?v=0J3vgcE5i2o")
     // const [currentSong, setCurrentSong] = useState(currentSong)
@@ -24,8 +18,6 @@ const Player = () => {
 
     const [play, setPlay] = useState(false)
     const updatePlay = () => !play ? setPlay(true) : setPlay(false)
-
-
 
     // const [likes, setLikes] = useState([])
     const updateLikes = () => {
@@ -44,10 +36,8 @@ const Player = () => {
         } else setLikes([...likes, currentSong])
         // setLikes(likes.splice(index, 1)) }
         // else setLikes(likes.push(currentSong))
-
     }
-    // console.log(likes);
-    // const [next, setNext] = useState(chartList[chartList.indexOf(currentSong) + 1])
+
     const updateNext = () => {
         // add logic to loop back to 0 index in chartlist or just stop
         if (next && next.snippet) {
@@ -66,7 +56,6 @@ const Player = () => {
             setNextId(newId)
         }
         return null
-
     }
 
     const updatePrev = () => {
@@ -134,7 +123,6 @@ const Player = () => {
                         </p>
                     }
                 </div>
-                {/* <p>{currentSong.title}</p> */}
 
                 {likes.some(like => like.title === currentSong.title) ?
                     <Popup trigger={

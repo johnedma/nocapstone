@@ -27,21 +27,11 @@ const Splash = () => {
                     Never miss another wave!
             </div> */}
             </div>
-            <LoginForm style={{
-                // background: `springgreen`,
-                // padding: `2em`,
-                // border: `solid deeppink 1px`,
-                // borderRadius: `2em`
-            }} />
-            <h2 onClick={() => signupform}
-                style={{
-                    // color: `#8e8e8e`,
-                    // fontSize: `17px`,
-                    // fontWeight: `600`,
-                    // lineHeight: `20px`,
-                    // margin: `0 40px 10px`,
-                    // textAlign: `center`
-                }}>Join the wave! Create an account.</h2>
+            <LoginForm />
+            <h2 onClick={() => <SignUp />}
+            >
+                Join the wave! Create an account.
+                </h2>
             {/* <SignUp /> */}
         </div>
     );

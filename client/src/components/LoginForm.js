@@ -34,7 +34,6 @@ function LoginForm(props) {
                 setCurrentUserId(responseData.current_user_id)
                 setCurrentUser(responseData.current_user)
                 setLikes(responseData.current_user.likes)
-                // history.push('/users')
                 history.push('/')
             }
         }
@@ -42,7 +41,6 @@ function LoginForm(props) {
     }
     return (
         <div style={{
-
             margin: `2em auto`,
             maxWidth: `400px`,
             padding: `12px 24px`,
@@ -50,8 +48,6 @@ function LoginForm(props) {
             borderRadius: `50px`,
             boxShadow: `0 5px 15px 10px #489dcf, 0 3px 3px 7px rgba(96,125,139,.51)`,
             border: `9px solid rgba(56,118,154,.11)`,
-
-
         }}>
             <form onSubmit={submitForm}>
                 {errors.length ? errors.map((err) => <li key={err} >{err}</li>) : ''}

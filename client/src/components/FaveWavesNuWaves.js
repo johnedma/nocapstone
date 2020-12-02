@@ -6,13 +6,12 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
     // const [noNuWaves, setNoNuWaves] = useState(null)
     // const [nuWaves, setNuWaves] = useState(null)
 
-
     const updateCurrentSong = (id) => {
-        console.log(id);
-        console.log(typeof (id))
+        // console.log(id);
+        // console.log(typeof (id))
         let newId = parseInt(id) + 1
         setNextId(newId)
-        console.log(nextId);
+        // console.log(nextId);
         let item = nuWaves[id];
         nuWaves.length === 0 ? setCurrentSong(likes[0]) :
             setCurrentSong(
@@ -22,25 +21,19 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
                     publisted: item.snippet.publishedAt,
                     cover: item.snippet.thumbnails.high.url
                 })
-        // item.id.videoId
         setNext(nuWaves[newId])
-        console.log(next);
-
+        // console.log(next);
     }
 
-
     return (
-        // <div>
         <div className="nuWaves" style={{
             display: `flex`,
             flexFlow: `wrap`,
             justifyContent: `space-around`,
-            /* padding: 1em; */
             margin: `0 16px 6em`,
             borderRadius: `50px`,
             background: `#55b9f3`,
             boxShadow: `inset 20px 20px 60px #489dcf, inset -20px -20px 60px #62d5ff`
-
         }}>
             {nuWaves.map((item, i) =>
                 <div key={i} id={i} >
@@ -62,15 +55,13 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
                             borderRadius: `50px`,
                             border: `solid springgreen 5px`,
                             cursor: `pointer`,
-
-
-                        }}><img src={item.snippet.thumbnails.high.url} id={i}
-                            style={{
-                                // height: `fit-content`,
-                                alignSelf: `center`,
-                                width: `100%`
-                            }}
-                            onClick={e => updateCurrentSong(e.target.id)}
+                        }}>
+                            <img src={item.snippet.thumbnails.high.url} id={i}
+                                style={{
+                                    alignSelf: `center`,
+                                    width: `100%`
+                                }}
+                                onClick={e => updateCurrentSong(e.target.id)}
                             />
                         </div>
                         <p
@@ -80,21 +71,16 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
                                 fontWeight: `900`,
                                 color: `white`,
                                 marginBottom: `0`,
-                                // marginTop: `-27px`,
                                 marginTop: `3px`,
                                 textShadow: `1px 1px 1px #f91a93`,
                                 textTransform: `lowercase`,
                                 WebkitTextStrokeWidth: `thin`
                             }}
                         >{item.snippet.title}</p>
-                        {/* <p>{item.snippet.publishedAt}</p> */}
-
                     </div>
                 </div>
             )}
-
         </div>
-        // </div>
     );
 };
 
