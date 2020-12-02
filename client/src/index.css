@@ -118,9 +118,31 @@ body:before {
     justify-content: space-evenly;
     background: linear-gradient(145deg, #55b9f2, #55b9f2);
     box-shadow: 0px -20px 3px #489dcf, -6px -7px 16px #62d5ff;
+    box-shadow: 0px -12px 0px 0px #489dcf, inset -7px -7px 16px 0px #62d5ff;
 
 }
 
+div.footer button{
+    border: none;
+    background: none;
+
+}
+
+button:focus{
+   outline: none;
+}
+
+div.footer svg#player{
+    color: deeppink;
+    cursor: pointer;
+    border-radius: 2em;
+    padding: 3px;
+    box-shadow: rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px;
+    height: 25px;
+    width: 25px;
+    fill: deeppink;
+    overflow: visible;
+}
 
 
 
@@ -134,8 +156,8 @@ body:before {
     -webkit-transition: 1s;
             transition: 1s;
     box-shadow: inset rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px;
-} */
-/* .playerbtns:active  {
+}
+.playerbtns:active  {
     box-shadow: inset rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px;
     -webkit-transition: 1s;
     transition: 1s;
@@ -188,5 +210,9 @@ nav > div.nav-end svg#res{
     margin: 0px 5px;
     max-width: 25px;
     width: -webkit-fill-available;
+}
+
+div.footer p {
+    font-size: 12px;
 }
 }

@@ -60,6 +60,7 @@ const ArtistList = () => {
                             <img src={artist.img}
                                 style={{
                                     height: `100px`,
+                                    // height: `70px`,
                                     overflow: `hidden`,
                                     display: `flex`,
                                     borderRadius: `5px`,
@@ -67,6 +68,7 @@ const ArtistList = () => {
                                     cursor: `pointer`,
                                     width: `-webkit-fill-available`,
                                     objectFit: `cover`
+                                    // objectFit: `fill`
                                 }} />
                             <p style={{
                                 textAlign: `center`,

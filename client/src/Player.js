@@ -82,68 +82,40 @@ const Player = () => {
             <div className="footer" >
 
                 <div style={{ display: `flex`, margin: `0 5px` }}>
-                    <button style={{ background: `none`, border: `none` }}
+                    <button
                         onClick={() => updatePrev()}
                     >
                         <i className="far fa-caret-square-left playerbtns"
-                            style={{
-                                fontSize: `2em`,
-                                color: `deeppink`,
-                                cursor: `pointer`,
-                                // border: `solid 2px #9e9e9e3b`,
-                                borderRadius: `1em`,
-                                padding: `3px`,
-                                boxShadow: `-2px 2px 4px 1px #80888cab, 1px 2px 5px 2px #b3ced8ad`
-                            }}
+                            id="player"
+
                         />
                     </button>
                     {!play &&
-                        <button style={{ background: `none`, border: `none` }}
+                        <button
                             onClick={() => updatePlay()}>
                             {/* <i className={(play === false) ? "far fa-play-circle" : "far fa-pause-circle"} */}
                             <i className="far fa-play-circle playerbtns"
-                                style={{
-                                    fontSize: `2em`,
-                                    color: `deeppink`,
-                                    cursor: `pointer`,
-                                    // border: `solid 2px #9e9e9e3b`,
-                                    borderRadius: `1em`,
-                                    padding: `3px`,
-                                    boxShadow: `-2px 2px 4px 1px #80888cab, 1px 2px 5px 2px #b3ced8ad`
-                                }}
+                                id="player"
+
                             />
                         </button>
                     }
                     {play &&
-                        <button style={{ background: `none`, border: `none` }}
+                        <button
                             onClick={() => updatePlay()}>
                             <i className="far fa-pause-circle"
-                                style={{
-                                    fontSize: `2em`,
-                                    color: `deeppink`,
-                                    cursor: `pointer`,
-                                    // border: `solid 3px #9e9e9e3b`,
-                                    borderRadius: `1em`,
-                                    padding: `3px`,
-                                    boxShadow: `-2px 2px 4px 1px #80888cab, 1px 2px 5px 2px #b3ced8ad`
-                                }}
+                                id="player"
+
                             />
                         </button>
                     }
-                    <button style={{ background: `none`, border: `none` }}
+                    <button
                         // onClick={() => setCurrentSong(chartList[chartList.indexOf(currentSong) + 1])}
                         onClick={() => updateNext()}
                     >
                         <i className="far fa-caret-square-right playerbtns"
-                            style={{
-                                fontSize: `2em`,
-                                color: `deeppink`,
-                                cursor: `pointer`,
-                                // border: `solid 2px #9e9e9e3b`,
-                                borderRadius: `1em`,
-                                padding: `3px`,
-                                boxShadow: `-2px 2px 4px 1px #80888cab, 1px 2px 5px 2px #b3ced8ad`
-                            }}
+                            id="player"
+
                         />
                     </button>
                 </div>
@@ -168,23 +140,14 @@ const Player = () => {
                     <Popup trigger={
                         <button
                             onClick={() => updateLikes()}
-                            style={{
-                                border: `none`,
-                                background: `none`
-                            }}>
-                            <FaveBtn style={{
-                                height: `auto`,
-                                width: `29px`,
-                                backgroundColor: `springgreen`,
-                                // fontSize: `2em`,
-                                cursor: `pointer`,
-                                borderRadius: `2em`,
-                                padding: `4px`,
-                                overflow: `visible`,
-                                fill: `deeppink`,
-                                boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
-                                margin: `0 9px`
-                            }} />
+                        >
+                            <FaveBtn
+                                id="player"
+                                style={{
+
+                                    backgroundColor: `springgreen`,
+                                    margin: `0 9px`
+                                }} />
                         </button>
                     } position="top right" on={['hover']}>
                         <div style={{ textAlign: `center` }}>Remove From FaveWaves</div>
@@ -193,23 +156,13 @@ const Player = () => {
                     <Popup trigger={
                         <button
                             onClick={() => updateLikes()}
-                            style={{
-                                border: `none`,
-                                background: `none`
-                            }}>
-                            <FaveBtn style={{
-                                height: `auto`,
-                                width: `29px`,
-                                // width: `33px`,
-                                // fontSize: `2em`,
-                                cursor: `pointer`,
-                                borderRadius: `2em`,
-                                padding: `4px`,
-                                overflow: `visible`,
-                                fill: `deeppink`,
-                                boxShadow: `rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`,
-                                margin: `0 9px`
-                            }} />
+                        >
+                            <FaveBtn
+                                id="player"
+                                style={{
+
+                                    margin: `0 9px`
+                                }} />
                         </button>
                     } position="top right" on={['hover']}>
                         <div style={{ textAlign: `center` }}>Add To FaveWaves</div>

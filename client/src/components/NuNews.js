@@ -28,11 +28,7 @@ const NuNews = () => {
                 {/* <h1>Nu News</h1> */}
                 {!nuNews && <h1>LOADING</h1>}
                 {nuNews.map((item, i) =>
-                    // {item.source.name}
-                    // {item.title}
-                    // {item.description}
-                    // {item.urlToImage}
-                    // {item.publishedAt}
+
                     <div key={i} id={i} style={{ maxWidth: `700px` }} >
                         <div key={i} id={i} style={{
                             borderRadius: `50px`,
