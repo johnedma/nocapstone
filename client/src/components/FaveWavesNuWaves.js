@@ -76,7 +76,18 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
                                 textTransform: `lowercase`,
                                 WebkitTextStrokeWidth: `thin`
                             }}
-                        >{item.snippet.title}</p>
+                        >
+                            {/* {item.snippet.title.indexOf("[") &&
+                                item.snippet.title.substring(0, item.snippet.title.indexOf("["))
+                        }
+                                item.snippet.title
+                             */}
+                            {
+                                // !item.snippet.title.indexOf("[") ?
+                                item.snippet.title.substring(0, item.snippet.title.indexOf("[")) ||
+                                item.snippet.title
+                            }
+                        </p>
                     </div>
                 </div>
             )}

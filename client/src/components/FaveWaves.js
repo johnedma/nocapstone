@@ -83,25 +83,46 @@ const FaveWaves = () => {
                                     onClick={e => updateCurrentSong(e.target.id)}
                                 />
                             </div>
-                            <p
-                                style={{
-                                    textAlign: `center`,
-                                    textTransform: `uppercase`,
-                                    fontWeight: `900`,
-                                    color: `white`,
-                                    marginBottom: `0`,
-                                    marginTop: `3px`,
-                                    textShadow: `1px 1px 1px #f91a93`,
-                                    textTransform: `lowercase`,
-                                    WebkitTextStrokeWidth: `thin`
-                                }}
-                            >{item.artist} : {item.title}
-                            </p>
+                            {item.artist ?
+                                <p
+                                    style={{
+                                        textAlign: `center`,
+                                        textTransform: `uppercase`,
+                                        fontWeight: `900`,
+                                        color: `white`,
+                                        marginBottom: `0`,
+                                        marginTop: `3px`,
+                                        textShadow: `1px 1px 1px #f91a93`,
+                                        textTransform: `lowercase`,
+                                        WebkitTextStrokeWidth: `thin`
+                                    }}
+                                >
+                                    {item.artist} - {item.title}
+                                </p>
+                                :
+                                <p
+                                    style={{
+                                        textAlign: `center`,
+                                        textTransform: `uppercase`,
+                                        fontWeight: `900`,
+                                        color: `white`,
+                                        marginBottom: `0`,
+                                        marginTop: `3px`,
+                                        textShadow: `1px 1px 1px #f91a93`,
+                                        textTransform: `lowercase`,
+                                        WebkitTextStrokeWidth: `thin`
+                                    }}
+                                >
+                                    {item.title.substring(0, item.title.indexOf("[")) || item.title}
+                                </p>
+                            }
                         </div>
-                        <div onClick={moreWaves} id={item.artist}
-                            style={{ display: `flex`, maxWidth: `225px` }}>
-                            <h1 style={{ fontSize: `1em`, cursor: `pointer` }} id={item.artist}>MORE WAVES FROM {item.artist}</h1>
-                        </div>
+                        {item.artist &&
+                            <div onClick={moreWaves} id={item.artist}
+                                style={{ display: `flex`, maxWidth: `225px` }}>
+                                <h1 style={{ fontSize: `1em`, cursor: `pointer` }} id={item.artist}>MORE WAVES FROM {item.artist}</h1>
+                            </div>
+                        }
                     </div>
                 )}
             </div>
