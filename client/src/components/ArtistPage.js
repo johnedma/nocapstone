@@ -53,8 +53,9 @@ const ArtistPage = () => {
                                 data-tweet-limit="10"
                                 data-chrome="noheader nofooter noborders"
                                 href={currArtist.twt}
+                                style={{ textDecoration: `none` }}
                             >
-                                Tweets by {currArtist.name}
+                                <h1>Tweets by {currArtist.name}</h1>
                             </a>
                         </div>
                     </section>

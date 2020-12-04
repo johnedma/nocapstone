@@ -5,11 +5,13 @@ import ArtistList from './ArtistList';
 
 
 const ChartList = () => {
-    const { nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
+    const { prev, setPrev, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
 
     const updateCurrentSong = (id) => {
         // console.log(id);
         // console.log(typeof (id))
+        // prev.push(currentSong)
+        setPrev(chartList.slice(0, id))
         let newId = parseInt(id) + 1
         setNextId(newId)
         // console.log(nextId);

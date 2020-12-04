@@ -1,55 +1,49 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import ReactPlayer from 'react-player/lazy'
 import PlayerContext from './PlayerContext';
 import { ReactComponent as FaveBtn } from './assets/imgs/shaka.svg';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 
 
 const Player = () => {
-    // const [currentSong, setCurrentSong] = useState("https://www.youtube.com/watch?v=0J3vgcE5i2o")
-    // const [currentSong, setCurrentSong] = useState(currentSong)
-    // let nextSong = chartList[chartList.indexOf(currentSong) + 1]
-    // console.log(nextSong);
-    const { prev, setPrev, likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
-
+    const { nuWaves, setNuWaves, prev, setPrev, likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
     const [play, setPlay] = useState(false)
     const updatePlay = () => !play ? setPlay(true) : setPlay(false)
 
-    // const [likes, setLikes] = useState([])
     const updateLikes = () => {
         let index = likes.indexOf(currentSong)
         // console.log(index);
         // console.log(typeof (id))
-        // console.log(likes)
-        // console.log(currentSong.title);
         // console.log(likes.includes(currentSong.artist));
-        // index === -1 ? setLikes([...likes, currentSong]) : setLikes(likes.splice(index, 1))
-        // index === 0 ? setLikes([]) :
-        // likes.some(like => like.title === currentSong.title) ? setLikes(likes.splice(index, 1)) : setLikes([...likes, currentSong])
         if (likes.some(like => like.title === currentSong.title)) {
-            // likes.splice(index, 1)
-            setLikes(likes.filter(like => like != currentSong))
+            setLikes(likes.filter(like => like !== currentSong))
         } else setLikes([...likes, currentSong])
-        // setLikes(likes.splice(index, 1)) }
-        // else setLikes(likes.push(currentSong))
     }
 
     const updateNext = () => {
-        // add logic to loop back to 0 index in chartlist or just stop
+        //---criteria for FaveWavesNuWave yt fetch res song---
         if (next && next.snippet) {
-            setPrev(currentSong)
+            prev.push(currentSong)
+            setPrev(prev)
+            // setPrev([...prev, currentSong])
             setCurrentSong(
                 {
                     url: `https://www.youtube.com/watch?v=${next.id.videoId}`,
                     title: next.snippet.title,
                     cover: next.snippet.thumbnails.high.url
                 })
-        } else if (next) {
-            setPrev(currentSong)
+            setNext(nuWaves[nextId + 1])
+            let newId = nextId + 1
+            setNextId(newId)
+        }
+        //---chartlist songs---
+        else if (next) {
+            prev.push(currentSong)
+            setPrev(prev)
             setCurrentSong(next)
             setNext(chartList[nextId + 1])
             let newId = nextId + 1
@@ -59,8 +53,18 @@ const Player = () => {
     }
 
     const updatePrev = () => {
+        if (!prev.length) return null
+
+        let newId = nextId - 1
+        setNextId(newId)
         setNext(currentSong)
-        setCurrentSong(prev)
+        let newCurrent = prev[prev.length - 1]
+        prev.pop()
+        setPrev(prev)
+        console.log(prev);
+        console.log(newCurrent);
+        setCurrentSong(newCurrent)
+        // setCurrentSong(prev)
     }
 
     // console.log(play);
@@ -119,7 +123,7 @@ const Player = () => {
                         </p>
                         :
                         <p style={{ fontVariantCaps: `all-small-caps` }}
-                        >{currentSong.title}
+                        >{currentSong.title || currentSong.snippet.title}
                         </p>
                     }
                 </div>

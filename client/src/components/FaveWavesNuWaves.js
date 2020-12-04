@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PlayerContext from '../PlayerContext'
 
-const FaveWavesNuWaves = ({ nuWaves }) => {
-    const { likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
+// const FaveWavesNuWaves = ({ nuWaves }) => {
+const FaveWavesNuWaves = () => {
+    const { nuWaves, setNuWaves, prev, setPrev, likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
     // const [noNuWaves, setNoNuWaves] = useState(null)
     // const [nuWaves, setNuWaves] = useState(null)
 
@@ -21,6 +22,7 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
                     publisted: item.snippet.publishedAt,
                     cover: item.snippet.thumbnails.high.url
                 })
+        setPrev(nuWaves.slice(0, id))
         setNext(nuWaves[newId])
         // console.log(next);
     }
@@ -57,33 +59,24 @@ const FaveWavesNuWaves = ({ nuWaves }) => {
                             cursor: `pointer`,
                         }}>
                             <img src={item.snippet.thumbnails.high.url} id={i}
+                                onClick={e => updateCurrentSong(e.target.id)}
                                 style={{
                                     alignSelf: `center`,
                                     width: `100%`
-                                }}
-                                onClick={e => updateCurrentSong(e.target.id)}
-                            />
+                                }} />
                         </div>
-                        <p
-                            style={{
-                                textAlign: `center`,
-                                textTransform: `uppercase`,
-                                fontWeight: `900`,
-                                color: `white`,
-                                marginBottom: `0`,
-                                marginTop: `3px`,
-                                textShadow: `1px 1px 1px #f91a93`,
-                                textTransform: `lowercase`,
-                                WebkitTextStrokeWidth: `thin`
-                            }}
-                        >
-                            {/* {item.snippet.title.indexOf("[") &&
-                                item.snippet.title.substring(0, item.snippet.title.indexOf("["))
-                        }
-                                item.snippet.title
-                             */}
+                        <p style={{
+                            textAlign: `center`,
+                            textTransform: `uppercase`,
+                            fontWeight: `900`,
+                            color: `white`,
+                            marginBottom: `0`,
+                            marginTop: `3px`,
+                            textShadow: `1px 1px 1px #f91a93`,
+                            textTransform: `lowercase`,
+                            WebkitTextStrokeWidth: `thin`
+                        }} >
                             {
-                                // !item.snippet.title.indexOf("[") ?
                                 item.snippet.title.substring(0, item.snippet.title.indexOf("[")) ||
                                 item.snippet.title
                             }

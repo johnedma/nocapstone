@@ -6,27 +6,16 @@
 
   /* @import url('https://fonts.googleapis.com/css2?family=Megrim&family=Roboto&display=swap'); */
   @import url('https://fonts.googleapis.com/css2?family=Frijole&display=swap');
-/*
-  html{
-    background-color: white;
-    border: solid 5px #0000004f;
-    border-radius: 50px;
-    margin: 1em;
-    border: solid 2px #0000004f;
-    margin: 4px 0px;
-  } */
+
   h1 {
-      /* font-family: "DeadStock", serif; */
-      /* font-family: 'Megrim', cursive; */
-      font-family: 'Frijole', cursive;
+
+    font-family: 'Frijole', cursive;
     text-shadow: 2px 2px black;
     color: deeppink;
-
-    /* font-size: 2em; */
     font-size: 1.5em;
     margin: 0;
     padding: 5px 0 16px;
-    text-shadow: 2px 2px 2px #000;
+    /* text-shadow: 2px 2px 2px #000; */
     }
 
     .not-found{
@@ -38,11 +27,8 @@
     align-items: center;
     justify-content: space-between;
     height: 40px;
-    /* padding: 2em; */
     background: linear-gradient(145deg, #55b9f2, #55b9f2);
-    /* box-shadow: 0px -20px 3px #489dcf, -1px 0px 2px 10px #62d5ff; */
     border-radius: 50px;
-    /* margin: 1em 0.5em; */
     margin: 1em;
     align-self: center;
     box-shadow: rgb(72, 157, 207) 0px 5px 15px 10px, rgba(96, 125, 139, 0.51) 0px 3px 3px 7px;
@@ -53,11 +39,11 @@
 
     nav svg#res{
         cursor: pointer;
-         width: 40px;
-         height: 40px;
+        width: 40px;
+        height: 40px;
         height: auto;
         align-self: center;
-         box-shadow: rgb(72, 157, 207) 0px 5px 15px 7px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px;
+        box-shadow: rgb(72, 157, 207) 0px 5px 15px 7px, rgba(96, 125, 139, 0.51) 0px 3px 5px 6px;
         box-shadow: rgb(72, 157, 207) 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px;
         border: 9px solid rgba(56, 118, 154, 0.11);
         border-radius: 1em;
@@ -68,7 +54,7 @@
 
     body{
         font-family: 'Roboto', sans-serif;
-        background-color: deepskyblue;
+        /* background-color: deepskyblue; */
         border-radius: 50px;
         background: #55b9f3;
         margin: 0 auto;

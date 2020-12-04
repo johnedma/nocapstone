@@ -46,10 +46,12 @@ function App() {
     const [currentSong, setCurrentSong] = useState(chartList[0])
     // const [currentPlaylist, setCurrentPlaylist] = useState(chartList)
     // const [next, setNext] = useState(chartList[chartList.indexOf(currentSong) + 1])
-    const [prev, setPrev] = useState(null)
     const [next, setNext] = useState(chartList[1])
     const [nextId, setNextId] = useState(1)
     const [likes, setLikes] = useState([])
+    const [prev, setPrev] = useState([])
+    const [nuWaves, setNuWaves] = useState(null)
+
 
     const playerContextValue = {
         chartList,
@@ -62,7 +64,9 @@ function App() {
         nextId,
         setNextId,
         likes,
-        setLikes
+        setLikes,
+        nuWaves,
+        setNuWaves
 
     }
 
