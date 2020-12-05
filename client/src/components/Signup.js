@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom'
 import AuthContext from '../auth'
 
 
@@ -8,10 +9,12 @@ const SignUp = () => {
     const [password2, setPassword2] = useState('')
     const { fetchWithCSRF, setCurrentUserId } = useContext(AuthContext);
     const [errors, setErrors] = useState([]);
+    let history = useHistory();
 
 
     const submitForm = e => {
         e.preventDefault();
+        // if (password === password2) {
         async function signupUser() {
             const response = await fetchWithCSRF(`/signup`, {
                 method: 'POST',
@@ -31,10 +34,13 @@ const SignUp = () => {
                 setErrors(responseData.errors);
             } else {
                 setCurrentUserId(responseData.current_user_id)
-                // history.push('/users')
+                history.push('/')
             }
         }
         signupUser();
+        // } else {
+        //     setErrors(["Passwords do not match, please update and resubmit form!"])
+        // }
     }
 
     return (

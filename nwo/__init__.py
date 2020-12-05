@@ -80,7 +80,45 @@ def login():
         login_user(user)
         return {"current_user_id": current_user.id, "current_user": current_user.to_dict()}
 
-    return {"errors": ["Invalid username or passwor"]}, 401
+    return {"errors": ["Invalid username or password"]}, 401
+
+
+@app.route('/signup', methods=['POST'])
+def signup():
+    if not request.is_json:
+        return jsonify({"msg": "Missing JSON in request"}), 400
+
+    username = request.json.get('username', None)
+    password = request.json.get('password', None)
+    password2 = request.json.get('password2', None)
+    # email = request.json.get('email', None)
+
+    if not username or not password:
+        return {"errors": ["Missing required parameters"]}, 400
+
+    if not password == password2:
+        return {"errors": ["Passwords must match each other"]}, 400
+
+    new_user = User(
+        username=username,
+        password=password,
+        likes=[]
+        # email=email,
+        # created_at=datetime.now(),
+        # updated_at=datetime.now()
+    )
+    db.session.add(new_user)
+    db.session.commit()
+    # return redirect('/api/users')
+
+    authenticated, user = User.authenticate(username, password)
+    print(authenticated)
+    print(user)
+    if authenticated:
+        login_user(user)
+        return {"current_user_id": current_user.id, "current_user": current_user.to_dict()}
+
+    return {"errors": ["Invalid username, email, and/or password"]}, 401
 
 
 @app.route("/logout", methods=['POST'])

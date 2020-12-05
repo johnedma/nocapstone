@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import AuthContext from '../auth'
 import PlayerContext from '../PlayerContext';
 
-function LoginForm(props) {
+function LoginForm() {
     const [username, setUsername] = useState("demo");
     const [password, setPassword] = useState("password");
     let history = useHistory();
