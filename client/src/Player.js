@@ -49,7 +49,8 @@ const Player = () => {
             let newId = nextId + 1
             setNextId(newId)
         }
-        return null
+        else
+            return null
     }
 
     const updatePrev = () => {

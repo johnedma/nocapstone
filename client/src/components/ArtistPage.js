@@ -18,7 +18,7 @@ const ArtistPage = () => {
         <>
             {/* {!currArtist ? <h1 style={{ padding: `2em` }}>LOADING FAILED, PLEASE SELECT ARTIST FROM HOME PAGE</h1> : */}
             {!currArtist ? <Redirect to="/" /> :
-                <div style={{ textAlign: `center` }}>
+                <div style={{ textAlign: `center`, padding: `16px` }}>
                     {/* <div>
                 <iframe src="https://open.spotify.com/embed/artist/7wlFDEWiM5OoIAt8RSli8b" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             </div> */}

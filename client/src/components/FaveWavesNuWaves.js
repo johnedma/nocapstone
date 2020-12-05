@@ -14,14 +14,14 @@ const FaveWavesNuWaves = () => {
         setNextId(newId)
         // console.log(nextId);
         let item = nuWaves[id];
-        nuWaves.length === 0 ? setCurrentSong(likes[0]) :
-            setCurrentSong(
-                {
-                    url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
-                    title: item.snippet.title,
-                    publisted: item.snippet.publishedAt,
-                    cover: item.snippet.thumbnails.high.url
-                })
+        // nuWaves.length === 0 ? setCurrentSong(likes[0]) :
+        setCurrentSong(
+            {
+                url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
+                title: item.snippet.title,
+                publisted: item.snippet.publishedAt,
+                cover: item.snippet.thumbnails.high.url
+            })
         setPrev(nuWaves.slice(0, id))
         setNext(nuWaves[newId])
         // console.log(next);

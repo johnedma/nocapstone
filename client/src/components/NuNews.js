@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import NewsContext from '../NewsContext';
-import surfer from "../fonts/surfer.png"
+// import surfer from "../fonts/surfer.png"
 
 
 const NuNews = () => {
@@ -20,12 +20,12 @@ const NuNews = () => {
         <div style={{
             display: `flex`,
             flexFlow: `column`,
-            alignItems: `center`
+            // alignItems: `center`
         }}>
             {!nuNews && <h1>LOADING</h1>}
             {nuNews.map((item, i) =>
 
-                <div key={i} id={i} style={{ maxWidth: `700px` }} >
+                <div key={i} id={i} style={{ maxWidth: `700px`, padding: `16px` }} >
                     <div key={i} id={i} style={{
                         borderRadius: `50px`,
                         margin: `2em .5em`,
@@ -45,7 +45,7 @@ const NuNews = () => {
                                 cursor: `pointer`,
 
 
-                            }}><img src={item.urlToImage || surfer} id={i}
+                            }}><img src={item.urlToImage || "https://i.ibb.co/RQQgKt8/surfer.png"} id={i}
                                 style={{
                                     alignSelf: `center`,
                                     width: `100%`
@@ -73,7 +73,10 @@ const NuNews = () => {
                             border: `solid 6px #52585a1a`,
                             margin: `1em`,
                             borderRadius: `50px`,
-                            background: `#55b9f3`
+                            background: `#55b9f3`,
+                            boxShadow: `rgb(72, 157, 207) 0px 0px 15px 6px, rgb(98, 213, 255) 0px 0px 0px 8px`,
+                            border: `6px solid rgba(82, 88, 90, 0.1)`,
+                            background: `rgb(85, 185, 243)`
                         }}>
                             <p style={{
                                 fontWeight: `bold`,
