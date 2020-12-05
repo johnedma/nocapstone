@@ -52,7 +52,7 @@ const FaveWaves = () => {
                 overflow: `auto`,
                 textAlign: `-webkit-center`,
             }}>
-                {!(likes) ? <h1>Yo, go like something!</h1> : null}
+                {likes.length === 0 ? <h1 style={{ margin: `0 auto` }}>Yo, go like something!</h1> : null}
                 {likes.map((item, i) =>
                     <div key={i} id={i} style={{
                         margin: `0 10px`
@@ -122,6 +122,11 @@ const FaveWaves = () => {
                             <div onClick={moreWaves} id={item.artist}
                                 style={{ display: `flex`, maxWidth: `225px` }}>
                                 <h1 style={{ fontSize: `1em`, cursor: `pointer` }} id={item.artist}>MORE WAVES FROM {item.artist}</h1>
+                                {/* hovercss
+                                text-decoration-style: wavy;
+                                text-decoration-line: underline;
+                                text-decoration-skip-ink: none;
+                                text-decoration-color: springgreen; */}
                             </div>
                         }
                     </div>

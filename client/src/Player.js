@@ -19,9 +19,20 @@ const Player = () => {
         // console.log(index);
         // console.log(typeof (id))
         // console.log(likes.includes(currentSong.artist));
+        // ikes.some(like => like.title === currentSong.title)
         if (likes.some(like => like.title === currentSong.title)) {
-            setLikes(likes.filter(like => like !== currentSong))
-        } else setLikes([...likes, currentSong])
+            console.log(likes);
+            let newLikes = likes.filter(like => like.title !== currentSong.title)
+            console.log(newLikes)
+            setLikes(newLikes)
+            console.log(likes)
+            if (newLikes.length === 0) {
+                setCurrentSong(chartList[0])
+                setNext(chartList[1])
+            }
+        }
+        else
+            setLikes([...likes, currentSong])
     }
 
     const updateNext = () => {
@@ -44,13 +55,14 @@ const Player = () => {
         else if (next) {
             prev.push(currentSong)
             setPrev(prev)
+            console.log(next);
             setCurrentSong(next)
             setNext(chartList[nextId + 1])
             let newId = nextId + 1
             setNextId(newId)
         }
-        else
-            return null
+        // else
+        //     return null
     }
 
     const updatePrev = () => {
