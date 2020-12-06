@@ -35,3 +35,24 @@ class User(db.Model, UserMixin):
     def authenticate(cls, username, password):
         user = cls.query.filter(User.username == username).scalar()
         return check_password_hash(user.password_digest, password), user
+
+
+class Song(db.Model):
+    __tablename__ = 'songs'
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), nullable=False, unique=True)
+    artist = db.Column(db.String(255), nullable=False)
+    url = db.Column(db.String(255), nullable=False, unique=True)
+    cover = db.Column(db.String(255), nullable=False, unique=True)
+    on_chart = db.Column(db.Boolean, nullable=False, default=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "artist": self.artist,
+            "url": self.url,
+            "cover": self.cover,
+            "on_chart": self.on_chart
+        }

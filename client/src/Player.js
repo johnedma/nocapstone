@@ -16,10 +16,18 @@ const Player = () => {
 
     const updateLikes = () => {
         let index = likes.indexOf(currentSong)
-        // console.log(index);
-        // console.log(typeof (id))
-        // console.log(likes.includes(currentSong.artist));
-        // ikes.some(like => like.title === currentSong.title)
+            // console.log(index);
+            // console.log(typeof (id))
+            // console.log(likes.includes(currentSong.artist));
+            // ikes.some(like => like.title === currentSong.title)
+
+            (async function () {
+                const response = await fetch(`/api/songs/chartlist`)
+                if (response.ok) {
+
+                }
+            })()
+
         if (likes.some(like => like.title === currentSong.title)) {
             console.log(likes);
             let newLikes = likes.filter(like => like.title !== currentSong.title)
@@ -85,105 +93,109 @@ const Player = () => {
     // console.log(currentSong);
     return (
         <>
-            <div className="footer" >
+            {chartList &&
+                <div className="footer" >
 
-                <div style={{ display: `flex`, margin: `0 5px` }}>
-                    <button
-                        onClick={() => updatePrev()}
-                    >
-                        <i className="far fa-caret-square-left playerbtns"
-                            id="player"
-
-                        />
-                    </button>
-                    {!play &&
+                    <div style={{ display: `flex`, margin: `0 5px` }}>
                         <button
-                            onClick={() => updatePlay()}>
-                            {/* <i className={(play === false) ? "far fa-play-circle" : "far fa-pause-circle"} */}
-                            <i className="far fa-play-circle playerbtns"
+                            onClick={() => updatePrev()}
+                        >
+                            <i className="far fa-caret-square-left playerbtns"
                                 id="player"
 
                             />
                         </button>
-                    }
-                    {play &&
+                        {!play &&
+                            <button
+                                onClick={() => updatePlay()}>
+                                {/* <i className={(play === false) ? "far fa-play-circle" : "far fa-pause-circle"} */}
+                                <i className="far fa-play-circle playerbtns"
+                                    id="player"
+
+                                />
+                            </button>
+                        }
+                        {play &&
+                            <button
+                                onClick={() => updatePlay()}>
+                                <i className="far fa-pause-circle"
+                                    id="player"
+
+                                />
+                            </button>
+                        }
                         <button
-                            onClick={() => updatePlay()}>
-                            <i className="far fa-pause-circle"
+                            // onClick={() => setCurrentSong(chartList[chartList.indexOf(currentSong) + 1])}
+                            onClick={() => updateNext()}
+                        >
+                            <i className="far fa-caret-square-right playerbtns"
                                 id="player"
 
                             />
                         </button>
-                    }
-                    <button
-                        // onClick={() => setCurrentSong(chartList[chartList.indexOf(currentSong) + 1])}
-                        onClick={() => updateNext()}
-                    >
-                        <i className="far fa-caret-square-right playerbtns"
-                            id="player"
+                    </div>
+                    <div style={{
+                        width: `inherit`,
+                        maxWidth: `360px`,
+                        textAlign: `center`
+                    }}>
+                        {currentSong.artist ?
+                            <p style={{ fontVariantCaps: `all-small-caps` }}
+                            >{currentSong.artist} - {currentSong.title}
+                            </p>
+                            :
+                            <p style={{ fontVariantCaps: `all-small-caps` }}
+                            >{currentSong.title || currentSong.snippet.title}
+                            </p>
+                        }
+                    </div>
 
-                        />
-                    </button>
-                </div>
-                <div style={{
-                    width: `inherit`,
-                    maxWidth: `360px`,
-                    textAlign: `center`
-                }}>
-                    {currentSong.artist ?
-                        <p style={{ fontVariantCaps: `all-small-caps` }}
-                        >{currentSong.artist} - {currentSong.title}
-                        </p>
+                    {likes.some(like => like.title === currentSong.title) ?
+                        <Popup trigger={
+                            <button
+                                onClick={() => updateLikes()}
+                            >
+                                <FaveBtn
+                                    id="player"
+                                    style={{
+
+                                        backgroundColor: `springgreen`,
+                                        margin: `0 9px`
+                                    }} />
+                            </button>
+                        } position="top right" on={['hover']}>
+                            <div style={{ textAlign: `center` }}>Remove From FaveWaves</div>
+                        </Popup>
                         :
-                        <p style={{ fontVariantCaps: `all-small-caps` }}
-                        >{currentSong.title || currentSong.snippet.title}
-                        </p>
+                        <Popup trigger={
+                            <button
+                                onClick={() => updateLikes()}
+                            >
+                                <FaveBtn
+                                    id="player"
+                                    style={{
+
+                                        margin: `0 9px`
+                                    }} />
+                            </button>
+                        } position="top right" on={['hover']}>
+                            <div style={{ textAlign: `center` }}>Add To FaveWaves</div>
+                        </Popup>
                     }
-                </div>
-
-                {likes.some(like => like.title === currentSong.title) ?
-                    <Popup trigger={
-                        <button
-                            onClick={() => updateLikes()}
-                        >
-                            <FaveBtn
-                                id="player"
-                                style={{
-
-                                    backgroundColor: `springgreen`,
-                                    margin: `0 9px`
-                                }} />
-                        </button>
-                    } position="top right" on={['hover']}>
-                        <div style={{ textAlign: `center` }}>Remove From FaveWaves</div>
-                    </Popup>
-                    :
-                    <Popup trigger={
-                        <button
-                            onClick={() => updateLikes()}
-                        >
-                            <FaveBtn
-                                id="player"
-                                style={{
-
-                                    margin: `0 9px`
-                                }} />
-                        </button>
-                    } position="top right" on={['hover']}>
-                        <div style={{ textAlign: `center` }}>Add To FaveWaves</div>
-                    </Popup>
-                }
-                {/*
+                    {/*
                 <NavLink to="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>
                     <h1>NWO</h1>
                 </NavLink> */}
-            </div>
-            <ReactPlayer style={{ display: `none` }}
-                url={currentSong.url}
-                controls={false}
-                playing={play}
-                onEnded={() => updateNext()}
-            />
+                </div>
+            }
+            {chartList &&
+                <ReactPlayer style={{ display: `none` }}
+                    url={currentSong.url}
+                    controls={false}
+                    playing={play}
+                    onEnded={() => updateNext()}
+                />
+            }
             {/* {console.log(`playing now: ${play}`)} */}
         </>
     );

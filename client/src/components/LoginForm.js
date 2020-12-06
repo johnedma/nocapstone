@@ -10,7 +10,7 @@ function LoginForm() {
 
     const [errors, setErrors] = useState([]);
     const { fetchWithCSRF, setCurrentUserId, setCurrentUser } = useContext(AuthContext);
-    const { setLikes } = useContext(PlayerContext)
+    const { setLikes, setChartList } = useContext(PlayerContext)
     const submitForm = (e) => {
         e.preventDefault();
 
@@ -34,6 +34,7 @@ function LoginForm() {
                 setCurrentUserId(responseData.current_user_id)
                 setCurrentUser(responseData.current_user)
                 setLikes(responseData.current_user.likes)
+                // setChartList(responseData.current_user.songs)
                 history.push('/')
             }
         }

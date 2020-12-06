@@ -10,8 +10,9 @@ from flask_login import (
     login_required
 )
 
-from nwo.models import db, User
+from nwo.models import db, User, Song
 from nwo.api.user_routes import user_routes
+from nwo.api.song_routes import song_routes
 from nwo.api.more_waves import more_waves
 from nwo.api.nu_news import nu_news
 # from nwo.api.auth_routes import auth_routes
@@ -23,6 +24,7 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(more_waves, url_prefix='/api/morewaves')
 app.register_blueprint(nu_news, url_prefix='/api/nunews')
+app.register_blueprint(song_routes, url_prefix='/api/songs')
 db.init_app(app)
 login_manager = LoginManager(app)
 
@@ -135,5 +137,14 @@ def restore():
     if current_user:
         # return {'csrf_token': generate_csrf(), 'current_user_id': id, "current_user": user}
         return {"current_user_id": id, "current_user": user}
+
+
+@app.route("/likes", methods=['POST'])
+@login_required
+def update_likes():
+    print(current_user)
+    print(current_user.likes)
+    # response = User.query.all()
+    # return {"users": [user.to_dict() for user in response]}
 
 # vvv-- BOILERPLATE IN OG STARTER --vvv
