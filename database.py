@@ -47,16 +47,16 @@ with app.app_context():
 
     demo = User(username='demo',
                 password="password", likes=[
-                    {"title": "SO DONE", "artist": "The Kid Laroi", "url": "https://www.youtube.com/watch?v=yasj3j76SyM",
-                         "cover": "http://img.youtube.com/vi/yasj3j76SyM/0.jpg"},
-                    {"title": "positions", "artist": "Ariana Grande", "url": "https://www.youtube.com/watch?v=tcYodQoapMg",
-                     "cover": "http://img.youtube.com/vi/tcYodQoapMg/0.jpg"},
-                    {"title": "Tyler Herro", "artist": "Jack Harlow", "url": "https://www.youtube.com/watch?v=np9Ub1LilKU",
-                     "cover": "http://img.youtube.com/vi/np9Ub1LilKU/0.jpg"},
-                    {"title": "Damage", "artist": "H.E.R.", "url": "https://www.youtube.com/watch?v=PAFAfhod9TU",
-                     "cover": "http://img.youtube.com/vi/PAFAfhod9TU/0.jpg"},
-                    {"title": "the story of O.J.", "artist": "YoungBoy Never Broke Again",
-                     "url": "https://www.youtube.com/watch?v=B2J3kLJ8PQk", "cover": "http://img.youtube.com/vi/B2J3kLJ8PQk/0.jpg"}
+                    # {"title": "SO DONE", "artist": "The Kid Laroi", "url": "https://www.youtube.com/watch?v=yasj3j76SyM",
+                    #      "cover": "http://img.youtube.com/vi/yasj3j76SyM/0.jpg"},
+                    # {"title": "positions", "artist": "Ariana Grande", "url": "https://www.youtube.com/watch?v=tcYodQoapMg",
+                    #  "cover": "http://img.youtube.com/vi/tcYodQoapMg/0.jpg"},
+                    # {"title": "Tyler Herro", "artist": "Jack Harlow", "url": "https://www.youtube.com/watch?v=np9Ub1LilKU",
+                    #  "cover": "http://img.youtube.com/vi/np9Ub1LilKU/0.jpg"},
+                    # {"title": "Damage", "artist": "H.E.R.", "url": "https://www.youtube.com/watch?v=PAFAfhod9TU",
+                    #  "cover": "http://img.youtube.com/vi/PAFAfhod9TU/0.jpg"},
+                    # {"title": "the story of O.J.", "artist": "YoungBoy Never Broke Again",
+                    #  "url": "https://www.youtube.com/watch?v=B2J3kLJ8PQk", "cover": "http://img.youtube.com/vi/B2J3kLJ8PQk/0.jpg"}
                 ])
     javier = User(username='javier',
                   # email='javier@aa.io',

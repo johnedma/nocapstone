@@ -20,7 +20,8 @@ const FaveWavesNuWaves = () => {
                 url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
                 title: item.snippet.title,
                 publisted: item.snippet.publishedAt,
-                cover: item.snippet.thumbnails.high.url
+                cover: item.snippet.thumbnails.high.url,
+                on_chart: false
             })
         setPrev(nuWaves.slice(0, id))
         setNext(nuWaves[newId])

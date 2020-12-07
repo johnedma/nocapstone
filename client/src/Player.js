@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import ReactPlayer from 'react-player/lazy'
 import PlayerContext from './PlayerContext';
@@ -15,18 +15,11 @@ const Player = () => {
     const updatePlay = () => !play ? setPlay(true) : setPlay(false)
 
     const updateLikes = () => {
-        let index = likes.indexOf(currentSong)
-            // console.log(index);
-            // console.log(typeof (id))
-            // console.log(likes.includes(currentSong.artist));
-            // ikes.some(like => like.title === currentSong.title)
-
-            (async function () {
-                const response = await fetch(`/api/songs/chartlist`)
-                if (response.ok) {
-
-                }
-            })()
+        // let index = likes.indexOf(currentSong)
+        // console.log(index);
+        // console.log(typeof (id))
+        // console.log(likes.includes(currentSong.artist));
+        // ikes.some(like => like.title === currentSong.title)
 
         if (likes.some(like => like.title === currentSong.title)) {
             console.log(likes);
@@ -34,15 +27,70 @@ const Player = () => {
             console.log(newLikes)
             setLikes(newLikes)
             console.log(likes)
-            if (newLikes.length === 0) {
-                setCurrentSong(chartList[0])
-                setNext(chartList[1])
-            }
+            // if (newLikes.length === 0) {
+            //     setCurrentSong(chartList[0])
+            //     setNext(chartList[1])
+            // }
         }
-        else
+        else {
             setLikes([...likes, currentSong])
+        }
+        // (async () => {
+
+        //     try {
+        //         const res = await fetch(`/likes`, {
+        //             method: 'PUT',
+        //             headers: {
+        //                 "Content-Type": "application/json",
+        //             },
+        //             body: JSON.stringify({
+        //                 // currentSongId: currentSong.id
+        //                 likes
+        //             })
+        //         });
+        //         if (res.ok) {
+        //             // return current_user.likes
+        //             console.log("allgoodinelbario")
+        //             const data = await res.json()
+        //             console.log(data);
+        //             console.log(data.likes)
+        //             // setLikes(data.likes)
+        //         }
+        //     } catch (err) {
+        //         console.error(err)
+        //     }
+        // })()
+
     }
 
+
+    useEffect(() => {
+        (async () => {
+
+            try {
+                const res = await fetch(`/likes`, {
+                    method: 'PUT',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        // currentSongId: currentSong.id
+                        likes
+                    })
+                });
+                if (res.ok) {
+                    // return current_user.likes
+                    console.log("allgoodinelbario")
+                    const data = await res.json()
+                    console.log(data);
+                    console.log(data.likes)
+                    // setLikes(data.likes)
+                }
+            } catch (err) {
+                console.error(err)
+            }
+        })()
+    }, [likes])
     const updateNext = () => {
         //---criteria for FaveWavesNuWave yt fetch res song---
         if (next && next.snippet) {
@@ -149,38 +197,55 @@ const Player = () => {
                             </p>
                         }
                     </div>
+                    {currentSong.on_chart ?
+                        <div>
+                            {likes.some(like => like.title === currentSong.title) ?
+                                <Popup trigger={
+                                    <button
+                                        onClick={() => updateLikes()}
+                                    >
+                                        <FaveBtn
+                                            id="player"
+                                            style={{
 
-                    {likes.some(like => like.title === currentSong.title) ?
-                        <Popup trigger={
-                            <button
-                                onClick={() => updateLikes()}
-                            >
-                                <FaveBtn
-                                    id="player"
-                                    style={{
+                                                backgroundColor: `springgreen`,
+                                                margin: `0 9px`
+                                            }} />
+                                    </button>
+                                } position="top right" on={['hover']}>
+                                    <div style={{ textAlign: `center` }}>Remove From FaveWaves</div>
+                                </Popup>
+                                :
+                                <Popup trigger={
+                                    <button
+                                        onClick={() => updateLikes()}
+                                    >
+                                        <FaveBtn
+                                            id="player"
+                                            style={{
 
-                                        backgroundColor: `springgreen`,
-                                        margin: `0 9px`
-                                    }} />
-                            </button>
-                        } position="top right" on={['hover']}>
-                            <div style={{ textAlign: `center` }}>Remove From FaveWaves</div>
-                        </Popup>
+                                                margin: `0 9px`
+                                            }} />
+                                    </button>
+                                } position="top right" on={['hover']}>
+                                    <div style={{ textAlign: `center` }}>Add To FaveWaves</div>
+                                </Popup>
+                            }
+                        </div>
                         :
-                        <Popup trigger={
-                            <button
-                                onClick={() => updateLikes()}
-                            >
-                                <FaveBtn
-                                    id="player"
-                                    style={{
-
-                                        margin: `0 9px`
-                                    }} />
-                            </button>
-                        } position="top right" on={['hover']}>
-                            <div style={{ textAlign: `center` }}>Add To FaveWaves</div>
-                        </Popup>
+                        <button disabled={true}
+                        // onClick={() => updateLikes()}
+                        >
+                            <FaveBtn
+                                id="player"
+                                style={{
+                                    margin: `0 9px`,
+                                    fill: `#607D8B`,
+                                    overflow: `visible`,
+                                    boxShadow: `0 0 black`,
+                                    cursor: `not-allowed`
+                                }} />
+                        </button>
                     }
                     {/*
                 <NavLink to="/" style={{ textDecorationColor: "springgreen", textDecorationSkipInk: `none` }}>

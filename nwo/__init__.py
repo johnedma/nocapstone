@@ -139,12 +139,62 @@ def restore():
         return {"current_user_id": id, "current_user": user}
 
 
-@app.route("/likes", methods=['POST'])
+@app.route("/likes", methods=['PUT'])
 @login_required
 def update_likes():
-    print(current_user)
+    # db.session.remove()
+    likes = request.json.get("likes")
+    print("*******LIKES via REQ************")
+    print(likes)
+    print("*******USER LIKES************")
+    current_user.likes = likes
+    db.session.commit()
     print(current_user.likes)
-    # response = User.query.all()
-    # return {"users": [user.to_dict() for user in response]}
-
-# vvv-- BOILERPLATE IN OG STARTER --vvv
+    return {'likes': current_user.likes}, 200
+    current_song_id = request.json.get('currentSongId', None)
+    song = Song.query.filter(Song.id == current_song_id)[0]
+    print(song.title)
+    print(current_song_id)
+    if song.to_dict() not in current_user.likes:
+        # current_user.likes.updateappend(song)
+        # current_user.update({"likes": (User.likes.append(song))})
+        # current_user.likes = [current_user.likes.append(song.to_dict())]
+        # current_user.likes = [song.to_dict()]
+        current_user.likes = [*current_user.likes, song.to_dict()]
+        db.session.commit()
+        # db.session.remove()
+        # print(True)
+        return {'likes': current_user.likes}, 200
+    else:
+        # current_user.likes = current_user.likes.remove(
+        #     current_user.likes.filter(current_user.likes.id == current_song_id))
+        # print(current_user.likes[song.id-1])
+        # current_user.likes = [*current_user.likes.remove(song.to_dict())]
+        # db.session.remove(current_user.likes.song.to_dict())
+        current_user.likes.remove(song.to_dict())
+        # likes = current_user.likes
+        # print("--------NEWLIKES----------")
+        # print(likes)
+        # user = User.query.filter(User.id == current_user.id).scalar()
+        # print(user)
+        # print("----------user query likes----------")
+        # print(user.likes)
+        print("----------current_user likes----------")
+        # current_user.likes.clear()
+        print(current_user.likes)
+        # db.session.add(current_user)
+        # current_user.likes = likes
+        # current_user.likes = [*likes]
+        # current_user.likes.append(likes)
+        # print(current_user.likes)
+        db.session.commit()
+        # db.session.close()
+        print(current_user.likes)
+        # return {'likes': user.likes}, 200
+        return {'likes': current_user.likes}, 200
+        # return {'likes': current_user.likes.to_dict()}, 200
+    #    list comp outputs array
+    # data = [song.to_dict() for song in songs]
+    # print(data)
+    # return {"chart_songs": data}, 200
+    # print(current_user.username)
