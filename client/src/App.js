@@ -20,21 +20,14 @@ import NuNews from './components/NuNews';
 import ArtistContext from './ArtistContext';
 
 
-
-
-
 function App() {
-
     const [chartList, setChartList] = useState(null)
-
     const [currentSong, setCurrentSong] = useState(null)
     const [next, setNext] = useState(null)
     const [nextId, setNextId] = useState(1)
     const [likes, setLikes] = useState([])
     const [prev, setPrev] = useState([])
     const [nuWaves, setNuWaves] = useState(null)
-
-
     const playerContextValue = {
         chartList,
         setChartList,
@@ -50,29 +43,29 @@ function App() {
         setLikes,
         nuWaves,
         setNuWaves
-
     }
 
+    //----------------
     const [currArtist, setCurrArtist] = useState(null)
-
     const artistContextValue = {
         currArtist,
         setCurrArtist
     }
 
+
+    //----------------
     const [nuNews, setNuNews] = useState([])
     const nuNewsContextValue = {
         nuNews,
         setNuNews
     }
 
-    // auth-----------------
 
+    //----------------
     const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
     const [currentUserId, setCurrentUserId] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
     const [loading, setLoading] = useState(true)
-    // const [postData, setPostData] = useState(null)
     const authContextValue = {
         fetchWithCSRF,
         currentUserId,
@@ -90,13 +83,9 @@ function App() {
             setChartList(data.chart_songs)
             setCurrentSong(data.chart_songs[0])
             setNext(data.chart_songs[1])
-            //     // setCurrentUserId(current_user_id)
-            //     // setCurrentUser(current_user)
-            //     // setLikes(current_user ? current_user.likes : [])
-            //     // setFetchWithCSRF(csrf_token)
-            // setLoading(false)
         })()
     }, [])
+
 
     useEffect(() => {
         (async () => {
@@ -105,24 +94,11 @@ function App() {
             const { current_user_id, current_user } = data
             setCurrentUserId(current_user_id)
             setCurrentUser(current_user)
-            setLikes(current_user ? current_user.likes : [])
+            setLikes(current_user ? current_user.likes : null)
             // setFetchWithCSRF(csrf_token)
             setLoading(false)
         })()
-        // (async () => {
-        //     const response = await fetch('/api/songs/chartlist')
-        //     const data = await response.json()
-        //     console.log(data)
-        //     setChartList([data])
-        //     // setCurrentUserId(current_user_id)
-        //     // setCurrentUser(current_user)
-        //     // setLikes(current_user ? current_user.likes : [])
-        //     // setFetchWithCSRF(csrf_token)
-        //     // setLoading(false)
-        // })()
-        // setLoading(false)
     }, [])
-
 
 
     return (
@@ -140,38 +116,20 @@ function App() {
                                     <AuthRoute exact path="/signup" component={SignUp} currentUserId={currentUserId} />
                                     <ProtectedRoute exact path="/artist" component={ArtistPage} currentUserId={currentUserId} />
                                     {/* <Route path="/artists/:artistname" component={ArtistPage} /> */}
-                                    {/* <Route path="/users">
-                                <UserList />
-                            </Route> */}
-
                                     <ProtectedRoute path="/nunews" exact component={NuNews} currentUserId={currentUserId} />
                                     <ProtectedRoute path="/favewaves" exact component={FaveWaves} currentUserId={currentUserId} />
                                     <ProtectedRoute path="/" exact component={ChartList} currentUserId={currentUserId} />
                                     <Route component={NotFound} />
-
-                                    {/* ----------------- */}
-                                    {/* playlist of entire objs and pass in url with name
-                    next song use --> array = array.concat(array.splice(0, 1)); */}
-                                    {/* <ReactPlayer
-                        url={[
-                            'https://www.youtube.com/watch?v=oUFJJNQGwhk',
-                            'https://www.youtube.com/watch?v=jNgP6d9HraI'
-                        ]}
-                    />  */}
-
-
                                 </Switch>
-                                {currentUserId ?
-                                    <Player /> : null
-                                }
+                                {(currentUserId && currentSong) ? <Player /> : null}
                             </BrowserRouter >
                         }
-                        {/* <Player currentSong={currentSong} /> */}
                     </ArtistContext.Provider>
                 </NewsContext.Provider>
             </PlayerContext.Provider>
         </AuthContext.Provider>
     );
 }
+
 
 export default App;

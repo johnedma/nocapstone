@@ -11,15 +11,16 @@ const FaveWaves = () => {
         // console.log(id);
         // console.log(typeof (id))
         // let newId = parseInt(id) + 1
-        console.log(likes[id].id);
+        // console.log(likes[id].id);
         setPrev(chartList.slice(0, likes[id].id))
-        setNextId(likes[id].id + 1)
+        let newNext = likes[id].id + 1
+        setNextId(newNext)
         // setNextId(newId)
         console.log(nextId);
         // console.log(newId);
         // likes.length === 0 ? setCurrentSong(chartList[0]) :
         // setNext(chartList[newId])
-        setNext(chartList[nextId])
+        setNext(chartList[newNext])
         setCurrentSong(likes[id])
         // console.log(next);
     }

@@ -9,9 +9,7 @@ const NuNews = () => {
         (async () => {
             const response = await fetch('/api/nunews/')
             const data = await response.json()
-            console.log(data);
             setNuNews(data.articles)
-            // setLoading(false)
         })()
     }, [setNuNews])
 
@@ -20,13 +18,9 @@ const NuNews = () => {
         <div style={{
             display: `flex`,
             flexDirection: `column`,
-            // placeItems: `center,`
-            // flexFlow: `column`,
-            // alignItems: `center`
         }}>
             {!nuNews && <h1>LOADING</h1>}
             {nuNews.map((item, i) =>
-
                 <div key={i} id={i} style={{ maxWidth: `700px`, padding: `0 16px`, margin: `0 auto` }} >
                     <div key={i} id={i} style={{
                         borderRadius: `50px`,
@@ -45,13 +39,12 @@ const NuNews = () => {
                                 borderRadius: `50px`,
                                 border: `solid springgreen 5px`,
                                 cursor: `pointer`,
-
-
-                            }}><img src={item.urlToImage || "https://i.ibb.co/RQQgKt8/surfer.png"} id={i}
-                                style={{
-                                    alignSelf: `center`,
-                                    width: `100%`
-                                }}
+                            }}>
+                                <img src={item.urlToImage || "https://i.pinimg.com/originals/78/f2/79/78f279386f05fb3e1589768b3bd012ee.jpg"} id={i}
+                                    style={{
+                                        alignSelf: `center`,
+                                        width: `100%`
+                                    }}
                                 />
                             </div>
                         </a>
@@ -109,7 +102,6 @@ const NuNews = () => {
                 </div>
             )}
         </div>
-
     );
 };
 

@@ -3,12 +3,18 @@ import { NavLink } from 'react-router-dom';
 import ArtistContext from '../ArtistContext';
 
 const artists = [
-    { name: "NBA YoungBoy", img: "https://i.ibb.co/QdFV5qZ/nbagang.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/ggyoungboyera" },
-    { name: "Chance The Rapper", img: "https://i.ibb.co/DQ5j93p/chance.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/chancetherapper" },
-    { name: "Drake", img: "https://i.ibb.co/PTWP5mh/drake.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/drake" },
-    { name: "Ty Dolla $ign", img: "https://i.ibb.co/J2xhvR9/ty.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/tydollasign", url: "https://www.youtube.com/playlist?list=PLdvYBl_CREudAr71xljU9NXZe3RV3Ofq-", title: "Dolla $ign Playlist" },
-    { name: "Post Malone", img: "https://i.ibb.co/b6SbKx6/post.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/PostMalone" },
-    { name: "Kevin Gates", img: "https://i.ibb.co/n0DJMhX/gates.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/iamkevingates" },
+    { name: "NBA YoungBoy", img: "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2020%2F10%2Fnba-youngboy-the-story-of-oj-jay-z-freestyle-tw.jpg?w=960&cbr=1&q=90&fit=max", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/ggyoungboyera" },
+    { name: "Chance The Rapper", img: "https://hiphop-n-more.com/wp-content/uploads/2019/06/chance-the-rapper-new-album-tracklist.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/chancetherapper" },
+    { name: "Drake", img: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/1-drake-ovo-nike-wireless-festival-1571866670.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/drake" },
+    { name: "Ty Dolla $ign", img: "https://media.socastsrm.com/wordpress/wp-content/blogs.dir/2162/files/2020/10/ty-dolla-sign.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/tydollasign", url: "https://www.youtube.com/playlist?list=PLdvYBl_CREudAr71xljU9NXZe3RV3Ofq-", title: "Dolla $ign Playlist" },
+    { name: "Post Malone", img: "https://globalnews.ca/wp-content/uploads/2019/09/saint-tropez-post-malone-2.jpg?quality=85&strip=all", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/PostMalone" },
+    { name: "Kevin Gates", img: "https://i.ytimg.com/vi/tUlm-i-H7ks/maxresdefault.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/iamkevingates" },
+    // { name: "NBA YoungBoy", img: "https://i.ibb.co/QdFV5qZ/nbagang.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/ggyoungboyera" },
+    // { name: "Chance The Rapper", img: "https://i.ibb.co/DQ5j93p/chance.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/chancetherapper" },
+    // { name: "Drake", img: "https://i.ibb.co/PTWP5mh/drake.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/drake" },
+    // { name: "Ty Dolla $ign", img: "https://i.ibb.co/J2xhvR9/ty.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/tydollasign", url: "https://www.youtube.com/playlist?list=PLdvYBl_CREudAr71xljU9NXZe3RV3Ofq-", title: "Dolla $ign Playlist" },
+    // { name: "Post Malone", img: "https://i.ibb.co/b6SbKx6/post.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/PostMalone" },
+    // { name: "Kevin Gates", img: "https://i.ibb.co/n0DJMhX/gates.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/iamkevingates" },
 
 ]
 
@@ -21,7 +27,6 @@ const ArtistList = () => {
                 padding: `15px 40px 0`
             }}
             >Trending Artists</h1>
-
             <div style={{
                 display: `flex`,
                 flexDirection: `row`,
@@ -55,7 +60,6 @@ const ArtistList = () => {
                                     cursor: `pointer`,
                                     width: `-webkit-fill-available`,
                                     objectFit: `cover`
-                                    // objectFit: `fill`
                                 }} />
                             <p style={{
                                 textAlign: `center`,

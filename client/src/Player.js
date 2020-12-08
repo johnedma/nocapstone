@@ -10,63 +10,26 @@ import 'reactjs-popup/dist/index.css';
 
 
 const Player = () => {
-    const { nuWaves, setNuWaves, prev, setPrev, likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
+    const { nuWaves, prev, setPrev, likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
     const [play, setPlay] = useState(false)
     const updatePlay = () => !play ? setPlay(true) : setPlay(false)
 
-    const updateLikes = () => {
-        // let index = likes.indexOf(currentSong)
-        // console.log(index);
-        // console.log(typeof (id))
-        // console.log(likes.includes(currentSong.artist));
-        // ikes.some(like => like.title === currentSong.title)
 
+    const updateLikes = () => {
         if (likes.some(like => like.title === currentSong.title)) {
-            console.log(likes);
             let newLikes = likes.filter(like => like.title !== currentSong.title)
-            console.log(newLikes)
+            // console.log(newLikes)
             setLikes(newLikes)
-            console.log(likes)
-            // if (newLikes.length === 0) {
-            //     setCurrentSong(chartList[0])
-            //     setNext(chartList[1])
-            // }
+            // console.log(likes)
         }
         else {
             setLikes([...likes, currentSong])
         }
-        // (async () => {
-
-        //     try {
-        //         const res = await fetch(`/likes`, {
-        //             method: 'PUT',
-        //             headers: {
-        //                 "Content-Type": "application/json",
-        //             },
-        //             body: JSON.stringify({
-        //                 // currentSongId: currentSong.id
-        //                 likes
-        //             })
-        //         });
-        //         if (res.ok) {
-        //             // return current_user.likes
-        //             console.log("allgoodinelbario")
-        //             const data = await res.json()
-        //             console.log(data);
-        //             console.log(data.likes)
-        //             // setLikes(data.likes)
-        //         }
-        //     } catch (err) {
-        //         console.error(err)
-        //     }
-        // })()
-
     }
 
 
     useEffect(() => {
         (async () => {
-
             try {
                 const res = await fetch(`/likes`, {
                     method: 'PUT',
@@ -74,16 +37,14 @@ const Player = () => {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        // currentSongId: currentSong.id
                         likes
                     })
                 });
                 if (res.ok) {
-                    // return current_user.likes
-                    console.log("allgoodinelbario")
-                    const data = await res.json()
-                    console.log(data);
-                    console.log(data.likes)
+                    return
+                    // const data = await res.json()
+                    // console.log(data);
+                    // console.log(data.likes)
                     // setLikes(data.likes)
                 }
             } catch (err) {
@@ -91,18 +52,18 @@ const Player = () => {
             }
         })()
     }, [likes])
+
+
     const updateNext = () => {
         //---criteria for FaveWavesNuWave yt fetch res song---
         if (next && next.snippet) {
             prev.push(currentSong)
             setPrev(prev)
-            // setPrev([...prev, currentSong])
-            setCurrentSong(
-                {
-                    url: `https://www.youtube.com/watch?v=${next.id.videoId}`,
-                    title: next.snippet.title,
-                    cover: next.snippet.thumbnails.high.url
-                })
+            setCurrentSong({
+                url: `https://www.youtube.com/watch?v=${next.id.videoId}`,
+                title: next.snippet.title,
+                cover: next.snippet.thumbnails.high.url
+            })
             setNext(nuWaves[nextId + 1])
             let newId = nextId + 1
             setNextId(newId)
@@ -111,75 +72,59 @@ const Player = () => {
         else if (next) {
             prev.push(currentSong)
             setPrev(prev)
-            console.log(next);
             setCurrentSong(next)
             setNext(chartList[nextId + 1])
             let newId = nextId + 1
             setNextId(newId)
         }
-        // else
-        //     return null
     }
+
 
     const updatePrev = () => {
         if (!prev.length) return null
-
         let newId = nextId - 1
         setNextId(newId)
         setNext(currentSong)
         let newCurrent = prev[prev.length - 1]
         prev.pop()
         setPrev(prev)
-        console.log(prev);
-        console.log(newCurrent);
+        // console.log(prev);
+        // console.log(newCurrent);
         setCurrentSong(newCurrent)
-        // setCurrentSong(prev)
     }
 
-    // console.log(play);
-    // console.log(likes);
-    // console.log(currentSong);
+
     return (
         <>
+            {(currentSong === null) && <h1>LOADING</h1>}
+            {/* { !currentSong.artist && <h1>LOADING</h1>} */}
             {chartList &&
                 <div className="footer" >
 
                     <div style={{ display: `flex`, margin: `0 5px` }}>
                         <button
-                            onClick={() => updatePrev()}
-                        >
+                            onClick={() => updatePrev()}>
                             <i className="far fa-caret-square-left playerbtns"
-                                id="player"
-
-                            />
+                                id="player" />
                         </button>
                         {!play &&
                             <button
                                 onClick={() => updatePlay()}>
-                                {/* <i className={(play === false) ? "far fa-play-circle" : "far fa-pause-circle"} */}
                                 <i className="far fa-play-circle playerbtns"
-                                    id="player"
-
-                                />
+                                    id="player" />
                             </button>
                         }
                         {play &&
                             <button
                                 onClick={() => updatePlay()}>
                                 <i className="far fa-pause-circle"
-                                    id="player"
-
-                                />
+                                    id="player" />
                             </button>
                         }
                         <button
-                            // onClick={() => setCurrentSong(chartList[chartList.indexOf(currentSong) + 1])}
-                            onClick={() => updateNext()}
-                        >
+                            onClick={() => updateNext()} >
                             <i className="far fa-caret-square-right playerbtns"
-                                id="player"
-
-                            />
+                                id="player" />
                         </button>
                     </div>
                     <div style={{
@@ -187,6 +132,7 @@ const Player = () => {
                         maxWidth: `360px`,
                         textAlign: `center`
                     }}>
+                        {!currentSong && <h1>LOADING</h1>}
                         {currentSong.artist ?
                             <p style={{ fontVariantCaps: `all-small-caps` }}
                             >{currentSong.artist} - {currentSong.title}
@@ -202,12 +148,10 @@ const Player = () => {
                             {likes.some(like => like.title === currentSong.title) ?
                                 <Popup trigger={
                                     <button
-                                        onClick={() => updateLikes()}
-                                    >
+                                        onClick={() => updateLikes()} >
                                         <FaveBtn
                                             id="player"
                                             style={{
-
                                                 backgroundColor: `springgreen`,
                                                 margin: `0 9px`
                                             }} />
@@ -218,12 +162,10 @@ const Player = () => {
                                 :
                                 <Popup trigger={
                                     <button
-                                        onClick={() => updateLikes()}
-                                    >
+                                        onClick={() => updateLikes()}>
                                         <FaveBtn
                                             id="player"
                                             style={{
-
                                                 margin: `0 9px`
                                             }} />
                                     </button>
@@ -233,9 +175,7 @@ const Player = () => {
                             }
                         </div>
                         :
-                        <button disabled={true}
-                        // onClick={() => updateLikes()}
-                        >
+                        <button disabled={true} >
                             <FaveBtn
                                 id="player"
                                 style={{

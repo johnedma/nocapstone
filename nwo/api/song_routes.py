@@ -1,4 +1,3 @@
-# Run pip install flask-blueprint
 from flask import Blueprint, jsonify
 from nwo.models import Song
 song_routes = Blueprint('song_routes', __name__)

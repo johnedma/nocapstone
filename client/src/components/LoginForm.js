@@ -6,11 +6,12 @@ import PlayerContext from '../PlayerContext';
 function LoginForm() {
     const [username, setUsername] = useState("demo");
     const [password, setPassword] = useState("password");
-    let history = useHistory();
-
     const [errors, setErrors] = useState([]);
     const { fetchWithCSRF, setCurrentUserId, setCurrentUser } = useContext(AuthContext);
     const { setLikes, setChartList } = useContext(PlayerContext)
+
+
+    let history = useHistory();
     const submitForm = (e) => {
         e.preventDefault();
 
@@ -26,7 +27,6 @@ function LoginForm() {
                     password
                 })
             });
-
             const responseData = await response.json();
             if (!response.ok) {
                 setErrors(responseData.errors);
@@ -34,12 +34,13 @@ function LoginForm() {
                 setCurrentUserId(responseData.current_user_id)
                 setCurrentUser(responseData.current_user)
                 setLikes(responseData.current_user.likes)
-                // setChartList(responseData.current_user.songs)
                 history.push('/')
             }
         }
         loginUser();
     }
+
+
     return (
         <div style={{
             margin: `2em auto`,
