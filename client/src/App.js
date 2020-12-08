@@ -79,7 +79,7 @@ function App() {
         (async () => {
             const response = await fetch('/api/songs/chartlist')
             const data = await response.json()
-            console.log(data)
+            // console.log(data)
             setChartList(data.chart_songs)
             setCurrentSong(data.chart_songs[0])
             setNext(data.chart_songs[1])
@@ -94,7 +94,7 @@ function App() {
             const { current_user_id, current_user } = data
             setCurrentUserId(current_user_id)
             setCurrentUser(current_user)
-            setLikes(current_user ? current_user.likes : null)
+            setLikes(current_user ? current_user.likes : [])
             // setFetchWithCSRF(csrf_token)
             setLoading(false)
         })()
@@ -106,7 +106,7 @@ function App() {
             <PlayerContext.Provider value={playerContextValue}>
                 <NewsContext.Provider value={nuNewsContextValue}>
                     <ArtistContext.Provider value={artistContextValue}>
-                        {/* {loading && <h1>...LOADING...</h1>} */}
+                        {loading && <h1>...LOADING...</h1>}
                         {!loading &&
                             <BrowserRouter>
                                 {currentUserId && <Navbar />}
