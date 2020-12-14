@@ -153,11 +153,12 @@ const Player = () => {
                                         onClick={() => updateLikes()} >
                                         <FaveBtn
                                             className="player"
-
-
                                             style={{
                                                 backgroundColor: `springgreen`,
-                                                margin: `0 9px`
+                                                margin: `0 9px`,
+                                                // padding: `4px`,
+                                                // boxShadow: `inset rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`
+
                                             }} />
                                     </button>
                                 } position="top right" on={['hover']}>

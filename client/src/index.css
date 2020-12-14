@@ -121,6 +121,10 @@ div.footer svg.player{
     transition: all ease 0.3s;
 }
 
+div.footer svg.player.fa-pause-circle{
+    box-shadow: inset rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px;
+
+}
 div.footer svg.player:hover{
     box-shadow: inset rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px;
     transform: scale(1.1);
