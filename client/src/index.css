@@ -41,7 +41,7 @@
         border-radius: 1em;
         margin: 0px 7px;
         max-width: 30px;
-        width: -webkit-fill-availabl;
+        width: -webkit-fill-available;
     }
 
     body{
@@ -83,7 +83,8 @@ body:before {
     justify-content: space-evenly;
     background: linear-gradient(145deg, #55b9f2, #55b9f2);
     box-shadow: 0px -20px 3px #489dcf, -6px -7px 16px #62d5ff;
-    box-shadow: 0px -12px 0px 0px #489dcf, inset -7px -7px 16px 0px #62d5ff;
+    /* box-shadow: 0px -12px 0px 0px #489dcf, inset -7px -7px 16px 0px #62d5ff; */
+    box-shadow: 0px -12px 0px -10px #489dcf, inset -7px -7px 16px 0px #62d5ff;
 
 }
 

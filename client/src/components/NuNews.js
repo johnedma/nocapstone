@@ -16,8 +16,8 @@ const NuNews = () => {
 
     return (
         <div style={{
-            display: `flex`,
-            flexDirection: `column`,
+            // display: `flex`,
+            // flexDirection: `column`,
         }}>
             {!nuNews && <h1>LOADING</h1>}
             {nuNews.map((item, i) =>
