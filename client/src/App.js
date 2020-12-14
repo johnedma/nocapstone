@@ -106,7 +106,13 @@ function App() {
             <PlayerContext.Provider value={playerContextValue}>
                 <NewsContext.Provider value={nuNewsContextValue}>
                     <ArtistContext.Provider value={artistContextValue}>
-                        {loading && <h1>...LOADING...</h1>}
+                        {loading && <h1 style={{
+                            textAlign: `center`,
+                            // background: `white`,
+                            fontSize: `3em`,
+                            /* margin: 0em; */
+                            lineHeight: `7em`
+                        }}>LOADING</h1>}
                         {!loading &&
                             <BrowserRouter>
                                 {currentUserId && <Navbar />}

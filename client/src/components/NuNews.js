@@ -19,7 +19,13 @@ const NuNews = () => {
             // display: `flex`,
             // flexDirection: `column`,
         }}>
-            {!nuNews && <h1>LOADING</h1>}
+            {!nuNews && <h1 style={{
+                textAlign: `center`,
+                // background: `white`,
+                fontSize: `3em`,
+                /* margin: 0em; */
+                lineHeight: `7em`
+            }}>LOADING</h1>}
             {nuNews.map((item, i) =>
                 <div key={i} id={i} style={{ maxWidth: `700px`, padding: `0 16px`, margin: `0 auto` }} >
                     <div key={i} id={i} style={{
