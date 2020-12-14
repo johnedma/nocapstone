@@ -104,27 +104,29 @@ const Player = () => {
                     <div style={{ display: `flex`, margin: `0 5px` }}>
                         <button
                             onClick={() => updatePrev()}>
-                            <i className="far fa-caret-square-left playerbtns"
-                                id="player" />
+                            <i className="far fa-caret-square-left player"
+                            />
                         </button>
                         {!play &&
                             <button
                                 onClick={() => updatePlay()}>
-                                <i className="far fa-play-circle playerbtns"
-                                    id="player" />
+                                <i className="far fa-play-circle player"
+                                />
                             </button>
                         }
                         {play &&
                             <button
                                 onClick={() => updatePlay()}>
-                                <i className="far fa-pause-circle"
-                                    id="player" />
+                                <i className="far fa-pause-circle player"
+                                />
                             </button>
                         }
                         <button
+
                             onClick={() => updateNext()} >
-                            <i className="far fa-caret-square-right playerbtns"
-                                id="player" />
+                            <i className="far fa-caret-square-right player"
+
+                            />
                         </button>
                     </div>
                     <div style={{
@@ -150,7 +152,9 @@ const Player = () => {
                                     <button
                                         onClick={() => updateLikes()} >
                                         <FaveBtn
-                                            id="player"
+                                            className="player"
+
+
                                             style={{
                                                 backgroundColor: `springgreen`,
                                                 margin: `0 9px`
@@ -164,7 +168,8 @@ const Player = () => {
                                     <button
                                         onClick={() => updateLikes()}>
                                         <FaveBtn
-                                            id="player"
+
+                                            className="player"
                                             style={{
                                                 margin: `0 9px`
                                             }} />
@@ -177,7 +182,8 @@ const Player = () => {
                         :
                         <button disabled={true} >
                             <FaveBtn
-                                id="player"
+
+                                className="player"
                                 style={{
                                     margin: `0 9px`,
                                     fill: `#607D8B`,

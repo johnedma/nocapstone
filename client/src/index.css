@@ -42,7 +42,16 @@
         margin: 0px 7px;
         max-width: 30px;
         width: -webkit-fill-available;
+        /* -webkit-transition: 1s;
+        transition: 1s; */
+        transition: all ease 0.3s;
     }
+
+nav svg#res:hover{
+    /* background: #ff1493eb; */
+    box-shadow: #E91E63 0px 2px 2px 4px, rgba(96, 125, 139, 0.51) 0px 1px 4px 5px;
+
+}
 
     body{
         font-family: 'Roboto', sans-serif;
@@ -97,7 +106,7 @@ button:focus{
    outline: none;
 }
 
-div.footer svg#player{
+div.footer svg.player{
     color: deeppink;
     cursor: pointer;
     border-radius: 2em;
@@ -107,9 +116,16 @@ div.footer svg#player{
     width: 25px;
     fill: deeppink;
     overflow: visible;
+    /* -webkit-transition: 1s;
+    transition: 1s; */
+    transition: all ease 0.3s;
 }
 
-
+div.footer svg.player:hover{
+    box-shadow: inset rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px;
+    transform: scale(1.1);
+    /* padding: 5px */
+}
 
 .chartItem:hover{
     box-shadow: 0px 20px 60px #46fd7f, 0px 2px 60px #46fd7f;
@@ -117,12 +133,12 @@ div.footer svg#player{
 
 }
 
-/* .playerbtns{
+/* .player{
     -webkit-transition: 1s;
             transition: 1s;
     box-shadow: inset rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px;
 }
-.playerbtns:active  {
+.player:hover  {
     box-shadow: inset rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px;
     -webkit-transition: 1s;
     transition: 1s;
