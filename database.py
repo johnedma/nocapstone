@@ -29,7 +29,7 @@ chartList = [{'title': 'Body', 'artist': 'Megan Thee Stallion', 'url': 'https://
               'url': 'https://www.youtube.com/watch?v=2xWkATdMQms', 'cover': 'https://img.youtube.com/vi/2xWkATdMQms/0.jpg'},
              {'title': 'Therefore I Am', 'artist': 'Billie Eilish', 'url': 'https://www.youtube.com/watch?v=RUQl6YcMalg',
                  'cover': 'https://img.youtube.com/vi/RUQl6YcMalg/0.jpg'},
-             {'title': 'Rags2Riches (feat. ATR Son Son)', 'artist': 'Rod Wave',
+             {'title': 'Rags2Riches (feat. Lil Baby)', 'artist': 'Rod Wave',
               'url': 'https://www.youtube.com/watch?v=A2mJSG0L9U0', 'cover': 'https://img.youtube.com/vi/A2mJSG0L9U0/0.jpg'},
              {'title': 'Laugh Now Cry Later (feat. Lil Durk)', 'artist': 'Drake',
               'url': 'https://www.youtube.com/watch?v=JFm7YDVlqnI', 'cover': 'https://img.youtube.com/vi/JFm7YDVlqnI/0.jpg'},
