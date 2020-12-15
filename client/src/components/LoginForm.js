@@ -8,7 +8,7 @@ function LoginForm() {
     const [password, setPassword] = useState("password");
     const [errors, setErrors] = useState([]);
     const { fetchWithCSRF, setCurrentUserId, setCurrentUser } = useContext(AuthContext);
-    const { setLikes, setChartList } = useContext(PlayerContext)
+    const { setLikes } = useContext(PlayerContext)
 
 
     let history = useHistory();
