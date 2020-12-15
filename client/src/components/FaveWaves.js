@@ -1,28 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import PlayerContext from '../PlayerContext'
 import FaveWavesNuWaves from './FaveWavesNuWaves';
 
 const FaveWaves = () => {
-    const { nuWaves, setNuWaves, prev, setPrev, likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
-    // const [noNuWaves, setNoNuWaves] = useState(null)
-    // const [nuWaves, setNuWaves] = useState(null)
+    const { nuWaves, setNuWaves, setPrev, likes, setNextId, setNext, setCurrentSong, chartList } = useContext(PlayerContext);
+
 
     const updateCurrentSong = (id) => {
-        // console.log(id);
-        // console.log(typeof (id))
-        // let newId = parseInt(id) + 1
-        // console.log(likes[id].id);
+
         setPrev(chartList.slice(0, likes[id].id))
         let newNext = likes[id].id + 1
         setNextId(newNext)
-        // setNextId(newId)
-        console.log(nextId);
-        // console.log(newId);
-        // likes.length === 0 ? setCurrentSong(chartList[0]) :
-        // setNext(chartList[newId])
         setNext(chartList[newNext])
         setCurrentSong(likes[id])
-        // console.log(next);
     }
 
     const moreWaves = (e) => {
@@ -127,11 +117,7 @@ const FaveWaves = () => {
                             <div onClick={moreWaves} id={item.artist}
                                 style={{ display: `flex`, maxWidth: `225px` }}>
                                 <h1 style={{ fontSize: `1em`, cursor: `pointer` }} id={item.artist}>MORE WAVES FROM {item.artist}</h1>
-                                {/* hovercss
-                                text-decoration-style: wavy;
-                                text-decoration-line: underline;
-                                text-decoration-skip-ink: none;
-                                text-decoration-color: springgreen; */}
+
                             </div>
                         }
                     </div>
@@ -139,13 +125,9 @@ const FaveWaves = () => {
             </div>
             {!nuWaves ? null :
                 <FaveWavesNuWaves />
-                // <FaveWavesNuWaves nuWaves={nuWaves} />
             }
         </div>
     )
 };
 
 export default FaveWaves;
-
-
-// load morewaves state when fetch made, set morewaves to currentPlaylist when its clicked
