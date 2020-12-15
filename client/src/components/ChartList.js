@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import PlayerContext from '../PlayerContext'
 import ArtistList from './ArtistList';
 
@@ -39,9 +39,7 @@ const ChartList = () => {
                             margin: `1em .5em`,
                             width: `225px`,
                             alignSelf: `center`,
-                            boxShadow: `-20px 20px 60px #489dcf, 20px -20px 60px #62d5ff`,
                             padding: `.5em`,
-                            border: `solid 10px #3da5e340`,
                             boxShadow: `rgb(72, 157, 207) 0px 5px 15px 10px, rgb(96 125 139 / 51%) 0px 3px 5px 6px`,
                             border: `9px solid rgb(56 118 154 / 11%)`
                         }}>
@@ -53,7 +51,7 @@ const ChartList = () => {
                                 border: `solid springgreen 5px`,
                                 cursor: `pointer`,
                             }}>
-                                <img src={item.cover} id={i}
+                                <img src={item.cover} id={i} alt={item.title}
                                     style={{
                                         alignSelf: `center`,
                                         width: `100%`
@@ -64,7 +62,6 @@ const ChartList = () => {
                             <p
                                 style={{
                                     textAlign: `center`,
-                                    textTransform: `uppercase`,
                                     fontWeight: `900`,
                                     color: `white`,
                                     marginBottom: `0`,
