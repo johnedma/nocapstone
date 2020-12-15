@@ -1,6 +1,5 @@
 import React, { useEffect, useContext } from 'react';
 import NewsContext from '../NewsContext';
-// import surfer from "../fonts/surfer.png"
 
 
 const NuNews = () => {
@@ -16,14 +15,10 @@ const NuNews = () => {
 
     return (
         <div style={{
-            // display: `flex`,
-            // flexDirection: `column`,
         }}>
             {!nuNews && <h1 style={{
                 textAlign: `center`,
-                // background: `white`,
                 fontSize: `3em`,
-                /* margin: 0em; */
                 lineHeight: `7em`
             }}>LOADING</h1>}
             {nuNews.map((item, i) =>
