@@ -4,8 +4,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-#     song_one = Song(title="What That Speed Bout?!", artist="Nicki Minaj & NBA YoungBoy",
-#                     url="https://www.youtube.com/watch?v=BmzFSKGwx54", cover="http://img.youtube.com/vi/BmzFSKGwx54/0.jpg", on_chart=True)
 chartList = [{'title': 'Life Is Good (feat. Drake)', 'artist': 'Future', 'url': 'https://www.youtube.com/watch?v=l0U7SxXHkPY',
               'cover': 'https://img.youtube.com/vi/l0U7SxXHkPY/0.jpg'},
              {'title': 'Body', 'artist': 'Megan Thee Stallion', 'url': 'https://www.youtube.com/watch?v=7PBYGu4Az8s',
