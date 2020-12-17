@@ -14,7 +14,6 @@ const SignUp = () => {
 
     const submitForm = e => {
         e.preventDefault();
-        // if (password === password2) {
         async function signupUser() {
             const response = await fetchWithCSRF(`/signup`, {
                 method: 'POST',

@@ -5,9 +5,7 @@ import FaveWavesNuWaves from './FaveWavesNuWaves';
 const FaveWaves = () => {
     const { nuWaves, setNuWaves, setPrev, likes, setNextId, setNext, setCurrentSong, chartList } = useContext(PlayerContext);
 
-
     const updateCurrentSong = (id) => {
-
         setPrev(chartList.slice(0, likes[id].id))
         let newNext = likes[id].id + 1
         setNextId(newNext)

@@ -1,20 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import PlayerContext from '../PlayerContext'
 
-// const FaveWavesNuWaves = ({ nuWaves }) => {
 const FaveWavesNuWaves = () => {
-    const { nuWaves, setNuWaves, prev, setPrev, likes, setLikes, nextId, setNextId, next, setNext, currentSong, setCurrentSong, chartList } = useContext(PlayerContext);
-    // const [noNuWaves, setNoNuWaves] = useState(null)
-    // const [nuWaves, setNuWaves] = useState(null)
+    const { nuWaves, setPrev, setNextId, setNext, setCurrentSong } = useContext(PlayerContext);
+
 
     const updateCurrentSong = (id) => {
-        // console.log(id);
-        // console.log(typeof (id))
         let newId = parseInt(id) + 1
         setNextId(newId)
-        // console.log(nextId);
         let item = nuWaves[id];
-        // nuWaves.length === 0 ? setCurrentSong(likes[0]) :
         setCurrentSong(
             {
                 url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
@@ -25,7 +19,6 @@ const FaveWavesNuWaves = () => {
             })
         setPrev(nuWaves.slice(0, id))
         setNext(nuWaves[newId])
-        // console.log(next);
     }
 
     return (

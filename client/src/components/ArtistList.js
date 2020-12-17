@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import ArtistContext from '../ArtistContext';
 
+
 const artists = [
     { name: "Billie Eilish", img: "https://headtopics.com/images/2019/11/7/mtvnews/billie-eilish-has-a-mullet-and-she-s-growing-that-shit-out-1192454086727290881.webp", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/billieeilish" },
     { name: "NBA YoungBoy", img: "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2020%2F10%2Fnba-youngboy-the-story-of-oj-jay-z-freestyle-tw.jpg?w=960&cbr=1&q=90&fit=max", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/ggyoungboyera" },
@@ -14,14 +15,8 @@ const artists = [
     { name: "Chance The Rapper", img: "https://hiphop-n-more.com/wp-content/uploads/2019/06/chance-the-rapper-new-album-tracklist.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/chancetherapper" },
     { name: "Karol G", img: "https://tropiladorada.com/wp-content/uploads/2020/01/karol-g-ay-dios-mio-letra-video-referencias-slang-facebook.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/karolg" },
     { name: "Kevin Gates", img: "https://i.ytimg.com/vi/tUlm-i-H7ks/maxresdefault.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/iamkevingates" },
-    // { name: "NBA YoungBoy", img: "https://i.ibb.co/QdFV5qZ/nbagang.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/ggyoungboyera" },
-    // { name: "Chance The Rapper", img: "https://i.ibb.co/DQ5j93p/chance.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/chancetherapper" },
-    // { name: "Drake", img: "https://i.ibb.co/PTWP5mh/drake.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/drake" },
-    // { name: "Ty Dolla $ign", img: "https://i.ibb.co/J2xhvR9/ty.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/tydollasign", url: "https://www.youtube.com/playlist?list=PLdvYBl_CREudAr71xljU9NXZe3RV3Ofq-", title: "Dolla $ign Playlist" },
-    // { name: "Post Malone", img: "https://i.ibb.co/b6SbKx6/post.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/PostMalone" },
-    // { name: "Kevin Gates", img: "https://i.ibb.co/n0DJMhX/gates.jpg", yt: "https://www.youtube.com/channel/UClW4jraMKz6Qj69lJf-tODA", twt: "https://twitter.com/iamkevingates" },
-
 ]
+
 
 const ArtistList = () => {
     const { setCurrArtist } = useContext(ArtistContext)

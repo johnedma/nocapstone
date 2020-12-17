@@ -3,9 +3,9 @@ import { useContext } from 'react';
 import ReactPlayer from 'react-player/lazy'
 import PlayerContext from './PlayerContext';
 import { ReactComponent as FaveBtn } from './assets/imgs/shaka.svg';
-// import { NavLink } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+// import { NavLink } from 'react-router-dom';
 
 
 
@@ -18,9 +18,7 @@ const Player = () => {
     const updateLikes = () => {
         if (likes.some(like => like.title === currentSong.title)) {
             let newLikes = likes.filter(like => like.title !== currentSong.title)
-            // console.log(newLikes)
             setLikes(newLikes)
-            // console.log(likes)
         }
         else {
             setLikes([...likes, currentSong])
@@ -88,8 +86,6 @@ const Player = () => {
         let newCurrent = prev[prev.length - 1]
         prev.pop()
         setPrev(prev)
-        // console.log(prev);
-        // console.log(newCurrent);
         setCurrentSong(newCurrent)
     }
 
@@ -97,7 +93,6 @@ const Player = () => {
     return (
         <>
             {(currentSong === null) && <h1>LOADING</h1>}
-            {/* { !currentSong.artist && <h1>LOADING</h1>} */}
             {chartList &&
                 <div className="footer" >
 
@@ -122,10 +117,8 @@ const Player = () => {
                             </button>
                         }
                         <button
-
                             onClick={() => updateNext()} >
                             <i className="far fa-caret-square-right player"
-
                             />
                         </button>
                     </div>
@@ -156,9 +149,6 @@ const Player = () => {
                                             style={{
                                                 backgroundColor: `springgreen`,
                                                 margin: `0 9px`,
-                                                // padding: `4px`,
-                                                // boxShadow: `inset rgba(128, 136, 140, 0.67) -2px 2px 4px 1px, rgba(179, 206, 216, 0.68) 1px 2px 5px 2px`
-
                                             }} />
                                     </button>
                                 } position="top right" on={['hover']}>

@@ -3,9 +3,9 @@ import PlayerContext from '../PlayerContext'
 import ArtistList from './ArtistList';
 
 
-
 const ChartList = () => {
     const { setPrev, setNextId, setNext, setCurrentSong, chartList } = useContext(PlayerContext);
+
 
     const updateCurrentSong = (id) => {
         setPrev(chartList.slice(0, id))
@@ -14,6 +14,7 @@ const ChartList = () => {
         setCurrentSong(chartList[id])
         setNext(chartList[newId])
     }
+
 
     return (
         <>

@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import ArtistPage from './components/ArtistPage';
 import Navbar from './components/Navbar';
-// import UserList from './components/UsersList';
-// import ReactPlayer from 'react-player/lazy'
 import Splash from './components/Splash';
 import Player from './Player';
-// import { Bars } from 'svg-loaders-react'
 import LoginForm from './components/LoginForm';
 import SignUp from './components/SignUp';
 import PlayerContext from './PlayerContext';
@@ -18,6 +15,7 @@ import NotFound from './components/NotFound';
 import NewsContext from './NewsContext';
 import NuNews from './components/NuNews';
 import ArtistContext from './ArtistContext';
+// import { Bars } from 'svg-loaders-react'
 
 
 function App() {
